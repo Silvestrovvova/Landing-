@@ -1,0 +1,249 @@
+/* Обнуление и базовые настройки */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --neon: #00ffcc;
+  --dark: #050505;
+  --card-bg: rgba(255, 255, 255, 0.02);
+}
+
+body {
+  background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.95)),
+    url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000")
+      no-repeat center center;
+  background-color: var(--dark);
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Навигация */
+.navbar {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: var(--neon);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 25px;
+  font-size: 14px;
+}
+
+.btn-neon {
+  border: 1px solid var(--neon);
+  color: var(--neon) !important;
+  padding: 8px 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-neon:hover {
+  background: var(--neon);
+  color: #000 !important;
+  box-shadow: 0 0 20px var(--neon);
+}
+
+/* Hero Секция */
+.hero {
+  padding: 150px 0;
+  text-align: center;
+  background: transparent;
+}
+
+.hero h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(40px, 8vw, 80px);
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+}
+
+.glitch {
+  color: var(--neon);
+  text-shadow: 2px 2px #ff0055, -2px -2px var(--neon);
+}
+
+/* Сетка карточек (GRID) */
+.spaces {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 60px;
+  font-size: 32px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Карточка */
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.card:hover {
+  background: rgba(0, 255, 204, 0.3);
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--neon);
+}
+
+.card.pro {
+  border-color: rgba(0, 255, 204, 0.4);
+  background: rgba(0, 255, 204, 0.01);
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--neon);
+  color: #000;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+.price span {
+  font-size: 16px;
+  color: #666;
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+.features li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #ccc;
+}
+
+.btn-card {
+  text-align: center;
+  padding: 12px;
+  border: 1px solid var(--neon);
+  color: var(--neon);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-card:hover,
+.btn-card.active {
+  background: var(--neon);
+  color: #000;
+}
+
+/* Футер */
+.footer {
+  padding: 60px 0;
+  text-align: center;
+  border-top: 1px solid #111;
+  margin-top: 80px;
+}
+
+.socials {
+  margin-top: 20px;
+}
+.socials a {
+  color: var(--neon);
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 14px;
+}
+/* --- Адаптация --- */
+@media (max-width: 768px) {
+  .coffee-section {
+    padding: 40px 15px;
+    height: auto;
+  }
+  .coffee-container {
+    flex-direction: column-reverse; /* Если не подходит убираем */
+    display: flex;
+  }
+  .coffee-text {
+    width: 100% !important;
+    padding: 20px 0;
+    margin: 0 !important;
+    text-align: center;
+  }
+  .coffee-text h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .coffee-image {
+    width: 100% !important;
+    height: 250px;
+  }
+  .coffee-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  .coffee-btn {
+    width: 100%;
+    padding: 15px;
+  }
+}

@@ -1,0 +1,206 @@
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --bg-color: #0a1229; /* Глубокий темно-синий */
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --accent: #00d2ff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: white;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(to right, var(--accent), #7000ff);
+  z-index: 10000;
+  transition: width 0.1s ease-out;
+}
+.bg-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+  filter: blur(100px);
+  opacity: 0.5;
+}
+.blob {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  background: var(--accent);
+  border-radius: 50%;
+  /* Начальная позиция центр */
+  top: -10%;
+  left: -10%;
+  animation: move-1 25s infinite alternate ease-in-out;
+}
+.blob:nth-child(2) {
+  background: #7000ff;
+  width: 70vw;
+  height: 70vw;
+  right: -20%;
+  bottom: -20%;
+  top: auto;
+  animation: move-2 35s infinite alternate ease-in-out;
+}
+/* --- Анимация хаотичного движения --- */
+@keyframes move-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(50vw, 30vh) scale(1.2);
+  }
+  100% {
+    transform: translate(20vw, 60vh) scale(1);
+  }
+}
+@keyframes move-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40vw, -30vh) scale(1.1);
+  }
+  100% {
+    transform: translate(-10vw, -50vh) scale(1);
+  }
+}
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+.hero.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero__title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right, #fff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 50px;
+}
+
+.project-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform 0.1s ease-out, background 0.3s;
+  transform-style: preserve-3d; /* Важно для 3D */
+  overflow: hidden;
+}
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--accent);
+}
+/* Световое пятно */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 210, 255, 0.15),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card__link {
+  text-decoration: none;
+  color: inherit;
+  z-index: 2;
+  position: relative;
+}
+
+/* КУРСОР */
+.cursor-follower {
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  /* Убираем прыжки в начале: выносим за экран */
+  top: -10px;
+  left: -10px;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  /* Убираем transition для transform, чтобы он не "отставал" при движении */
+  transition: width 0.3s, height 0.3s, transform 0.05s linear;
+  will-change: transform;
+}
+
+.cursor-active {
+  transform: scale(4);
+}
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+/* --- Адаптация для планшетов --- */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, fr);
+    padding: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 20px;
+  }
+  .cursor-follower {
+    display: none;
+  }
+  .project-card:hover {
+    transform: translateY(-5px) !important;
+  }
+  .project-card::before {
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 210, 255, 0.1),
+      transparent 70%
+    );
+  }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odessa Digital — Финальная сборка</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body class="night-theme">
+    <header>
+      <h1>Odessa <span class="accent">Digital</span></h1>
+      <button id="retro-btn" style="font-size: 0.7rem; padding: 5px 10px">
+        Включить 19-й век
+      </button>
+      <nav>
+        <ul>
+          <li><a href="#history">История</a></li>
+          <li><a href="#places">Места</a></li>
+          <li><a href="#stats">Статистика</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="history">
+        <div class="welcome-block">
+          <h2><i class="fa-solid fa-anchor"></i>Одесса - Жемчужина у моря</h2>
+          <p class="lead-text">
+            Основанная в 1794 году, Одесса быстро превратилась из маленького
+            поселения в крупнейший порт и культурный центр Европы.
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-item">
+            <i class="fa-solid fa-ship"></i>
+            <h4>Морские ворота</h4>
+            <p>Одесский порт - один из крупнейших в бассейне Черного моря.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-masks-theater"></i>
+            <h4>Культура</h4>
+            <p>Наш Оперный театр входит в топ самых красивых зданий мира.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-utensils"></i>
+            <h4>Кухня</h4>
+            <p>Сплав десятков культур создал уникальную Одесскую гастрономию</p>
+          </div>
+        </div>
+        <div class="accordion-container">
+          <h3>Как говорят в Одессе?</h3>
+          <div class="acc-item">
+            <div class="acc-header">
+              "Я имею вам сказать ..."<i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="acc-content">
+              <p>
+                Это значит, что у человека есть важная новость, и он не
+                успокоится, пока ее не расскажет.
+              </p>
+            </div>
+          </div>
+          <div class="acc-item">
+            <div class="acc-header">
+              "Не крути мне мои мозги!"<i class="fa-solid fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        <div class="did-you-know">
+          <h3><i class="fa-solid fa-lightbulb"></i>А вы знали?</h3>
+          <p id="fa-text">
+            Нажмите на кнопку ниже, чтобы узнать интерестный факт об Одессе!
+          </p>
+        </div>
+        <button id="vibe-btn">Узнать факт!</button>
+        <div id="vibe-message"></div>
+        <div class="questbook">
+          <h3><i class="fa-solid fa-pen-nib"></i>Оставь отзыв о городе</h3>
+          <div class="questbook-form">
+            <input type="text" id="quest-name" placeholder="Ваше имя" />
+            <textarea
+              id="quest-msg"
+              placeholder="Ваши впечатления ..."
+            ></textarea>
+            <button id="send-msg">Отправить</button>
+          </div>
+          <div id="reviews-container"></div>
+        </div>
+      </section>
+
+      <aside id="stats">
+        <div class="info-card">
+          <h3><i class="fa-solid fa-clock"></i> Время и Локация</h3>
+          <div id="local-time">00:00:00</div>
+          <div id="countdown" style="margin: 10px 0; font-weight: bold"></div>
+
+          <div class="weather-card">
+            <div class="weather-main">
+              <i id="weather-icon" class="fa-solid fa-cloud-sun"></i>
+              <span id="temp">--°C</span>
+            </div>
+            <p id="weather-desc">Загрузка прогноза...</p>
+          </div>
+
+          <div id="map"></div>
+
+          <hr />
+          <p>Основан: <strong>1794</strong></p>
+        </div>
+      </aside>
+    </main>
+
+    <section id="places" class="container">
+      <h2><i class="fa-solid fa-camera-retro"></i>Популярные локации</h2>
+      <div class="places-grid">
+        <div class="place-card">
+          <div
+            class="place-img"
+            style="background-image: url(img/opera.jfif)"
+          ></div>
+          <div class="place-info">
+            <h3>Оперный театр</h3>
+            <p>Жемчужина архитектуры и сердце культурной Одессы.</p>
+          </div>
+        </div>
+        <div class="place-card">
+          <div
+            class="place-img"
+            style="background-image: url(img/port.jfif)"
+          ></div>
+          <div class="place-info">
+            <h3>Морской вокзал</h3>
+            <p>Ворота в город и лучшее место для прогулок у моря.</p>
+          </div>
+        </div>
+        <div class="place-card">
+          <div
+            class="place-img"
+            style="background-image: url(img/street.jfif)"
+          ></div>
+          <div class="place-info">
+            <h3>Дерибасовская</h3>
+            <p>Главная улица, где оживает история и одесский юмор.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Odessa <span class="accent">Digital</span></h4>
+          <p>Твой интерактивный гид по самому колоритному городу мира.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Навигация</h4>
+          <ul>
+            <li><a href="#history">История</a></li>
+            <li><a href="#places">Места</a></li>
+            <li><a href="#stats">Статистика</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Связь с автором</h4>
+          <div class="social-links">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Разработано с любовью к одессе. Автор:
+          <strong>Владимир</strong>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

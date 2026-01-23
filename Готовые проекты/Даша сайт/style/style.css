@@ -1,0 +1,481 @@
+/*---1. Общие сбросы и базовые стили ---*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f7f3f0;
+  color: var(--text-color-dark);
+}
+/*--- общий контейнер ---*/
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+/*--- 2. CSS-переменные ---*/
+/*---:root---*/
+:root {
+  --main-color: #a45a52;
+  --text-color-dark: #333;
+  --text-color-light: white;
+  --status-color: #4caf50;
+  --padding-default: 20px;
+  --font-size-h3: 1.4em;
+}
+/*--- 3. Шапка (Header) и навигация ---*/
+/*--- Общие стили для Header ---*/
+header {
+  background-color: var(--main-color);
+  color: white;
+  padding: 10px 0;
+}
+/*--- Заголовок H1 в шапке (логотип) ---*/
+header h1 {
+  display: inline-block;
+  font-size: 2em;
+}
+/*--- Навигационный блок ---*/
+header nav {
+  float: right;
+  padding-top: 5px;
+}
+/*--- ссылки в навигации ---*/
+header nav a {
+  color: var(--text-color-dark);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: bold;
+}
+/*--- Контактная кнопка в навигации ---*/
+.nav-contact-button {
+  background-color: white;
+  color: var(--main-color) !important;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-left: 25px !important;
+  transition: background-color 0.3s;
+}
+/*--- Иконка в навигации ---*/
+.nav-contact-button i {
+  margin-right: 5px;
+}
+/*--- 4. секция главного контента ---*/
+section {
+  padding: 40px 0;
+  text-align: center;
+}
+/*--- секция "О нас" ---*/
+.about-section {
+  background-color: white;
+  padding: 50px 0;
+}
+/*--- Обертка контента в секции ---*/
+.about-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+/*--- Текстовый контент в секции о нас ---*/
+.about-text-content {
+  flex: 2;
+  min-width: 300px;
+}
+.about-text-content h2 {
+  color: #6a0e1c;
+  margin-bottom: 20px;
+}
+.about-text-content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+/*--- Изображение в секции о нас ---*/
+.about-image {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+/*--- Изображение в нутри .about-image ---*/
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/*--- 5. Карточки товаров Product-card ---*/
+/*--- Сетка для карточек ---*/
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+/*--- Общая карточка товара ---*/
+.product-card {
+  background: white;
+  padding: 15px 20px 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+/*--- Изображение в карточке ---*/
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+/*--- Заголовок Н3 в карточке ---*/
+.product-card h3 {
+  color: var(--main-color);
+  font-size: var(--font-size-h3);
+  margin-bottom: 5px;
+}
+/*--- Описание товара в карточке ---*/
+.product-card .description {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 20px;
+}
+/*--- Статус товара В НАЛИЧИИ ---*/
+.product-card .status {
+  font-weight: bold;
+  color: #4caf50;
+}
+/*--- Ссылка-статуса (если елемент является ссылкой ---*/
+.product-card .status-link,
+.product-card .button {
+  display: block;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 5px;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+.product-card .button {
+  background-color: var(--main-color);
+  color: white;
+}
+.product-card .button:hover {
+  opacity: 0.9;
+}
+.product-card .status-link {
+  background-color: var(--status-color);
+  color: white;
+}
+.product-card .status-link:hover {
+  opacity: 0.9;
+}
+.product-card .status i,
+.product-card .status-link i {
+  margin-right: 7px;
+}
+.status-message {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f0fff0;
+  border: 1px solid #4caf50;
+  color: #333;
+}
+/*--- 6. Стили для страницы товара (Details) ---*/
+.product-details-section {
+  padding: 40px 0;
+}
+.product-content {
+  display: flex;
+  flex: 2;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+/*--- Блок с изображением ---*/
+.product-image {
+  flex: 1; /*Занимает часть доступного пространства*/
+}
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/*--- блок с информацией ---*/
+.product-info {
+  flex: 2;
+}
+.product-info h2 {
+  color: #6a0e1c;
+  margin-top: 0;
+}
+.product-info h3 {
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
+.product-info .price {
+  font-size: 1.5em;
+  color: #007bff; /*Цвет для цены*/
+  font-weight: bold;
+  margin: 10px 0 20px 0;
+}
+.product-info ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+/*--- 7. Общие кнопки и ссылки ---*/
+/*--- Кнопки действий (Action Buttons) ---*/
+.action-buttons a {
+  display: inline-block;
+  padding: 12px 25px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+/*--- Зеленая кнопка ---*/
+.button-green {
+  background-color: #4caf50;
+  color: white;
+}
+.button-green:hover {
+  background-color: #45a049;
+}
+/*--- Кнопка "Связаться" (синяя) ---*/
+.button-contact {
+  background-color: #007bff;
+  color: white;
+}
+.button-contact:hover {
+  background-color: #0056b3;
+}
+/*--- Кнопки whatsApp и Telegram ---*/
+.whatsapp-button {
+  background-color: #25d366;
+  color: whtie !important;
+  margin-left: 10px;
+}
+.telegram-button {
+  background-color: #007bff;
+  color: whtie !important;
+}
+/*---  ---*/
+.whatsapp-button:hover {
+  background-color: #128c7e;
+}
+.telegram-button:hover {
+  background-color: #0056b3;
+}
+/*--- 8. Подвал (Footer) ---*/
+footer {
+  background-color: var(--text-color-dark);
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 25px 0;
+}
+/*--- Ссылки внутри подвала ---*/
+footer a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+footer a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+/*--- Ссылки на социальные сети ---*/
+.social-links {
+  margin: 15px 0;
+  text-align: center;
+}
+.social-links a {
+  color: hsl(221, 78%, 62%);
+  font-size: 28px;
+  margin: 0 12px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.social-links a:hover {
+  color: hsl(234, 92%, 53%);
+}
+/*====================*/
+.back-link a {
+  /*Стили для кнопки назад*/
+  color: #6a0e1c;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+}
+.back-link a:hover {
+  text-decoration: underline;
+}
+/*===========================================================================*/
+/*--- Стили для модального окна ---*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+/* --- Контент модального окна (слайдер) ---*/
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  /* max-height: 90vh;*/
+  overflow: hidden;
+}
+.modal-content img {
+  height: auto;
+  object-fit: contain;
+  max-height: 700px;
+  display: block;
+  margin: 0 auto;
+}
+/* --- Кнопка закрытия --- */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* --- Стили для кнопок вперед-назад ---*/
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+/*--- Расположение кнопки вперед (справа) ---*/
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* --- Наведение на кнопки ---*/
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/*--- Дополнительные стили: текст, номера, слайда и миниатюры ---*/
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* --- Скрываем слайды по умолчанию ---*/
+.mySlides {
+  display: none;
+  text-align: center;
+  height: 100%;
+}
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* --- Миниатюры(демо-изображения) ---*/
+.column {
+  float: left;
+  width: 20%;
+}
+.demo {
+  opacity: 0.6;
+}
+.active,
+.demo:hover {
+  opacity: 1;
+}
+/*=======================================================================*/
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: (2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  header nav {
+    float: none;
+    text-align: center;
+    margin-top: 10px;
+  }
+  header nav a {
+    display: block;
+    margin: 5px 0;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .nav-contact-button {
+    margin-left: 0;
+  }
+  .product-content {
+    flex-direction: column;
+  }
+  .product-info {
+    flex: none;
+  }
+  .email-button {
+    display: none;
+  }
+  .about-content-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .about-text-content,
+  .about-image {
+    flex: none;
+    width: 100%;
+  }
+  .about-image img {
+    max-width: 80%;
+  }
+}

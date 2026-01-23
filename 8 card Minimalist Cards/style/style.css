@@ -1,0 +1,91 @@
+.team-section {
+  padding: 100px 0;
+  background: #ffffff;
+  text-align: center;
+}
+.team-header h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+.team-header p {
+  color: #666;
+  margin-bottom: 60px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+.team-card {
+  background: #fff;
+  transition: 0.3s;
+}
+/* --- Фото и соцсети --- */
+.member-img {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.member-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+.social-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 113, 227, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+.social-links a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* --- Эффект при наведение на карточку --- */
+.team-card:hover .social-links {
+  opacity: 1;
+}
+.team-card:hover img {
+  transform: scale(1.1);
+}
+/* --- Инфо --- */
+.member-info h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.role {
+  display: block;
+  color: #0071e3;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.member-info p {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.5;
+  padding: 0 20px;
+}

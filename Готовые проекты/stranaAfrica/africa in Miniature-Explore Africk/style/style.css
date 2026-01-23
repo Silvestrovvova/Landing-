@@ -1,0 +1,211 @@
+/* --- Base Styles --- */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+}
+.main-header {
+  background-color: #008000; /* Темно-зеленый (в стиле африканских флагов) */
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.main-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+.main-header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.main-header nav a:hover {
+  color: #ffd700; /* Золотой акцент */
+}
+/* --- Main Content Layout --- */
+.country-page {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+/* Hero Section --- */
+.hero {
+  text-align: center;
+  padding: 40px 0;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 30px;
+}
+.hero h2 {
+  font-size: 2.5em;
+  color: #004d00;
+  margin-bottom: 10px;
+}
+.country-flag {
+  width: 300px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+/* --- Content Sections --- */
+.content-section {
+  background-color: #dddddd;
+  padding: 25px;
+  margin: 0;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+.content-section h3 {
+  color: #004d00;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+/* --- Attractions Layout --- */
+#attraction-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.attraction-card {
+  border: 1px solid #ddd;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  transition: transform 0.3s;
+}
+.attraction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.attraction-card h4 {
+  color: #333;
+  margin-top: 0;
+}
+.attraction-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+.attraction-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.attraction-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+.attraction-content h4 {
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.attraction-content p {
+  color: #555;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+/* --- Hotel/Accommodation --- */
+.hotel-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.hotel-list li {
+  padding: 5px 0;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 15px;
+}
+.hotel-list li > b {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #a00;
+}
+.hotel-info {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 10px;
+}
+.hotel-info img {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.hotel-info a,
+.hotel-info i {
+  display: block;
+  line-height: 1.4;
+}
+.hotel-info i {
+  font-style: normal;
+  color: #555;
+  font-size: 0.95em;
+}
+.hotel-details a {
+  text-decoration: none;
+  color: #333;
+}
+.hotel-details b {
+  display: block;
+  font-size: 1em;
+  color: #004d00;
+}
+.hotel-details i,
+.hotel-details p {
+  display: block;
+  font-style: normal;
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+/* --- Contact Form --- */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /*Важно для правильного отображения ширины */
+}
+.contact-form button {
+  background-color: #ffd700;
+  color: #004d00;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  margin-top: 30px;
+  font-size: 0.9em;
+}

@@ -1,0 +1,61 @@
+.faq-section {
+  padding: 120px 0;
+  background: #fdfdfd;
+}
+.faq-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.faq-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+}
+/* --- Стили аккордиона --- */
+.faq-item {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+.faq-item summary {
+  list-style: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+/* --- Наша кастомная стрелочка через псевдоэлемент --- */
+.faq-item summary::after {
+  content: "+";
+  font-size: 24px;
+  color: #0071e3;
+  transition: transform 0.3s;
+}
+/* --- Состояние, когда вопрос открыт --- */
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+  color: #333;
+}
+.faq-content {
+  padding-top: 15px;
+  color: #666;
+  line-height: 1.7;
+  animation: slideDown 0.4s ease-out;
+}
+/* --- Плавное появление контента --- */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,359 @@
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --gold: #ffcc00;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background 1.5s ease;
+}
+
+/* Настройка тем */
+body.day-theme {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
+    url("../img/fon.jfif");
+  color: #222;
+}
+
+body.night-theme {
+  background-image: linear-gradient(
+      rgba(10, 25, 47, 0.85),
+      rgba(10, 25, 47, 0.95)
+    ),
+    url("../img/fon.jfif");
+  color: var(--white);
+}
+
+header {
+  text-align: center;
+  padding: 40px 0;
+}
+header h1 {
+  font-size: 3.5rem;
+  color: var(--gold);
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  padding: 20px 0;
+}
+nav a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section,
+aside {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ГЛАВНОЕ: Карта не распадается благодаря этим стилям */
+#map {
+  height: 250px;
+  width: 100%;
+  margin: 20px 0;
+  border-radius: 15px;
+  border: 2px solid var(--gold);
+  z-index: 1; /* Контроль слоев */
+}
+
+#local-time {
+  font-size: 2.5rem;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+/*.gallery-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
+.gallery-item {
+  width: 280px;
+  height: 180px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}*/
+
+button {
+  background: var(--gold);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+.place-card {
+  position: relative;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.place-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.place-info {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  padding: 30px 20px;
+  box-sizing: border-box;
+  transition: 0.4s ease-in-out;
+}
+.place-card:hover .place-info {
+  bottom: 0;
+}
+.place-card:hover .place-img {
+  transform: scale(1.15);
+}
+.place-info h3 {
+  margin: 0 0 10px 0;
+  color: var(--gold);
+}
+.place-info p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #fff;
+}
+.weather-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid var(--gold);
+  margin-bottom: 20px;
+}
+#weather-icon {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-right: 10px;
+}
+#temp {
+  font-size: 2rem;
+  font-weight: bold;
+}
+#weather-desc {
+  margin-top: 5px;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+/* Вводный текст */
+.lead-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+/* Сетка преимуществ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.feature-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+  transition: var(--transition);
+}
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+.feature-item i {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+/* Блок фактов */
+.did-you-know {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--gold);
+}
+.did-you-know h3 {
+  margin-top: 0;
+  color: var(--gold);
+}
+.questbook {
+  margin-top: 50px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
+.questbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.questbook-form input,
+.questbook-form textarea {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--gold);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+.review-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--gold);
+}
+/* Специальный класс, который мыы будем накладывать через JS */
+.sepia-mode {
+  filter: sepia(0.8) contrast(1.2) brightness(0.9) !important;
+  transition: filter 1s ease;
+}
+.acc-item {
+  margin-bottom: 10px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.acc-header {
+  background: rgba(255, 204, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 204, 0, 0.2);
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+.acc-content {
+  padding: 0 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+.acc-item.active .acc-content {
+  max-height: 200px;
+  padding: 15px;
+}
+.acc-item.active .fa-chevron-down {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 204, 0, 0.2);
+  padding: 50px 20px 20px;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1 fr));
+  gap: 40px;
+  text-align: left;
+}
+
+.footer-section h4 {
+  color: var(--gold);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+.footer-section ul a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+.footer-section ul a:hover {
+  opacity: 1;
+  color: var(--gold);
+}
+.social-links {
+  display: flex;
+  gap: 20px;
+  font-size: 1.5rem;
+}
+.social-links a {
+  color: inherit;
+  transition: transform 0.3s;
+}
+.social-links a:hover {
+  color: var(--gold);
+  transform: translateY(-5px);
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+  opacity: 0.6;
+}

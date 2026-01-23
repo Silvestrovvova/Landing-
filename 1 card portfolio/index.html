@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio Website</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+jakarta+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="logo">PORTFOLIO<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact" class="btn-contact">Contact</a></li>
+      </ul>
+    </header>
+    <main class="portfolio-content">
+      <section id="about" class="intro">
+        <span class="badge">Available for projects</span>
+        <h1>
+          Creative Developer <br />
+          & UI Designer
+        </h1>
+        <p>
+          Я создаю современные интерфейсы, фокусируясь на чистоте кода и
+          удобстве пользователя.
+        </p>
+      </section>
+
+      <section class="skills-grid">
+        <div class="skill-item">
+          <h3>UI/UX</h3>
+          <p>Desing Systems</p>
+        </div>
+        <div class="skill-item">
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JS</p>
+        </div>
+        <div class="skill-item">
+          <h3>Motion</h3>
+          <p>Web Animation</p>
+        </div>
+      </section>
+      <section id="work" class="work">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="work-grid">
+          <a href="portfolio-landing/index.html" class="work-item-link">
+            <div class="work-item">
+              <div class="work-item__image">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                  alt="Personal Portfolio"
+                />
+                <div class="work-item__overlay">
+                  <span class="work-item__category">Web Developer</span>
+                </div>
+              </div>
+              <div class="work-item__info">
+                <h3 class="work-item__name">Personal Portfolio</h3>
+                <p class="work-item__desc">
+                  Modern showcase of creative works.
+                </p>
+              </div>
+            </div>
+          </a>
+          <div class="work-item">
+            <div class="work-item__image">
+              <img
+                src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop"
+                alt="UI/UX Design Process"
+              />
+              <div class="work-item__overlay">
+                <span class="work-item__category">UI/UX Design</span>
+              </div>
+            </div>
+            <div class="work-item__info">
+              <h3 class="work-item__name">
+                Проектирование пользовательских интерфейсов, создание варфреймов
+                и исследование пользовательского опыта.
+              </h3>
+              <p class="work-item__desc">
+                Focusing on high-fidelity wireframes and user flow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="projectModal" class="modal">
+      <span class="modal__close">&times;</span>
+      <div class="modal__content">
+        <img id="modalImg" src="" alt="Project Image" />
+        <div class="modal__details">
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc">Описание</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

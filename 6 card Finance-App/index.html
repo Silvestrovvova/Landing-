@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart-Fin // Dashboard</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">S-<span>FIN</span></div>
+        </div>
+
+        <nav class="side-nav">
+          <a href="#" class="nav-item active">Dashboard</a>
+          <a href="#" class="nav-item">transactions</a>
+          <a href="#" class="nav-item">Wallets</a>
+          <a href="#" class="nav-item">Reports</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="contact-mini">
+            <span>Support:</span>
+            <a href="https://wa.me/380930800145" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+      </aside>
+      <main class="main-content">
+        <header class="top-bar">
+          <div class="welcome">
+            <h1>Finance Overview</h1>
+            <p>Hello, Developer! Here is whats happening today.</p>
+          </div>
+          <div class="user-info">
+            <div class="avatar">D</div>
+          </div>
+        </header>
+
+        <section class="stats-grid">
+          <div class="stat-card">
+            <span class="label">Total Balance</span>
+            <div class="value">$12.450.00</div>
+            <div class="trend up">+2.4%</div>
+          </div>
+          <div class="stat-card">
+            <span class="label">Expenses</span>
+            <div class="value">$3.120.50</div>
+            <div class="trend down">-1.1%</div>
+          </div>
+          <div class="stat-card">
+            <span class="label">Income</span>
+            <div class="value">$8,900.00</div>
+            <div class="trend up">+5.0%</div>
+          </div>
+        </section>
+
+        <section class="table-section">
+          <div class="table-header">
+            <h3>Recent Transactions</h3>
+            <button class="btn-all">View All</button>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Apple Music</td>
+                  <td>Entertainment</td>
+                  <td>Jan 15, 2026</td>
+                  <td class="neg">- $9.99</td>
+                </tr>
+                <tr>
+                  <td>Upwork Payout</td>
+                  <td>Freelance</td>
+                  <td>Jan 12, 2026</td>
+                  <td class="pos">+ $1,200.00</td>
+                </tr>
+                <tr>
+                  <td>Starbucks</td>
+                  <td>Food & Drink</td>
+                  <td>Jan 10, 2026</td>
+                  <td class="neg">-$5.50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

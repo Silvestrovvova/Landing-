@@ -1,0 +1,59 @@
+/*1.Общие стили для центрирования и фона*/
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4; /*Светлый фон*/
+  color: #333; /* основаной текст*/
+}
+/*2. Контейнер таймера*/
+.timer-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+/*3. Дисплей времени*/
+.timer-display {
+  font-size: 80px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #e74c3c; /*Акцентный цвет для времени*/
+}
+/*4. Стили для кнопок режимов (Work, Break)*/
+.modes button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ddd; /*Неактивный фон*/
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+/*5. КЛАСС АКТИВНОГО РЕЖИМА*/
+.modes button.active {
+  background-color: #e74c3c; /*Акцентный цвет*/
+  color: white;
+  box-shadow: 0 2px 5px rgba(231, 76, 60, 0.5);
+}
+/*6. Стили для кнопок управления (Start, Reset)*/
+.controls button {
+  padding: 12px 30px;
+  margin: 15px 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #2ecc71; /*Зеленый цвет для действий*/
+  color: white;
+  transition: background-color 0.2s;
+}
+.controls button:hover {
+  background-color: #27ad60;
+}
