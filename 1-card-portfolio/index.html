@@ -1,107 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal Portfolio Website</title>
+    <title>Портфолио | Сильвестров Владимир</title>
+    <link rel="stylesheet" href="style/style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+jakarta+Sans:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <header class="nav">
-      <div class="logo">PORTFOLIO<span>.</span></div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact" class="btn-contact">Contact</a></li>
-      </ul>
+    <header class="main-header">
+      <div class="container header-flex">
+        <div class="logo">Сильвестров Владимир<br />Silvestrov Volodymyr</div>
+        <nav class="nav-links">
+          <a href="#about">Обо мне</a>
+          <a href="#projects">Проекты</a>
+          <a href="https://wa.me/380930800145" class="nav-contact">WhatsApp</a>
+        </nav>
+      </div>
     </header>
-    <main class="portfolio-content">
-      <section id="about" class="intro">
-        <span class="badge">Available for projects</span>
-        <h1>
-          Creative Developer <br />
-          & UI Designer
-        </h1>
-        <p>
-          Я создаю современные интерфейсы, фокусируясь на чистоте кода и
-          удобстве пользователя.
-        </p>
-      </section>
 
-      <section class="skills-grid">
-        <div class="skill-item">
-          <h3>UI/UX</h3>
-          <p>Desing Systems</p>
-        </div>
-        <div class="skill-item">
-          <h3>Frontend</h3>
-          <p>HTML, CSS, JS</p>
-        </div>
-        <div class="skill-item">
-          <h3>Motion</h3>
-          <p>Web Animation</p>
-        </div>
-      </section>
-      <section id="work" class="work">
-        <h2 class="section-title">Featured Work</h2>
-        <div class="work-grid">
-          <a href="portfolio-landing/index.html" class="work-item-link">
-            <div class="work-item">
-              <div class="work-item__image">
-                <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-                  alt="Personal Portfolio"
-                />
-                <div class="work-item__overlay">
-                  <span class="work-item__category">Web Developer</span>
-                </div>
-              </div>
-              <div class="work-item__info">
-                <h3 class="work-item__name">Personal Portfolio</h3>
-                <p class="work-item__desc">
-                  Modern showcase of creative works.
-                </p>
-              </div>
+    <main class="main-content">
+      <div class="container">
+        <section id="about" class="vova-hero">
+          <h1>Привет! Я Владимир</h1>
+          <div class="vova-lang-grid">
+            <div class="lang-item">
+              <p>
+                Начинающий Frontend-разработчик. Сфокусирован на чистом,
+                семантическом HTML и современном CSS (Flexbox, Grid).
+              </p>
             </div>
-          </a>
-          <div class="work-item">
-            <div class="work-item__image">
-              <img
-                src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop"
-                alt="UI/UX Design Process"
-              />
-              <div class="work-item__overlay">
-                <span class="work-item__category">UI/UX Design</span>
-              </div>
+            <div class="lang-item">
+              <p>
+                Ahoj! Jsem začínající front-end vývojář. Zaměřuji se na čisté,
+                sémantické HTML a moderní CSS.
+              </p>
             </div>
-            <div class="work-item__info">
-              <h3 class="work-item__name">
-                Проектирование пользовательских интерфейсов, создание варфреймов
-                и исследование пользовательского опыта.
-              </h3>
-              <p class="work-item__desc">
-                Focusing on high-fidelity wireframes and user flow.
+            <div class="lang-item">
+              <p>
+                Hi! I'm a beginner front-end developer. I specialize in clean,
+                semantic HTML and modern CSS.
               </p>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
-    <div id="projectModal" class="modal">
-      <span class="modal__close">&times;</span>
-      <div class="modal__content">
-        <img id="modalImg" src="" alt="Project Image" />
-        <div class="modal__details">
-          <h2 id="modalTitle"></h2>
-          <p id="modalDesc">Описание</p>
+
+          <div class="vova-contacts">
+            <a
+              href="https://wa.me/380930800145"
+              target="_blank"
+              class="vova-btn wa"
+              >WhatsApp</a
+            >
+            <a
+              href="https://www.facebook.com/profile.php?id=1000217754141698"
+              target="_blank"
+              class="vova-btn fb"
+              >Facebook</a
+            >
+            <a
+              href="https://github.com/Silvestrovvova"
+              target="_blank"
+              class="vova-btn gh"
+              >GitHub</a
+            >
+          </div>
+        </section>
+
+        <h2 class="section-title" id="projects">Мои проекты</h2>
+        <div class="vova-projects-grid">
+          <div class="vova-card">
+            <div class="vova-card-img">
+              <img
+                src="https://images.pexels.com/photos/439416/pexels-photo-439416.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                alt="BuildIFE"
+              />
+            </div>
+            <div class="vova-card-info">
+              <h3>BuildIFE</h3>
+              <p>
+                BUILDIFY. ЭКСПЕРТЫ В СТРОИТЕЛЬСТВЕ. Реализована полностью
+                адаптивная и кроссбраузерная верстка.
+              </p>
+              <div class="vova-card-links">
+                <a
+                  href="https://silvestrovvova.github.io/BuildIFY/"
+                  target="_blank"
+                  class="vova-site"
+                  >Сайт</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="vova-card">
+            <div class="vova-card-img">
+              <img
+                src="https://static.tildacdn.com/tild6663-3365-4066-b333-326138346364/b5e6c94b-01ba-436d-9.jpg"
+                alt="Project-ProAI"
+              />
+            </div>
+            <div class="vova-card-info">
+              <h3>Project-ProAI</h3>
+              <p>
+                Интерактивность с применением JS и сложных CSS-анимаций.
+                Погружение в мир AI.
+              </p>
+              <div class="vova-card-links">
+                <a
+                  href="https://silvestrovvova.github.io/Project-ProAI/"
+                  target="_blank"
+                  class="vova-site"
+                  >Сайт</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="vova-card">
+            <div class="vova-card-img">
+              <img
+                src="https://silvestrovvova.github.io/Dasha-project/images/Kostm.jpg"
+                alt="Даша вязание"
+              />
+            </div>
+            <div class="vova-card-info">
+              <h3>Даша вязание</h3>
+              <p>
+                Мир мягкой пряжи и уникального дизайна. Каждое изделие создано,
+                чтобы дарить уют.
+              </p>
+              <div class="vova-card-links">
+                <a
+                  href="https://silvestrovvova.github.io/Dasha-project/"
+                  target="_blank"
+                  class="vova-site"
+                  >Сайт</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
 
-    <script src="script.js"></script>
+    <footer class="main-footer">
+      <div class="container">
+        <p>© 2026 Владимир Сильвестров. Все права защищены.</p>
+      </div>
+    </footer>
   </body>
 </html>
