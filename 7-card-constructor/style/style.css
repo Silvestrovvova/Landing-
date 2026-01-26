@@ -22,9 +22,55 @@ body {
 
 /* Шапка */
 .gallery-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 60px;
 }
-
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 15px;
+}
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.gallery-item img:hover {
+  transform: scale(1.03);
+}
+/* --- Стили для полноэкраного просмотра --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5px;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+/* --- Badge --- */
 .badge {
   background: var(--card-bg);
   padding: 6px 14px;
@@ -46,10 +92,14 @@ h1 {
   font-size: 1.1rem;
   color: var(--text-muted);
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Кнопки контактов */
 .contact-bar {
+  justify-content: center;
+  width: 100%;
   display: flex;
   gap: 12px;
 }
@@ -71,73 +121,11 @@ h1 {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Сетка Bento */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
-  grid-auto-rows: min-content;
-  gap: 30px;
-}
-
-/* Карточки */
-.card {
-  position: relative;
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.card.tall {
-  grid-row: span 2;
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
-  line-height: 0;
-  overflow: hidden;
-}
-
-.card-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  filter: brightness(0.85); /* Притемнение для стиля */
-  transition: all 0.8s ease;
-}
-
-.card:hover .card-image img {
-  filter: brightness(1); /* Проявление при наведении */
-  transform: scale(1.05);
-}
-
-.card-content {
-  padding: 24px;
-  background: #fff;
-}
-
-.card-content h3 {
-  margin: 0;
-  font-size: 18px;
-}
-.card-content p {
-  margin: 4px 0 0;
-  color: var(--text-muted);
-  font-size: 14px;
-}
-.number {
-  color: #ccc;
-  font-size: 12px;
-  display: block;
-  margin-bottom: 8px;
-}
 /* --- Адаптивность --- */
 @media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .container {
     padding: 40px 16px;
   }
@@ -153,18 +141,11 @@ h1 {
     flex-direction: column;
     gap: 10px;
     width: 100%;
+    align-items: center;
   }
   .contact-link {
     width: 100%;
     text-align: center;
     padding: 16px;
-  }
-  .bento-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    gap: 20px;
-  }
-  .card.tall {
-    aspect-ratio: 1 / 1;
   }
 }
