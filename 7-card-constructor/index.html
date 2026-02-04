@@ -195,7 +195,24 @@
 
       <div id="myModal" class="modal" onclick="closeModal()">
         <span class="close">&times;</span>
+        <div id="photo-counter" class="photo-counter"></div>
         <img class="modal-content" id="imgFull" />
+        <span
+          class="prev"
+          onclick="
+            changeImage(-1);
+            event.stopPropagation();
+          "
+          >&#10094;</span
+        >
+        <span
+          class="next"
+          onclick="
+            changeImage(1);
+            event.stopPropagation();
+          "
+          >&#10095;</span
+        >
       </div>
     </main>
 
