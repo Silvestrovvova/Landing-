@@ -1,3 +1,11 @@
+section {
+  view-timeline-name: --section;
+  view-timeline-axis: block;
+  animation-trigger: entry 20% cover 30%;
+  animation: fade-in linear both;
+  animation-timeline: --section;
+  animation-range: entry 10% contain 40%;
+}
 :root {
   --bg-color: #ffffff;
   --text-main: #1d1d1f;
@@ -34,7 +42,19 @@ body {
   gap: 15px;
   padding: 15px;
 }
+.gallery-item {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.gallery-item:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
 .gallery-item img {
+  filter: grayscale(20%) brightness(0.9);
+  transition: transform 0.5s ease;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -42,7 +62,8 @@ body {
   cursor: pointer;
 }
 .gallery-item img:hover {
-  transform: scale(1.03);
+  transform: scale(1.1);
+  filter: grayscale(0%) brightness(1.1);
 }
 /* --- Стили для полноэкраного просмотра --- */
 .modal {
@@ -72,10 +93,11 @@ body {
 }
 /* --- Badge --- */
 .badge {
-  background: var(--card-bg);
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-size: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--accent);
 }
@@ -147,5 +169,16 @@ h1 {
     width: 100%;
     text-align: center;
     padding: 16px;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
