@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -119,44 +119,18 @@
           <hr />
           <p>Основан: <strong>1794</strong></p>
         </div>
+        <div class="place-card" onclick="openAlbum(0)">
+          <div class="place-img-container">
+            <img src="img/bulvar.jpg" alt="Одесса Альбом" class="place-img" />
+            <div class="photo-badge">14 фото</div>
+          </div>
+          <div class="place-info">
+            <h3>Фотоальбом Одессы</h3>
+            <p>Виды города, архитектура и знаковые места.</p>
+          </div>
+        </div>
       </aside>
     </main>
-
-    <section id="places" class="container">
-      <h2><i class="fa-solid fa-camera-retro"></i>Популярные локации</h2>
-      <div class="places-grid">
-        <div class="place-card">
-          <div
-            class="place-img"
-            style="background-image: url(img/opera.jfif)"
-          ></div>
-          <div class="place-info">
-            <h3>Оперный театр</h3>
-            <p>Жемчужина архитектуры и сердце культурной Одессы.</p>
-          </div>
-        </div>
-        <div class="place-card">
-          <div
-            class="place-img"
-            style="background-image: url(img/port.jfif)"
-          ></div>
-          <div class="place-info">
-            <h3>Морской вокзал</h3>
-            <p>Ворота в город и лучшее место для прогулок у моря.</p>
-          </div>
-        </div>
-        <div class="place-card">
-          <div
-            class="place-img"
-            style="background-image: url(img/street.jfif)"
-          ></div>
-          <div class="place-info">
-            <h3>Дерибасовская</h3>
-            <p>Главная улица, где оживает история и одесский юмор.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <footer>
       <div class="footer-content">
@@ -188,6 +162,14 @@
         </p>
       </div>
     </footer>
+
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01" />
+      <button class="prev" onclick="changePhoto(-1)">&#10094;</button>
+      <button class="next" onclick="changePhoto(1)">&#10095;</button>
+      <div class="photo-counter"></div>
+    </div>
 
     <script src="script.js"></script>
   </body>

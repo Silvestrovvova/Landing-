@@ -70,6 +70,65 @@ async function getRealWeather() {
   }
 }
 
+//  Фото массив
+const odessaAlbum = [
+  "img/caption.jpg",
+  "img/bulvar.jpg",
+  "img/deribas-1.jpg",
+  "img/ekaterina.jpg",
+  "img/Gorsadderebas.jpg",
+  "img/image.webp",
+  "img/mesta-odessa13.jpg",
+  "img/morvokzal.jpg",
+  "img/odessa-sights-2.jpg",
+  "img/opernyj-teatr-tour-v-odessy.jpg",
+  "img/palaces-of-odessa-4.jpg",
+  "img/pamytnik-jena-provozaet.jpg",
+  "img/potemkin.jpg",
+  "img/potemkinskay-lestnica.jpg",
+  "img/potemkinskay-lestnica.jpg",
+  "img/vid-na-potemkinsky.jpg",
+  "img/vid-s-verh.jpg",
+];
+
+let currentIndex = 0;
+
+function openAlbum(index) {
+  currentIndex = index;
+  const modal = document.getElementById("myModal");
+  const modalImg = document.getElementById("img01");
+  const counter = document.querySelector(".photo-counter");
+
+  modal.style.display = "flex";
+  modalImg.src = odessaAlbum[currentIndex];
+  counter.innerText = `${currentIndex + 1} / ${odessaAlbum.length}`;
+}
+
+// Функции для стрелок
+function changePhoto(step) {
+  currentIndex += step;
+  if (currentIndex >= odessaAlbum.length) currentIndex = 0;
+  if (currentIndex < 0) currentIndex = odessaAlbum.length - 1;
+
+  document.getElementById("img01").src = odessaAlbum[currentIndex];
+  document.querySelector(".photo-counter").innerHTML =
+    `${currentIndex + 1} / ${odessaAlbum.length}`;
+}
+function closeModal() {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+  if (event.key === "ArrowLeft") {
+    changePhoto(-1);
+  }
+  if (event.key === "ArrowRight") {
+    changePhoto(1);
+  }
+});
 // ГЛАВНЫЙ ЗАПУСК (Все функции внутри)
 window.addEventListener("DOMContentLoaded", () => {
   startClock();
