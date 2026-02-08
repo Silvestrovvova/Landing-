@@ -92,7 +92,7 @@ const odessaAlbum = [
 ];
 
 let currentIndex = 0;
-
+//=========================================
 function openAlbum(index) {
   currentIndex = index;
   const modal = document.getElementById("myModal");
@@ -114,6 +114,7 @@ function changePhoto(step) {
   document.querySelector(".photo-counter").innerHTML =
     `${currentIndex + 1} / ${odessaAlbum.length}`;
 }
+//======================================================
 function closeModal() {
   const modal = document.getElementById("myModal");
   modal.style.display = "none";
@@ -129,6 +130,21 @@ document.addEventListener("keydown", function (event) {
     changePhoto(1);
   }
 });
+//=====================================================
+function openMap() {
+  const mapModal = document.getElementById("mapModal");
+  mapModal.style.display = "flex";
+}
+// функция закрытия
+function closeMap() {
+  document.getElementById("mapModal").style.display = "none";
+}
+function fullScreenMap() {
+  const container = document.querySelector(".modal-map-container");
+  container.style.width = "95%";
+  container.style.height = "90vh";
+}
+//=====================================================
 // ГЛАВНЫЙ ЗАПУСК (Все функции внутри)
 window.addEventListener("DOMContentLoaded", () => {
   startClock();
