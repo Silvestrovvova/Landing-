@@ -131,10 +131,24 @@ document.addEventListener("keydown", function (event) {
   }
 });
 //=====================================================
+let myMap;
+
 function openMap() {
   const mapModal = document.getElementById("mapModal");
   mapModal.style.display = "flex";
+  //Инициализация Leaftlet
+  if (!myMap) {
+    myMap = L.map("map-large").setView([46.4825, 30.7233], 13);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap",
+    }).addTo(myMap);
+    // Важно: пересчитываем размер, так как теперь карта сразу большая
+    setTimeout(() => {
+      myMap.invalidateSize();
+    }, 250);
+  }
 }
+//===========================================================
 // функция закрытия
 function closeMap() {
   document.getElementById("mapModal").style.display = "none";
