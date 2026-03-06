@@ -1,9 +1,66 @@
-/* === Базовые стили === */
-.page {
-  margin: 0;
+html {
+  scroll-behavior: smooth;
+}
+/* === Глобальные настройки фона === */
+body {
   background-color: #121212;
-  color: #ffffff;
-  font-family: sans-serif;
+  color: #e0e0e0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* === Базовые стили === */
+.page__title {
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+.section-label {
+  padding: 0 20px;
+  margin-top: 30px;
+  color: #777;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-left: 3px solid #ff9800;
+  margin-left: 15px;
+}
+.contact-area {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  z-index: 100;
+}
+/* Общий стиль кнопок */
+.contact-btn {
+  text-decoration: none;
+  text-align: center;
+  height: bold;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
+.contact-btn--whatsapp {
+  color: #25d366;
+}
+.contact-btn--facebook {
+  color: hwb(222 57% 3%);
+}
+.contact-btn:active {
+  transform: scale(0.95);
 }
 /* === Блок Preview === */
 .preview {
@@ -20,8 +77,25 @@
   max-width: 350px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+.preview__count {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff9800;
+  color: #000;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  z-index: 5;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .preview__img {
   width: 100%;
@@ -35,14 +109,20 @@
   margin-bottom: 8px;
   text-align: center;
   color: #fff;
+  background: linear-gradient(90deg, #fff, #ff9800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
 }
 .preview__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: grayscale(0) blur(1.5px); /* Легкое размытие самой картинки под текстом*/
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.3s;
 }
 /* === Стили для текста кнопки внутри оверлея === */
 .preview__text {
@@ -54,10 +134,18 @@
   border-radius: 5px;
   text-transform: uppercase;
 }
+.preview:hover .preview__overlay {
+  backdrop-filter: blur(0px);
+  background: rgba(0, 0, 0, 0.1);
+}
 /* === Эффект при нажатии на альбом === */
 .preview:active {
   transform: scale(0.96);
   transition: transform 0.1s ease;
+}
+.preview:active .preview__card {
+  border-color: #ff9800;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
 /* ===================================== */
 /* === Список альбомов на главной === */
@@ -101,13 +189,26 @@
   height: 180px;
   object-fit: cover;
   border-radius: 10px;
-  display: block;
+  background-color: #222;
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .album__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 15px;
   padding: 15px;
+  padding-bottom: 100px;
 }
 .album-grid {
   display: none;
@@ -122,6 +223,7 @@
   opacity: 0.7;
   transform: scale(0.98);
   transition: 0.1s;
+  filter: brightness(0.8);
 }
 /* ========================================================== */
 .modal {
@@ -131,6 +233,7 @@
   background: #000;
   z-index: 100;
   overflow-y: auto;
+  background-color: #121212;
 }
 .modal--active {
   display: block;
@@ -139,11 +242,15 @@
 .modal__top {
   position: sticky;
   top: 0;
-  background: #121212;
-  padding: 15px;
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   gap: 15px;
+  z-index: 100;
+  border-bottom: 1px solid #333;
 }
 .modal__back {
   background: none;
