@@ -22,13 +22,16 @@ body {
   font-weight: 900;
 }
 .section-label {
-  padding: 0 20px;
-  margin-top: 30px;
-  color: #777;
-  font-size: 14px;
+  display: block;
+  padding: 10px 20px;
+  margin: 30px 0 15px 15px;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 800;
   text-transform: uppercase;
-  border-left: 3px solid #ff9800;
-  margin-left: 15px;
+  letter-spacing: 1px;
+  border-left: 5px solid #ff9800;
+  background: linear-gradient(90deg, rgba(255, 152, 0, 0.1), transparent);
 }
 .contact-area {
   position: fixed;
@@ -47,17 +50,28 @@ body {
   height: bold;
   padding: 15px;
   border-radius: 12px;
-  font-weight: bold;
-  font-size: 14px;
+  font-weight: 800;
+  font-size: 13px;
   text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
 }
 .contact-btn--whatsapp {
-  color: #25d366;
+  background-color: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 .contact-btn--facebook {
-  color: hwb(222 57% 3%);
+  background-color: #1877f2;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(24, 199, 242, 0.3);
+}
+.contact-btn:hover,
+.contact-btn:active {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 .contact-btn:active {
   transform: scale(0.95);
@@ -70,6 +84,7 @@ body {
   padding: 40px 20px;
   width: 100%;
   cursor: pointer;
+  animation: fadeInUp 0.6s ease forwards;
 }
 .preview__card {
   position: relative;
@@ -82,6 +97,11 @@ body {
   transition:
     transform 0.3s ease,
     border-color 0.3s ease;
+}
+.preview__card:hover {
+  transform: translateY(-8px);
+  border-color: #ff9800;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 .preview__count {
   position: absolute;
@@ -147,6 +167,19 @@ body {
   border-color: #ff9800;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
+.preview__img,
+.album-grid__photo {
+  background: linear-gradient(110deg, #1e1e1e 8%, #252525 18%, #1e1e1e 33%);
+  background-size: 200% 100%;
+  animation: skeleton-shine 1.5s linear infinite;
+  display: block;
+  object-fit: cover;
+}
+@keyframes skeleton-shine {
+  to {
+    background-position-x: -200%;
+  }
+}
 /* ===================================== */
 /* === Список альбомов на главной === */
 .album-list {
@@ -185,18 +218,29 @@ body {
 }
 /* === Убираем гигантизм фото === */
 .album-grid__photo {
+  display: block;
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-radius: 10px;
+  cursor: pointer;
   background-color: #222;
   animation: fadeIn 0.5s ease forwards;
   opacity: 0;
+  transition:
+    transform 0.3s ease,
+    folter 0.3s ease;
 }
-@keyframes fadeIn {
+.album-grid__photo:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+  outline: 2px solid #ff9800;
+  outline-offset: 4px;
+}
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -225,6 +269,11 @@ body {
   transition: 0.1s;
   filter: brightness(0.8);
 }
+.album-grid__photo,
+.preview__img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 /* ========================================================== */
 .modal {
   display: none;
@@ -238,7 +287,7 @@ body {
 .modal--active {
   display: block;
 }
-/* =========================================================== */
+/*====*/
 .modal__top {
   position: sticky;
   top: 0;
@@ -259,6 +308,18 @@ body {
   font-size: 18px;
   cursor: pointer;
 }
+/* === */
+.modal__heading {
+  color: #ff9800;
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  padding-left: 15px;
+  border-left: 4px solid #ff9800;
+  line-height: 1;
+}
+/* =========================================================== */
 /* === Фоновое окно для одной большой фотки === */
 .lightbox {
   display: none;
@@ -277,8 +338,8 @@ body {
   opacity: 1;
 }
 .lightbox__image {
-  max-width: 95%;
-  max-height: 95%;
+  max-width: 90vw;
+  max-height: 85vh;
   border-radius: 5px;
   object-fit: contain; /* === Целое фото без обрезки === */
   transform: scale(0.7);
@@ -309,14 +370,42 @@ body {
 }
 /* ========================================================= */
 @media (min-width: 768px) {
-  .album-grid--active {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+  .album-list,
+  .album-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
-  .album-grid__photo {
-    height: 250px;
+
+  .page__title {
+    font-size: 32px;
+    padding: 40px 0;
   }
-  .album-list {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  .contact-area {
+    width: 300px; /*фиксированая ширина в углу*/
+    left: auto; /*Убираем растягивание в углу*/
+    right: 30px;
+    bottom: 30px;
   }
+}
+@media (min-width: 1200px) {
+  .album-list,
+  .album-grid {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto;
+  }
+}
+
+/*=================================================*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff9800;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e68a00;
 }
