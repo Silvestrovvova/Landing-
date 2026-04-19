@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silvestrov Volodymyr</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="glow-bg"></div>
+
+    <header class="header">
+      <nav class="header__nav">
+        <div class="header__logo">SV</div>
+        <ul class="header__menu">
+          <li><a href="#projects" class="header__link">Проекты</a></li>
+          <li><a href="#skills" class="header__link">Навыки</a></li>
+          <li><a href="#contact" class="header__link">Связь</a></li>
+          <li><a href="#contact_new" class="header__link">Создать</a></li>
+          <li><a href="#faq" class="header__link">FAQ</a></li>
+          <li><a href="#testimonials" class="header__link">Отзывы</a></li>
+          <li><a href="#stack" class="header__link">временая</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero__container">
+        <div class="status-badge">
+          <span class="status-badge__dot"></span>
+          <span class="status-badge__text">Доступен для новых проектов</span>
+        </div>
+        <h1 class="hero__title">
+          Привет, я <span class="hero__name">Silvestrov Volodymyr</span>
+        </h1>
+        <p class="hero__subtitle">
+          Создаю современные сайты и мобильные приложения.
+        </p>
+        <div class="hero__actions">
+          <button class="button button--primary">Связаться</button>
+          <button class="button button__secondary">Мои работы</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack-details">
+      <div class="stack-details__container">
+        <h2 class="stack-details__title">Мои стек</h2>
+        <div class="stack-details__list">
+          <div class="stack-card">
+            <div class="stack-card__inner">
+              <div class="stack-card__front">HTML / CSS</div>
+              <div class="stack-card__back">BEM, Flexbox, Grid, Animations</div>
+            </div>
+          </div>
+          <div class="stack-card">
+            <div class="stack-card__inner">
+              <div class="stack-card__front">JavaScript</div>
+              <div class="stack-card__back">ES6+, DOM API, Fetch, Async</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about__container">
+        <div class="about__stats">
+          <div class="stats-item">
+            <span class="stat-item__number">10+</span>
+            <span class="stat-item__text">Проектов</span>
+          </div>
+          <div class="stats-item">
+            <span class="stat-item__number">365+</span>
+            <span class="stat-item__text">Дней кода</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-item__number">24/7</span>
+            <span class="stat-item__text">На связи</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills" id="skills">
+      <div class="skills__container">
+        <h2 class="skills__title">Технологии</h2>
+        <div class="skills__list">
+          <div class="skill-item">HTML5</div>
+          <div class="skill-item">CSS3 (BEM)</div>
+          <div class="skill-item">JavaScript</div>
+          <div class="skill-item">React</div>
+          <div class="skill-item">Git</div>
+          <div class="skill-item">UI Design</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="services__container">
+        <h2 class="services__title">Услуги</h2>
+        <div class="services__grid">
+          <div class="service-item">
+            <div class="service-item__icon">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+            <h3 class="service-item__name">Веб-разработка</h3>
+            <p class="service-item__text">
+              Создание адаптивных лендингов, сайтов-визиток и корпоративных
+              порталов на современных технологиях.
+            </p>
+          </div>
+          <div class="service-item">
+            <div class="service-item__icon">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <h3 class="service-item__name">Мобильные приложения</h3>
+            <p class="service-item__text">
+              Разборка интерфейсов и кроссплатформенных приложений (MVP) для iOS
+              и Android.
+            </p>
+          </div>
+          <div class="service-item">
+            <div class="service-item__icon">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <h3 class="service-item__name">UI/UX Дизайн</h3>
+            <p class="service-item__text">
+              Проектирование удобных, интуитивно понятных и визуально
+              привлекательных интерфейсов.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="faq__container">
+        <h2 class="faq__title">Частые вопросы</h2>
+        <div class="faq__item">
+          <details class="faq__details">
+            <summary class="faq__summary">Каковы сроки разработки?</summary>
+            <p class="faq__text">
+              Обычно лендинг занимает от 3 до 7 дней в зависимости от сложности
+              дизайна.
+            </p>
+          </details>
+        </div>
+        <div class="faq__item">
+          <details class="faq__details">
+            <summary class="faq__summary">
+              Работаете ли вы с макетами из Figma?
+            </summary>
+            <p class="faq__text">
+              Да, я верстаю пиксель-в-пиксель, соблюдая все отступы и шрифты из
+              вашего макета.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="projects__container">
+        <h2 class="projects__title">Мои проекты</h2>
+        <div class="projects__grid">
+          <article class="project-card">
+            <div class="project-card__content">
+              <h3 class="project-card__title">Строительство портфолио</h3>
+              <p class="project-card__description">
+                Разработка адаптивного лендинга с темной темой для демонстрации
+                работ.
+              </p>
+              <div class="project-card__tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">BEM</span>
+              </div>
+              <div class="project-card__actions">
+                <a
+                  href="https://silvestrovvova.github.io/Landing-/8-card-strouka/index.html"
+                  target="_blank"
+                  class="project-card__link project-card__link--demo"
+                  >Демо</a
+                >
+                <a
+                  href="#"
+                  class="project-card__link project-card__link--github"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__content">
+              <h3 class="project-card__title">Конструктор лего</h3>
+              <p class="project-card__description">
+                Интерфейс для конструктор лего с интуитивным управлением.
+              </p>
+              <div class="project-card__tech">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">API</span>
+                <span class="tech-tag">UX/UI</span>
+              </div>
+              <div class="project-card__actions">
+                <a
+                  href="https://silvestrovvova.github.io/Landing-/6-card-konsructor2/index.html"
+                  target="_blank"
+                  class="project-card__link project-card__link--demo"
+                  >Демо</a
+                >
+                <a
+                  href="#"
+                  class="project-card__link project-card__link--github"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials__container">
+        <h2 class="testimonials__title">Отзывы клиентов</h2>
+        <div class="testimonials__grid">
+          <blockquote class="testimonial-card">
+            <div class="testimonial-card__quote">"</div>
+            <p class="testimonial-card__text">
+              Отличная работа! Владимир сверстал лендинг пиксель-в-пиксель.
+              Очень внимателен к деталям и соблюдает сроки.
+            </p>
+            <div class="testimonial-card__client">
+              <img
+                src="https://i.pravatar.cc/150?u=ivan"
+                alt="Клиент"
+                class="testimonial-card__avatar"
+              />
+              <div class="testimonial-card__meta">
+                <span class="testimonial-card__name">Иван Иванов</span>
+                <span class="testimonial-card__company">CEO TechStart</span>
+              </div>
+            </div>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <div class="testimonial-card__quote">"</div>
+            <p class="testimonial-card__text">
+              Дизайн Интерфейса, который предложил Владимир, просто пушка.
+              Удобно, современно и полностью отвечает нашим задачам.
+            </p>
+            <div class="testimonial-card__client">
+              <img
+                src="https://i.pravatar.cc/150?u=Olga"
+                alt="Клиент"
+                class="testimonial-card__avatar"
+              />
+              <div class="testimonial-card__meta">
+                <span class="testimonial-card__name">Ольга Петровна</span>
+                <span class="testimonial-card__company">Founder UXLab</span>
+              </div>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact__container">
+        <h2 class="contact__title">Давайте работать вместе</h2>
+        <p class="contact__text">
+          Я всегда открыт для новых проектов и интерестных предложений.
+        </p>
+        <div class="contact__links">
+          <a href="mailto:your-email@example.com" class="contact__button"
+            >Написать на почту</a
+          >
+        </div>
+        <div class="socials">
+          <a href="#" class="socials__link">Telegram</a>
+          <a href="#" class="socials__link">LinkedIn</a>
+          <a href="#" class="socials__link">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline">
+      <div class="timeline__container">
+        <h2 class="timeline__title">Путь разработчика</h2>
+        <div class="timeline__item">
+          <div class="timeline__date">2026</div>
+          <div class="timeline__content">
+            <h3 class="timeline__name">Frontend Developer</h3>
+            <p class="timeline__text">
+              Работа над крупными проектами, внедрение ВЕМ и современных
+              фреймворков.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__date">2025</div>
+          <div class="timeline__content">
+            <h3 class="timeline__name">Обучение и практика</h3>
+            <p class="timeline__text">
+              Изучение основ верстки, создание первых адаптивных сайтов на
+              Android.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact_new">
+      <div class="cta__container">
+        <div class="cta__box">
+          <h2 class="cta__title">Готовы создать что-то крутое?</h2>
+          <p class="cta__text">
+            Расскажите мне о вашем проекте, и мы обсудим, как воплотить его в
+            жизнь.
+          </p>
+          <a href="mailto:your-email@example.com" class="cta__button"
+            >Начать проект</a
+          >
+
+          <div class="cta__socials socials">
+            <a href="#" class="socials__link">Telegram</a>
+            <a href="#" class="socials__link">LinkedIn</a>
+            <a href="#" class="socials__link">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack" id="stack">
+      <div class="stack__container">
+        <h2 class="stack__title">Инструменты</h2>
+        <div class="stack__track">
+          <div class="stack__item">VS Code</div>
+          <div class="stack__item">Figma</div>
+          <div class="stack__item">GitHub</div>
+          <div class="stack__item">Firebase</div>
+          <div class="stack__item">Terminal</div>
+          <div class="stack__item">Android</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer__copy">
+        &copy; 2026 Silvestrov Volodymyr. Сверстано на телефоне.
+      </p>
+    </footer>
+
+    <script>
+      //Ждем скролла страницы
+      window.onscroll = function () {
+        let winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        let height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        // Меняем ширину полоски в реальном времени
+        document.querySelector(".progress-bar").style.width = scrolled + "%";
+      };
+    </script>
+  </body>
+</html>
