@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaufland App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__logo">Kaufland</h1>
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Поиск товаров ..."
+        class="header__search"
+      />
+      <div class="header__card" onclick="toggleCart()" style="cursor: pointer">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </header>
+
+    <div id="cart-modal" class="cart-modal">
+      <div class="cart-modal__content">
+        <div class="cart-modal__header">
+          <h2>Ваша корзина</h2>
+          <button onclick="toggleCart()" class="cart-modal__close">
+            &times;
+          </button>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-modal__footer">
+          <h3>Итого: <span id="cart-total">0</span>€</h3>
+          <button onclick="checkout()" class="cart__button">
+            Оформить заказ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="container">
+      <div id="product-grid" class="shop-grid"></div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
