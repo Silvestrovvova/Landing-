@@ -2,32 +2,41 @@
 const products = [
   {
     id: 1,
-    name: "Огурцы (кг)",
-    price: 0.89,
-    category: "Овощи",
+    name: "Okurky (Огурцы) (кг)",
+    price: 19.9,
+    category: "zelenina",
     img: "https://cdn-icons-png.flaticon.com/512/2329/2329865.png",
   },
   {
     id: 2,
-    name: "Говядина стейк",
-    price: 12.5,
-    category: "Мясо",
+    name: "Vepřová krkovice (Свинина)",
+    price: 119.9,
+    unit: "1kg",
+    lastUpdated: "14.05.2026",
+    category: "Maso",
     img: "https://cdn-icons-png.flaticon.com/512/1041/1041315.png",
   },
   {
     id: 3,
-    name: "Молоко 1,5%",
-    price: 1.15,
-    category: "Молочные",
+    name: "Mléko 1,5% (молоко)",
+    price: 14.9,
+    category: "Mléčné výrobky",
     img: "https://cdn-icons-png.flaticon.com/512/2405/2405479.png",
   },
   {
     id: 4,
-    name: "Сигареты",
-    price: 8.2,
+    name: "Cigarety (сигареты)",
+    price: 154.0,
     category: "18+",
     isRestricted: true,
     img: "https://cdn-icons-png.flaticon.com/512/2825/2825644.png",
+  },
+  {
+    id: 5,
+    name: "Máslo K-Classic (Масло)",
+    price: 39.9,
+    unit: "250g",
+    lastUpdated: "14.05.2026",
   },
 ];
 
@@ -48,7 +57,7 @@ function renderProducts(list = products) {
     <img src="${product.img}" alt="${product.name}" class="card__image">
     <small style="color: ${product.isRestricted ? "red" : "gray"}; font-weight: bold;"> ${product.category}</small>
     <h3>${product.name}
-    <p class="card__price">${product.price}€</p>
+    <p class="card__price">${product.price}Kč</p>
     <button class="card__button" onclick="addToCart(${product.id})">В корзину</button>
     `;
     grid.appendChild(productCard);
@@ -109,14 +118,14 @@ function updateCartUI() {
   </div>
   </div>
   <div class="cart-item__price">
-  <span>${itemTotal.toFixed(2)}€</span>
+  <span>${itemTotal.toFixed(2)}Kč</span>
   <button class="delete-btn" onclick="removeFromCart(${index})" style="background:none; border:none; color:red; margin-left:10px; cursor:pointer;">
   &times;</button>
   </div>
   </div>
   `;
   });
-  totalContainer.innerText = `${total.toFixed(2)}€`;
+  totalContainer.innerText = `${total.toFixed(2)}`;
   cartCount.innerText = totalItems;
   saveCart();
 }
@@ -134,15 +143,15 @@ function removeFromCart(index) {
 }
 //=======================================================================================
 // Логика Поиска
-const searchInput = document.getElementById("search-input");
-searchInput.addEventListener("input", (e) => {
-  const text = e.target.value.toLowerCase();
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(text),
-  );
+function searchProducts() {
+  const searchTerm = document.getElementById("searchInput").value.toLowerCase();
 
-  renderProducts(filteredProducts); // Переписываем только найденое
-});
+  const filteredProducts = products.filter((product) => {
+    return product.name.toLowerCase().includes(searchTerm);
+  });
+
+  renderProducts(filteredProducts);
+}
 //=======================================================================================
 function saveCart() {
   localStorage.setItem("kaufland_cart", JSON.stringify(cart));
@@ -159,7 +168,7 @@ function checkout() {
 
   //Вывоим финальное сообщение
   alert(
-    `Спасибо за заказ! сумма к оплате: ${total.toFixed(2)}€. Ваш чек сохранен.`,
+    `Спасибо за заказ! сумма к оплате: ${total.toFixed(2)}Kč. Ваш чек сохранен.`,
   );
 
   //очищаем корзину в коде
@@ -183,6 +192,13 @@ function changeQuantity(index, delta) {
   }
 
   updateCartUI();
+}
+//=======================================================================================
+function clearCart() {
+  if (confirm("opravdu chcete vymazat cely kosik?")) {
+    cart = [];
+    updateCartUI();
+  }
 }
 //=======================================================================================
 // Запускаем приложение
