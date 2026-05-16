@@ -15,14 +15,25 @@
       <h1 class="header__logo">Kaufland</h1>
       <input
         type="text"
-        id="search-input"
+        id="searchInput"
+        oninput="searchProducts()"
         placeholder="Поиск товаров ..."
         class="header__search"
       />
+
+      <div class="category-filters">
+        <button onclick="filterByCategory('all')">Vše</button>
+        <button onclick="filterByCategory('zelenina')">Zelenina</button>
+        <button onclick="filterByCategory('Maso')">Maso</button>
+        <button onclick="filterByCategory('Mléčné výrobky')">Mléčné</button>
+        <button onclick="filterByCategory('18+')">18+</button>
+      </div>
+
       <div class="header__card" onclick="toggleCart()" style="cursor: pointer">
         <i class="fa-solid fa-cart-shopping"></i>
         <span id="cart-count">0</span>
       </div>
+
       <div class="shop-location">
         <h2>Kaufland Litvinov</h2>
         <p>Jiraskova 2181, 436 01 Litvinov 1</p>
@@ -38,7 +49,9 @@
             &times;
           </button>
         </div>
+
         <div id="cart-items"></div>
+
         <div class="cart-modal__footer">
           <h3>Итого: <span id="cart-total">0</span>Kč</h3>
           <button onclick="checkout()" class="cart__button">

@@ -147,3 +147,24 @@ body {
   cursor: pointer;
   margin-left: 10px;
 }
+/*====================================================================*/
+/* Кнопки button*/
+.category-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.category-filters button {
+  padding: 8px 15px;
+  border: 1px solid #e10915;
+  background: white;
+  color: #e10915;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.category-filters button:hover {
+  background: #e10915;
+  color: white;
+}

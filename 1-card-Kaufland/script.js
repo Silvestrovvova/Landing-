@@ -1,9 +1,12 @@
-// 1. Данные (имитация базы данных)
+//==============================================================================
+//===============================================================================
+// 1. Глобальные Данные (имитация базы данных)
 const products = [
   {
     id: 1,
     name: "Okurky (Огурцы) (кг)",
     price: 19.9,
+    oldPrice: 29.9, // старая цена
     category: "zelenina",
     img: "https://cdn-icons-png.flaticon.com/512/2329/2329865.png",
   },
@@ -11,6 +14,7 @@ const products = [
     id: 2,
     name: "Vepřová krkovice (Свинина)",
     price: 119.9,
+    oldPrice: 189.9, // старая цена
     unit: "1kg",
     lastUpdated: "14.05.2026",
     category: "Maso",
@@ -45,7 +49,8 @@ let cart = JSON.parse(localStorage.getItem("kaufland_cart")) || []; // Это з
 // И сразу после этого вызови обновление
 updateCartUI();
 // ================================================================================
-// 2. Функция отрисовки товаров (теперь она универсальная)
+//=================================================================================
+// 2. Функция отрисовки  (Интерфейс)
 function renderProducts(list = products) {
   const grid = document.getElementById("product-grid");
   grid.innerHTML = "";
@@ -63,33 +68,8 @@ function renderProducts(list = products) {
     grid.appendChild(productCard);
   });
 }
-//===================================================================================
-// 3. Логика корзины
-function addToCart(id) {
-  const product = products.find((p) => p.id === id);
-  // Проверка на категорию 18+
-  if (product.isRestricted) {
-    const confirmAge = confirm(
-      `Товар ${product.name} только для лиц старше 18 лет. Вам есть 18?`,
-    );
-    if (!confirmAge) {
-      alert("Ивините, мы не можем продать этот товар.");
-      return; //Прерываем функцию, в корзину ничего не попадает
-    }
-  }
+//=====================================================================================
 
-  // Ищем, есть ли уже такой товар в корзине
-  const existingItem = cart.find((item) => item.id === id);
-
-  if (existingItem) {
-    // Если есть -увеличиваем счетчик
-    existingItem.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-
-  updateCartUI();
-}
 //=====================================================================================
 function updateCartUI() {
   // обновляем список внутри модалки
@@ -100,6 +80,7 @@ function updateCartUI() {
 
   let total = 0;
   let totalItems = 0;
+  let savings = 0; // Новая переменая для экономии
 
   cart.forEach((item, index) => {
     const itemTotal = item.price * item.quantity; // считываем сумму за позицию
@@ -129,10 +110,46 @@ function updateCartUI() {
   cartCount.innerText = totalItems;
   saveCart();
 }
-//======================================================================================
-function toggleCart() {
-  const modal = document.getElementById("cart-modal");
-  modal.style.display = modal.style.display === "block" ? "none" : "block";
+//===================================================================================
+//==================================================================================
+// 3. Логика работы корзины (Действия)
+function addToCart(id) {
+  const product = products.find((p) => p.id === id);
+  // Проверка на категорию 18+
+  if (product.isRestricted) {
+    const confirmAge = confirm(
+      `Товар ${product.name} только для лиц старше 18 лет. Вам есть 18?`,
+    );
+    if (!confirmAge) {
+      alert("Ивините, мы не можем продать этот товар.");
+      return; //Прерываем функцию, в корзину ничего не попадает
+    }
+  }
+
+  // Ищем, есть ли уже такой товар в корзине
+  const existingItem = cart.find((item) => item.id === id);
+
+  if (existingItem) {
+    // Если есть -увеличиваем счетчик
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  updateCartUI();
+}
+//=======================================================================================
+// Функция изменения количества
+function changeQuantity(index, delta) {
+  // delta может быть +1 или -1
+  cart[index].quantity += delta;
+
+  // Если количество стало 0 или меньше - удаляем товар совсем
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+
+  updateCartUI();
 }
 //======================================================================================
 function removeFromCart(index) {
@@ -142,17 +159,52 @@ function removeFromCart(index) {
   updateCartUI();
 }
 //=======================================================================================
-// Логика Поиска
+function clearCart() {
+  if (confirm("opravdu chcete vymazat cely kosik?")) {
+    cart = [];
+    updateCartUI();
+  }
+}
+//======================================================================================
+function toggleCart() {
+  const modal = document.getElementById("cart-modal");
+  modal.style.display = modal.style.display === "block" ? "none" : "block";
+}
+
+//======================================================================================
+//=======================================================================================
+// 4. Инструменты фильтрации и поиска
 function searchProducts() {
   const searchTerm = document.getElementById("searchInput").value.toLowerCase();
-
+  // Фильтруем
   const filteredProducts = products.filter((product) => {
-    return product.name.toLowerCase().includes(searchTerm);
+    // Переводим имя товара
+    const productName = product.name.toLowerCase();
+    //Проверяем, входит ли поисковое слово в название
+    return productName.includes(searchTerm);
   });
 
   renderProducts(filteredProducts);
 }
 //=======================================================================================
+function filterByCategory(categoryName) {
+  if (categoryName === "all") {
+    //Если выбрано Все, просто рисуем все товары
+    renderProducts(products);
+  } else {
+    //Фильтруем масив: оставляем только те товары, у которых категория совпадает с нажатой кнопкой
+    const filtered = products.filter(
+      (product) => product.category === categoryName,
+    );
+    renderProducts(filtered);
+  }
+}
+// Запускаем приложение
+renderProducts();
+
+//======================================================================================
+//=======================================================================================
+// 5. Сохранение и финал
 function saveCart() {
   localStorage.setItem("kaufland_cart", JSON.stringify(cart));
 }
@@ -180,26 +232,3 @@ function checkout() {
   // Закрываем модальное окно
   toggleCart();
 }
-//=======================================================================================
-// Функция изменения количества
-function changeQuantity(index, delta) {
-  // delta может быть +1 или -1
-  cart[index].quantity += delta;
-
-  // Если количество стало 0 или меньше - удаляем товар совсем
-  if (cart[index].quantity <= 0) {
-    cart.splice(index, 1);
-  }
-
-  updateCartUI();
-}
-//=======================================================================================
-function clearCart() {
-  if (confirm("opravdu chcete vymazat cely kosik?")) {
-    cart = [];
-    updateCartUI();
-  }
-}
-//=======================================================================================
-// Запускаем приложение
-renderProducts();
