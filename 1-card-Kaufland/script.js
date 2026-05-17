@@ -267,7 +267,9 @@ function renderNotes() {
     const li = document.createElement("li");
 
     li.innerHTML = `
-  <span>${note}</span>
+  <span onclick="findNoteInShop('${note}')" 
+  style="cursor: pointer; text-decoration: underline; color: #333;">
+  ${note}</span>
   <button class="delete-note-btn"
    onclick="deleteNote(${index})">x</button>
   `;
@@ -282,5 +284,15 @@ function deleteNote(index) {
   notes.splice(index, 1);
   //Переписываем список, чтобы удаленная заметка исчезла
   renderNotes();
+}
+// 5. Функция связи findNoteInShop (JS)
+function findNoteInShop(noteText) {
+  const searchInput = document.getElementById("searchInput");
+  if (!searchInput) return;
+
+  // 1.Вставляем текст заметки в поле поиска
+  searchInput.value = noteText;
+  // 2. Вызываем твою готовую функцию поиска, чтобы обновить витрину
+  searchProducts();
 }
 renderNotes();
