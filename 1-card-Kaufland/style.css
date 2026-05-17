@@ -168,3 +168,64 @@ body {
   background: #e10915;
   color: white;
 }
+/*====================================================================================*/
+/*====================================================================================*/
+/*  =====     Блокнот      ===========*/
+.notepad-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fdf6e2;
+  border-left: 5px solid #e10915;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.notepad-section h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.4rem;
+}
+.notepad-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.notepad-input-group input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.notepad-input-group button {
+  padding: 10px 20px;
+  background: #e10915;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* ====  Стили для самого списка заметок   ==== */
+.notepad-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.notepad-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px dashed #ccc;
+  font-size: 1.1rem;
+}
+/* === Кнопка удаления заметки === */
+.delete-note-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

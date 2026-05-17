@@ -232,3 +232,55 @@ function checkout() {
   // Закрываем модальное окно
   toggleCart();
 }
+//===================================================================
+//                    ЛОГИКА БЛОКНОТА ЗАМЕТОК
+//==================================================================
+// ==== 1. Создаем отделный масив
+// Звгружаем сохраненные заметки, а если в памяти пусть - создаем чисты ма
+let notes = JSON.parse(localStorage.getItem("myShoppingNotes")) || [];
+
+// ==== 2. Функция добавления новой заметки
+function addNote() {
+  const noteInput = document.getElementById("noteInput");
+  const noteText = noteInput.value.trim(); // trim() - убирает случаные побелы
+  // Проверяем, что поле не пустое
+  if (noteText === "") {
+    alert("Napište text poznámky!(Напишите текст заметки!)");
+    return;
+  }
+  //Добаляем текс заметки в наш массив
+  notes.push(noteText);
+  // Очищаем поле ввода, чтобы оно было готово для новой записи
+  noteInput.value = "";
+  //Отрисовываем обновленный список на экране
+  renderNotes();
+}
+// 3. Функция Художник - выводит заметки на экран
+function renderNotes() {
+  const notesList = document.getElementById("note-list");
+
+  if (!notesList) return; // Защита: если список не найден, останавливаем код
+  // Полностью очищаем старый список перед перерисовкой
+  notesList.innerHTML = "";
+  //Проходимся по массиву заметок циклом
+  notes.forEach((note, index) => {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+  <span>${note}</span>
+  <button class="delete-note-btn"
+   onclick="deleteNote(${index})">x</button>
+  `;
+    notesList.appendChild(li);
+  });
+  // Сохранение: Переводим массив заметок в текст и записываем в память
+  localStorage.setItem("myShoppingNotes", JSON.stringify(notes));
+}
+// 4. Функция удаления конкретной заметки
+function deleteNote(index) {
+  // Удаляем 1 элемент из массива по его индексу
+  notes.splice(index, 1);
+  //Переписываем список, чтобы удаленная заметка исчезла
+  renderNotes();
+}
+renderNotes();
