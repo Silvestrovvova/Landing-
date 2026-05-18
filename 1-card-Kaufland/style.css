@@ -1,3 +1,6 @@
+/*=====================================================================
+      Базовые и глобальные стили для адаптивности
+=====================================================================*/
 :root {
   --Kaufland-red: #ed1c24;
   --bg-light: #f4f4f4;
@@ -8,27 +11,118 @@ body {
   background-color: var(--bg-light);
   margin: 0;
 }
-/*=====================================================================*/
-.header {
-  background-color: var(--Kaufland-red);
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-/*====================================================================*/
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 15px;
 }
+/*=====================================================================
+      Блок Шапки (БЕМ: header)
+=====================================================================*/
+.header {
+  background-color: var(--Kaufland-red);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 10px 0; /* отступы по краям, чтобы элементы не прилипали*/
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.header__container {
+  display: flex;
+  justify-content: space-between; /*Логотип слева козина справа*/
+  align-items: center; /*Выравниваем все строго, по центру*/
+  flex-wrap: wrap; /*Разрешаем перенос на новыи ряд для мобилок*/
+  max-width: 1200px;
+  margin: o auto;
+  padding: 0 15px;
+  gap: 15px;
+}
+.header__logo {
+  color: white;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.header__search {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  /*Новое*/
+  flex: 1;
+  max-width: 500px;
+}
+.header__cart-btn {
+  background: white;
+  color: var(--Kaufland-red);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  /*Новое*/
+  white-space: nowrap;
+}
+/* Счетчик товаров в корзине */
+#cart-count {
+  background-color: #333;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-left: 5px;
+}
+.header__cart-count {
+  background-color: #333;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+/*=====================================================================
+      Блок Шапки (БЕМ: .categories)
+=====================================================================*/
+.categories {
+  margin: 20px 0;
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: auto; /*Скролл кнопок, если не влезают на экран телеона*/
+  padding-bottom: 5px;
+}
+.categories__btn {
+  display: inline-block;
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.categories__btn--active,
+.categories__btn:hover {
+  background-color: var(--Kaufland-red);
+  color: white;
+  border-color: var(--Kaufland-red);
+}
+/*=====================================================================
+      Блок Шапки (БЕМ: .shop-grid)
+=====================================================================*/
 .shop-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  display: block;
+  text-align: center;
 }
 .shop-location {
   text-align: center;
@@ -47,6 +141,10 @@ body {
   color: #333;
 }
 .card {
+  display: inline-block;
+  vertical-align: top;
+  width: 23%; /* 4 колонки на десктопе*/
+  margin: 1%;
   background: white;
   border-radius: 8px;
   padding: 15px;
@@ -149,25 +247,7 @@ body {
 }
 /*====================================================================*/
 /* Кнопки button*/
-.category-filters {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.category-filters button {
-  padding: 8px 15px;
-  border: 1px solid #e10915;
-  background: white;
-  color: #e10915;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-.category-filters button:hover {
-  background: #e10915;
-  color: white;
-}
+
 /*====================================================================================*/
 /*====================================================================================*/
 /*  =====     Блокнот      ===========*/
@@ -228,4 +308,56 @@ body {
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+/*=====================================================================
+      Медиа-запросы для мобильных устройств (Экраны до 768px)
+=====================================================================*/
+@media (max-width: 768px) {
+  /*Перестаиваем элементы шапки на телефонах в 2 ряда*/
+  .header__container {
+    text-align: space-between;
+  }
+  .header__logo {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    order: 1; /*Логотип первый*/
+  }
+  .header__search {
+    order: 3;
+    flex: none; /*Сбрасываем десктопное поведение флекса*/
+    display: block;
+    width: 100%; /*Поиск занимает всю ширину на втором ряду */
+    margin-top: 5px;
+  }
+  .header__cart-btn {
+    order: 2; /* Корзина вторая встанет в верхныи правыи угол*/
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  /*Адаптация сетки товаров: 2 карточки в ряд одной огромной */
+  .card {
+    width: 46%;
+    margin: 2%;
+    padding: 10px;
+  }
+  .card__image {
+    height: 120px; /*Немного уменьшаем высоту картинок на телефонах*/
+  }
+  .card__price {
+    font-size: 1.2rem;
+  }
+  /* Блок заметок/блокнота внизу делаем на всю ширину */
+  .notepad-section {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+/*Дополнительный фикс для совсем маленьких экранов*/
+@media (max-width: 480px) {
+  .card {
+    width: 96%; /* По одной карточке в ряд, если экран критически мал */
+    margin: 2% 2%;
+  }
 }

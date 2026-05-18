@@ -12,26 +12,20 @@
   </head>
   <body>
     <header class="header">
-      <h1 class="header__logo">Kaufland</h1>
-      <input
-        type="text"
-        id="searchInput"
-        oninput="searchProducts()"
-        placeholder="Поиск товаров ..."
-        class="header__search"
-      />
+      <div class="header__container">
+        <h1 class="header__logo">Kaufland</h1>
 
-      <div class="category-filters">
-        <button onclick="filterByCategory('all')">Vše</button>
-        <button onclick="filterByCategory('zelenina')">Zelenina</button>
-        <button onclick="filterByCategory('Maso')">Maso</button>
-        <button onclick="filterByCategory('Mléčné výrobky')">Mléčné</button>
-        <button onclick="filterByCategory('18+')">18+</button>
-      </div>
-
-      <div class="header__card" onclick="toggleCart()" style="cursor: pointer">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span id="cart-count">0</span>
+        <input
+          type="text"
+          id="searchInput"
+          oninput="searchProducts()"
+          placeholder="Поиск товаров ..."
+          class="header__search"
+        />
+        <button class="header__cart-btn" onclick="toggleCart()">
+          <span>Корзина</span>
+          <span id="cart-count" class="header__cart-count">0</span>
+        </button>
       </div>
     </header>
 
@@ -40,6 +34,33 @@
       <p>Jiraskova 2181, 436 01 Litvinov 1</p>
       <p>Otevreno dnes: до 22:00</p>
     </div>
+
+    <main class="main-content container">
+      <section class="categories">
+        <button
+          class="categories__btn categories__btn--active"
+          onclick="filterByCategory('all')"
+        >
+          Vše
+        </button>
+        <button class="categories__btn" onclick="filterByCategory('zelenina')">
+          Zelenina
+        </button>
+        <button class="categories__btn" onclick="filterByCategory('Maso')">
+          Maso
+        </button>
+        <button
+          class="categories__btn"
+          onclick="filterByCategory('Mléčné výrobky')"
+        >
+          Mléčné
+        </button>
+        <button class="categories__btn" onclick="filterByCategory('18+')">
+          18+
+        </button>
+      </section>
+      <div id="product-grid" class="shop-grid"></div>
+    </main>
 
     <div id="cart-modal" class="cart-modal">
       <div class="cart-modal__content">
