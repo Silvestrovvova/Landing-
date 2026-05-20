@@ -45,6 +45,9 @@ const products = [
 ];
 
 let cart = JSON.parse(localStorage.getItem("kaufland_cart")) || []; // Это значит возьми данные из памяти
+let notes = JSON.parse(localStorage.getItem("myShoppingNotes")) || [];
+let purchaseHistory =
+  JSON.parse(localStorage.getItem("shopPurchaseHistory")) || [];
 
 // И сразу после этого вызови обновление
 updateCartUI();
@@ -211,17 +214,33 @@ function saveCart() {
 //=======================================================================================
 // Функция оформления заказа
 function checkout() {
+  // Если корзина пустая, ничего не делаем
   if (cart.length === 0) {
-    alert("Ваша корзина пуста!");
+    alert("Vaše nákupni košik je prázdný! (Ваша корзина пуста!)");
     return;
   }
-
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  /*========= 1. считаем финальную сумму корзины прямо сеичас ======== */
+  const finalAmount = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
+  /* ======= 2. Получаем финальную сумму корзины прямо сейчас ======*/
+  const now = new Date();
+  const formattedDate =
+    now.toLocaleDateString("cs-CZ") +
+    " " +
+    now.toLocaleTimeString("cs-CZ", { hour: "2-digit", minute: "2-digit" });
+  /* ======= 3. Создаем обьект покупки и добавляем в масив истории =====*/
+  purchaseHistory.push({
+    date: formattedDate,
+    amount: finalAmount,
+  });
+  /* ======== 4.Обновляем блок истории на экране ============== */
+  renderHistory();
 
   //Вывоим финальное сообщение
-  alert(
-    `Спасибо за заказ! сумма к оплате: ${total.toFixed(2)}Kč. Ваш чек сохранен.`,
-  );
+  alert(`
+    "Objednávka byla úspěšně vytvořena!"Спасибо за заказ! сумма к оплате: ${finalAmount.toFixed(2)}Kč. Ваш чек сохранен.`);
 
   //очищаем корзину в коде
   cart = [];
@@ -235,11 +254,10 @@ function checkout() {
 //===================================================================
 //                    ЛОГИКА БЛОКНОТА ЗАМЕТОК
 //==================================================================
-// ==== 1. Создаем отделный масив
+/* ================ 1. Создаем отделный масив =================*/
 // Звгружаем сохраненные заметки, а если в памяти пусть - создаем чисты ма
-let notes = JSON.parse(localStorage.getItem("myShoppingNotes")) || [];
 
-// ==== 2. Функция добавления новой заметки
+/* ============ 2. Функция добавления новой заметки  ========= */
 function addNote() {
   const noteInput = document.getElementById("noteInput");
   const noteText = noteInput.value.trim(); // trim() - убирает случаные побелы
@@ -255,7 +273,7 @@ function addNote() {
   //Отрисовываем обновленный список на экране
   renderNotes();
 }
-// 3. Функция Художник - выводит заметки на экран
+/* ========= 3. Функция Художник - выводит заметки на экран =======*/
 function renderNotes() {
   const notesList = document.getElementById("note-list");
 
@@ -278,14 +296,14 @@ function renderNotes() {
   // Сохранение: Переводим массив заметок в текст и записываем в память
   localStorage.setItem("myShoppingNotes", JSON.stringify(notes));
 }
-// 4. Функция удаления конкретной заметки
+/* ============ 4. Функция удаления конкретной заметки =============*/
 function deleteNote(index) {
   // Удаляем 1 элемент из массива по его индексу
   notes.splice(index, 1);
   //Переписываем список, чтобы удаленная заметка исчезла
   renderNotes();
 }
-// 5. Функция связи findNoteInShop (JS)
+/* ============ 5. Функция связи findNoteInShop (JS) ===============*/
 function findNoteInShop(noteText) {
   const searchInput = document.getElementById("searchInput");
   if (!searchInput) return;
@@ -296,3 +314,46 @@ function findNoteInShop(noteText) {
   searchProducts();
 }
 renderNotes();
+/* ============ 6. Логика истории расходов ========================= */
+/* ==== 1. Загружаем историю из памяти или создаем пустой массив ====*/
+
+/* ====== 2. Функция "Художник" для отрисовки истории ======= */
+function renderHistory() {
+  const historyList = document.getElementById("history-list");
+  const historyTotal = document.getElementById("history-total");
+  if (!historyList || !historyTotal) return;
+
+  historyList.innerHTML = "";
+  let totalSpent = 0;
+
+  // Идем по истории задом наперед, чтобы новые покупки были СВЕРХУ списка
+  purchaseHistory
+    .slice()
+    .reverse()
+    .forEach((order) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+    <span>Каленарь${order.date}</span>
+    <strong>${order.amount.toFixed(2)} Kč</strong>
+    `;
+      historyList.appendChild(li);
+      totalSpent += order.amount;
+    });
+  // Обновляем общую сумму на экране
+  historyTotal.innerText = `${totalSpent.toFixed(2)} Kč`;
+  //Сохраняем в localStorage
+  localStorage.setItem("shopPurchaseHistory", JSON.stringify(purchaseHistory));
+}
+/* ========= 3. Функция очистки истории ============*/
+function clearHistory() {
+  if (
+    confirm(
+      "Opravdu chcete smazat celou historii? (Вы уверены, что хотите удалить всю историю?)",
+    )
+  ) {
+    purchaseHistory = [];
+    renderHistory();
+  }
+}
+/* ===== 4.Запускаем отрисовку истории при старте страницы ========= */
+renderHistory();

@@ -309,7 +309,63 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
 }
-
+/*=====================================================================
+      Секция истории (БЕМ: history)
+=====================================================================*/
+.history-section {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-top: 4px solid #333;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.history-section h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+/* Главный блок с итогом */
+.history-summary {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+.history-summary strong {
+  color: #e10915;
+}
+/* Список покупок */
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  max-height: 200px;
+  overflow-y: auto; /*Если покупок будет много, появится аккуратный скролл*/
+}
+.history-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: #555;
+}
+/* Кнопка очистки*/
+.history-clear-btn {
+  background: none;
+  border: none;
+  color: #999;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+}
+.history-clear-btn:hover {
+  color: #ff4d4d;
+}
 /*=====================================================================
       Медиа-запросы для мобильных устройств (Экраны до 768px)
 =====================================================================*/
