@@ -267,8 +267,8 @@ body {
 }
 .notepad-input-group {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 .notepad-input-group input {
   flex: 1;
@@ -276,38 +276,89 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
+  outline: none;
 }
 .notepad-input-group button {
+  background-color: #333;
   padding: 10px 20px;
-  background: #e10915;
   color: white;
   border: none;
   border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
   font-weight: bold;
+  transition: background 0.2s ease;
+}
+.notepad-input-group button:hover {
+  background-color: #e10915;
 }
 /* ====  Стили для самого списка заметок   ==== */
 .notepad-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 15px 0 0 0;
 }
 .notepad-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px dashed #ccc;
-  font-size: 1.1rem;
+  padding: 10px 12px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.notepad-list__text {
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  flex: 1; /* чтобы текст занимал все пространство до кнопки */
+}
+.notepad-list__text:hover {
+  color: #e10915;
+}
+/* Контеинер для кнопки внутри строки */
+.notepad-list__controls {
+  display: flex;
+  gap: 6px;
+}
+/* === Кнопка дописать === */
+.edit-note-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-note-btn:hover {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
 }
 /* === Кнопка удаления заметки === */
 .delete-note-btn {
-  background: none;
+  background: #ff4d4d;
   border: none;
-  color: #ff4d4d;
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-note-btn:hover {
+  background: #e10915;
 }
 /*=====================================================================
       Секция истории (БЕМ: history)
