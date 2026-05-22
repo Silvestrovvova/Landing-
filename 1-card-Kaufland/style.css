@@ -269,9 +269,11 @@ body {
   display: flex;
   gap: 8px;
   margin-bottom: 10px;
+  width: 100%;
 }
 .notepad-input-group input {
   flex: 1;
+  min-width: 0;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -280,7 +282,7 @@ body {
 }
 .notepad-input-group button {
   background-color: #333;
-  padding: 10px 20px;
+  padding: 10px 16px;
   color: white;
   border: none;
   border-radius: 4px;
@@ -288,6 +290,8 @@ body {
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s ease;
+  white-space: nowrap; /* Запрещает тексту внутри кнопки переноситься */
+  flex-shrink: 0; /* Запрещает кнопке сжиматься */
 }
 .notepad-input-group button:hover {
   background-color: #e10915;
@@ -328,15 +332,16 @@ body {
   background-color: #f0f0f0;
   color: #333;
   border: 1px solid #ccc;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 }
 .edit-note-btn:hover {
   background-color: #28a745;
@@ -348,14 +353,15 @@ body {
   background: #ff4d4d;
   border: none;
   color: white;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 }
 .delete-note-btn:hover {
   background: #e10915;
@@ -416,6 +422,133 @@ body {
 }
 .history-clear-btn:hover {
   color: #ff4d4d;
+}
+/*=====================================================================
+      Модальное окно чека (БЕМ: .receipt-modal)
+=====================================================================*/
+.receipt-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 16px;
+}
+.receipt-modal__content {
+  background-color: #fff;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  max-height: 85hv;
+}
+.receipt-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 2px dashed #ccc;
+  background-color: #f8f9fa;
+}
+.receipt-modal__header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.receipt-modal__header h2 i {
+  color: #e10915;
+}
+.receipt-modal__close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+}
+/* Тело чека (имитация бумажнои ленты) */
+.receipt-modal__body {
+  padding: 20px;
+  overflow-y: auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #222;
+  background-color: #fafafa;
+}
+/* Стили линии внутри чека */
+.receipt-modal__line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.receipt-modal__divider {
+  border-top: 1px dashed #bbb;
+  margin: 10px 0;
+}
+.receipt-modal__total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin-top: 10px;
+  color: #000;
+}
+/* Нижняя панель с кнопками управления */
+.receipt-modal__footer {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid #eee;
+}
+.receipt-modal__btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+.receipt-modal__btn--copy {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+.receipt-modal__btn--copy:hover {
+  background-color: #e0e0e0;
+}
+.receipt-modal__btn--close {
+  background-color: #333;
+  color: white;
+}
+.receipt-modal__btn--close:hover {
+  background-color: #e10915;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 /*=====================================================================
       Медиа-запросы для мобильных устройств (Экраны до 768px)

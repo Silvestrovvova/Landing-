@@ -6,6 +6,7 @@ let notes = JSON.parse(localStorage.getItem("myShoppingNotes")) || [];
 let purchaseHistory =
   JSON.parse(localStorage.getItem("shopPurchaseHistory")) || [];
 let editNoteIndex = null; //хранит индекс заметки, которую мы изменяем
+let currentReceiptText = ""; // Переменная для хранения текстовои версии чека
 
 // И сразу после этого вызови обновление
 updateCartUI();
@@ -192,15 +193,72 @@ function checkout() {
   });
   /* ======== 4.Обновляем блок истории на экране ============== */
   renderHistory();
-  //Вывоим финальное сообщение
-  alert(`
-    "Objednávka byla úspěšně vytvořena!"Спасибо за заказ! сумма к оплате: ${finalAmount.toFixed(2)}Kč. Ваш чек сохранен.`);
+  // ГЕНЕРИРУЕМ ВИЗУАЛЬНЫИ ЧЕК
+  const receiptBody = document.getElementById("receipt-body");
+  //Начинаем собирать текстовую версию
+  currentReceiptText = `=== KAUFLAND Učtenka ===\nDatum: ${formattedDate}\n--------------\n`;
+  // Собираем HTML структуру для экрана
+  let htmlContent = `
+  <div class="receipt-modal__line"><strong>Kaufland Czechia</strong></div>
+  <div class="receipt-modal__line"><span>Datum:</span>${formattedDate}</span></div>
+  <div class="receipt-modal__divider"></div>
+  `;
+  // Циклом перебираем товары из корзины и добавляем в чек
+  cart.forEach((item) => {
+    const itemTotal = item.price * item.quantity;
+    // HTML строка для модалки
+    htmlContent += `
+    <div class="receipt-modal__line">
+    <span>${item.name}</span>
+    </div>
+    <div class="receipt-modal__line" style="padding-left: 10px; color: #555; font-size: 0.85rem;">
+    <span>${item.quantity}x ${item.price.toFixed(2)} Kč</span>
+    <span>${itemTotal.toFixed(2)} Kč</span>
+    </div>
+    `;
+    // Текстовая строка для буфнра обмена
+    currentReceiptText += `${item.name}\n  ${item.quantity}x ${item.price.toFixed(2)} Kč = ${itemTotal.toFixed(2)} Kč\n`;
+  });
+  // Дописываем финал (Итоговую сумму)
+  htmlContent += `
+  <div class="receipt-modal__divider" style="border-top-style: solid; margin-top: 15px;"></div>
+  <div class="receipt-modal__line" style="justify-content: center; font-weight: bold; margin-top: 5px;">Děkujeme za nákup!</div>
+  `;
+
+  currentReceiptText += `-------------\nCELKEM: ${finalAmount.toFixed(2)} Kč\nDěkujeme za nákup!`;
+  // Вставляем сгенерированный чек в HTML
+  if (receiptBody) receiptBody.innerHTML = htmlContent;
+
   //очищаем корзину в коде
   cart = [];
   // Обновляем интерфейс (это автоматически сохранит пустую корзину в память)
   updateCartUI();
   // Закрываем модальное окно
   toggleCart();
+
+  // Показываем готовое окно чека на экране!
+  const receiptModal = document.getElementById("receipt-modal");
+  if (receiptModal) receiptModal.style.display = "flex";
+}
+// =============== Функция закрытия окна чека ====================
+function closeReceipt() {
+  const receiptModal = document.getElementById("receipt-modal");
+  if (receiptModal) receiptModal.style.display = "none";
+}
+// ============== Функция копирования текстового чека в буфер обмена телефона
+function copyReceiptToClipboard() {
+  if (!currentReceiptText) return;
+
+  navigator.clipboard
+    .writeText(currentReceiptText)
+    .then(() => {
+      alert(
+        "Učtenka byla zkopírována! (Чек успешно скопирован в буфер обмена!)",
+      );
+    })
+    .catch((err) => {
+      alert("Chyba při kopírovaní: ", err);
+    });
 }
 //===================================================================
 //                    ЛОГИКА БЛОКНОТА ЗАМЕТОК
@@ -252,9 +310,11 @@ function renderNotes() {
   ${note}</span>
   <div class="notepad-list__controls">
   <button class="edit-note-btn"
-  onclick="prepareEditNote(${index})">+</button>
+  onclick="prepareEditNote(${index})" title="Upravit">
+  <i class="fa-solid fa-pen-to-square"></i></button>
   <button class="delete-note-btn"
-   onclick="deleteNote(${index})">x</button>
+   onclick="deleteNote(${index})" title="Smazat">
+   <i class="fa-solid fa-trash-can"></i></button>
    </div>
   `;
     notesList.appendChild(li);
@@ -314,7 +374,8 @@ function renderHistory() {
     .forEach((order) => {
       const li = document.createElement("li");
       li.innerHTML = `
-    <span>Каленарь${order.date}</span>
+    <span><i class="fa-solid fa-calendar-days" style="margin-right: 5px;
+    color: #555;"></i>${order.date}</span>
     <strong>${order.amount.toFixed(2)} Kč</strong>
     `;
       historyList.appendChild(li);

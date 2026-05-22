@@ -114,6 +114,32 @@
       </button>
     </section>
 
+    <div id="receipt-modal" class="receipt-modal" style="display: none">
+      <div class="receipt-modal__content">
+        <div class="receipt-modal__header">
+          <h2><i class="fa-solid fa-receipt"></i>Vaše účtenka(Ваш чек)</h2>
+          <button class="receipt-modal__close"></button>
+        </div>
+
+        <div id="receipt-body" class="receipt-moal__body"></div>
+
+        <div class="receipt-modal__footer">
+          <button
+            class="receipt-modal__btn receipt-modal__btn--copy"
+            onclick="copyReceiptToClipboard()"
+          >
+            <i class="fa-solid fa-copy"></i>Kopírovat (копировать текс)
+          </button>
+          <button
+            class="receipt-modal__btn receipt-modal__btn--close"
+            onclick="closeReceipt()"
+          >
+            <i class="fa-solid fa-check"></i> Zavřít (Закрыть)
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script src="products.js"></script>
     <script src="script.js"></script>
   </body>
