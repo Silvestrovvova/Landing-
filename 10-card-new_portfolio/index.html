@@ -11,7 +11,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="progress-container">
@@ -22,6 +22,9 @@
     <header class="header">
       <nav class="header__nav">
         <div class="header__logo">SV</div>
+        <button class="header__burger" aria-label="Открыть меню">
+          <i class="fa-solid fa-bars"></i><span></span>
+        </button>
         <ul class="header__menu">
           <li><a href="#projects" class="header__link">Проекты</a></li>
           <li><a href="#skills" class="header__link">Навыки</a></li>
@@ -34,7 +37,7 @@
       </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero__container">
         <div class="status-badge">
           <span class="status-badge__dot"></span>
@@ -53,35 +56,33 @@
       </div>
     </section>
 
-    <section class="stack-details">
+    <section id="stack" class="stack-details reveal">
       <div class="stack-details__container">
         <h2 class="stack-details__title">Мои стек</h2>
-        <div class="stack-details__list">
-          <div class="stack-card">
-            <div class="stack-card__inner">
-              <div class="stack-card__front">HTML / CSS</div>
-              <div class="stack-card__back">BEM, Flexbox, Grid, Animations</div>
-            </div>
+        <div class="stack-card">
+          <div class="stack-card__inner">
+            <div class="stack-card__front">HTML / CSS</div>
+            <div class="stack-card__back">BEM, Flexbox, Grid, Animations</div>
           </div>
-          <div class="stack-card">
-            <div class="stack-card__inner">
-              <div class="stack-card__front">JavaScript</div>
-              <div class="stack-card__back">ES6+, DOM API, Fetch, Async</div>
-            </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card__inner">
+            <div class="stack-card__front">JavaScript</div>
+            <div class="stack-card__back">ES6+, DOM API, Fetch, Async</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="about">
+    <section id="about" class="about reveal">
       <div class="about__container">
         <div class="about__stats">
-          <div class="stats-item">
-            <span class="stat-item__number">10+</span>
+          <div class="stat-item">
+            <span class="stat-item__number" data-target="10">0</span>
             <span class="stat-item__text">Проектов</span>
           </div>
-          <div class="stats-item">
-            <span class="stat-item__number">365+</span>
+          <div class="stat-item">
+            <span class="stat-item__number" data-target="365">0</span>
             <span class="stat-item__text">Дней кода</span>
           </div>
           <div class="stat-item">
@@ -92,21 +93,20 @@
       </div>
     </section>
 
-    <section class="skills" id="skills">
+    <section class="skills reveal" id="skills">
       <div class="skills__container">
         <h2 class="skills__title">Технологии</h2>
         <div class="skills__list">
           <div class="skill-item">HTML5</div>
           <div class="skill-item">CSS3 (BEM)</div>
           <div class="skill-item">JavaScript</div>
-          <div class="skill-item">React</div>
           <div class="skill-item">Git</div>
           <div class="skill-item">UI Design</div>
         </div>
       </div>
     </section>
 
-    <section class="services" id="services">
+    <section class="services reveal" id="services">
       <div class="services__container">
         <h2 class="services__title">Услуги</h2>
         <div class="services__grid">
@@ -144,7 +144,7 @@
       </div>
     </section>
 
-    <section class="faq" id="faq">
+    <section class="faq reveal" id="faq">
       <div class="faq__container">
         <h2 class="faq__title">Частые вопросы</h2>
         <div class="faq__item">
@@ -170,11 +170,12 @@
       </div>
     </section>
 
-    <section class="projects" id="projects">
+    <section class="projects reveal" id="projects">
       <div class="projects__container">
         <h2 class="projects__title">Мои проекты</h2>
         <div class="projects__grid">
           <article class="project-card">
+            <img src="" class="project-card__image" alt="Строительство" />
             <div class="project-card__content">
               <h3 class="project-card__title">Строительство портфолио</h3>
               <p class="project-card__description">
@@ -203,6 +204,7 @@
           </article>
 
           <article class="project-card">
+            <img src="" class="project-card__image" alt="Конструктор" />
             <div class="project-card__content">
               <h3 class="project-card__title">Конструктор лего</h3>
               <p class="project-card__description">
@@ -232,7 +234,7 @@
       </div>
     </section>
 
-    <section class="testimonials" id="testimonials">
+    <section class="testimonials reveal" id="testimonials">
       <div class="testimonials__container">
         <h2 class="testimonials__title">Отзывы клиентов</h2>
         <div class="testimonials__grid">
@@ -296,7 +298,7 @@
       </div>
     </section>
 
-    <section class="timeline">
+    <section class="timeline reveal" id="timeline">
       <div class="timeline__container">
         <h2 class="timeline__title">Путь разработчика</h2>
         <div class="timeline__item">
@@ -323,7 +325,7 @@
       </div>
     </section>
 
-    <section class="cta" id="contact_new">
+    <section class="cta reveal" id="cta">
       <div class="cta__container">
         <div class="cta__box">
           <h2 class="cta__title">Готовы создать что-то крутое?</h2>
@@ -344,10 +346,10 @@
       </div>
     </section>
 
-    <section class="stack" id="stack">
+    <section class="stack reveal" id="stack">
       <div class="stack__container">
         <h2 class="stack__title">Инструменты</h2>
-        <div class="stack__track">
+        <div class="stack-track__content">
           <div class="stack__item">VS Code</div>
           <div class="stack__item">Figma</div>
           <div class="stack__item">GitHub</div>
@@ -364,18 +366,10 @@
       </p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>
-      //Ждем скролла страницы
-      window.onscroll = function () {
-        let winScroll =
-          document.body.scrollTop || document.documentElement.scrollTop;
-        let height =
-          document.documentElement.scrollHeight -
-          document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        // Меняем ширину полоски в реальном времени
-        document.querySelector(".progress-bar").style.width = scrolled + "%";
-      };
+      eruda.init();
     </script>
+    <script src="script.js"></script>
   </body>
 </html>
