@@ -268,21 +268,21 @@ a:hover {
   flex-wrap: wrap; /* чтобы на маленьких экранах переносились */
   margin-top: 2rem;
 }
-.stats-item {
+.stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   min-width: 100px;
 }
-.stats-item__number {
+.stat-item__number {
   font-size: 2rem;
   font-weight: 800;
   color: var(--primary-color);
   line-height: 1;
   text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
 }
-.stats-item__text {
+.stat-item__text {
   font-size: 0.9rem;
   color: var(--text-dim);
   margin-top: 8px;
@@ -314,7 +314,7 @@ a:hover {
   background: var(--bg-card);
   padding: 10px 25px;
   border-radius: 50px;
-  border: 1px solid rgba(25, 152, 219, 0.3);
+  border: 1px solid rgba(52, 152, 219, 0.3);
   font-size: 0.9rem;
   transition: var(--transition);
 }
@@ -435,7 +435,7 @@ a:hover {
 }
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -713,11 +713,6 @@ a:hover {
   /* Класс которыи будет двигать экеран */
   .header__menu--active {
     right: 0; /* Выстраиваем ссылки вертикально, чтобы не слипались */
-  }
-  .header__list {
-    flex-direction: column;
-    gap: 30px;
-    align-items: flex-start;
   }
 }
 /* Адаптив: правила для больших экранов от 767px */
