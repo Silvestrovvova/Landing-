@@ -16,10 +16,12 @@
   font-family: "Inter", sans-serif;
 }
 
+html,
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   line-height: 1.6;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -72,9 +74,10 @@ a:hover {
   transform: translateY(-100%);
 }
 .header__nav {
+  width: 100%; /* = гарантируем, что 100% навигация =*/
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -723,19 +726,22 @@ a:hover {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 75%;
+    width: 50%;
     height: 100vh;
     background: rgba(15, 23, 42, 0.98);
     backdrop-filter: blur(15px);
-    padding: 120px 40px;
+    padding: 120px 30px 40px 40px; /* сдвинули отступы */
     transition: right 0.4s ease;
     z-index: 9999;
-
     /* Исправление: Меню становится вертикальным списком */
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 2.5rem;
+    gap: 2rem;
+    /* = Cкругление углов = */
+    border-radius: 24px 0 0 24px;
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
   }
   .header__menu--active {
     right: 0;
@@ -754,6 +760,12 @@ a:hover {
   }
   .project-card:hover {
     transform: none;
+  }
+  /* фиксация карточек стека */
+  .stack-card {
+    width: 100%;
+    max-width: 290px;
+    min-width: 0;
   }
 }
 
