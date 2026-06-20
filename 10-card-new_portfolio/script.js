@@ -1,13 +1,25 @@
-// ==================================================================
 document.addEventListener("DOMContentLoaded", () => {
-  /* ============== 1. Sticky Header (Изменение шапки при скролле) ============*/
+  /* ==========================================================================
+       1. STICKY HEADER & PROGRESS BAR
+       ========================================================================== */
   let lastScrollY = window.scrollY;
   let accumulatedSubida = 0;
   const smartHeader = document.querySelector(".header");
+  const progressBar = document.querySelector(".progress-bar");
 
   window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY || document.documentElement.scrollTop;
 
+    // Полоса прогресса чтения
+    const windowHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    if (windowHeight > 0) {
+      const scrolled = (window.scrollY / windowHeight) * 100;
+      if (progressBar) progressBar.style.width = scrolled + "%";
+    }
+
+    // Логика скрытия шапки
     if (currentScrollY > lastScrollY) {
       accumulatedSubida = 0;
       if (currentScrollY > 100) {
@@ -22,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
   });
 
-  /* =========== 2. Mobile Menu (Клик по бургеру и открытие шторки)=============== */
+  /* ==========================================================================
+       2. MOBILE MENU & BODY SCROLL LOCK
+       ========================================================================== */
   const burgerBtn = document.querySelector(".header__burger");
   const menuWindow = document.querySelector(".header__menu");
   const menuLinks = document.querySelectorAll(".header__link");
@@ -30,20 +44,29 @@ document.addEventListener("DOMContentLoaded", () => {
   if (burgerBtn && menuWindow) {
     burgerBtn.addEventListener("click", () => {
       menuWindow.classList.toggle("header__menu--active");
+      // Если меню открыто — запрещаем скроллить сайт на фоне
+      document.body.style.overflow = menuWindow.classList.contains(
+        "header__menu--active",
+      )
+        ? "hidden"
+        : "";
     });
 
     menuLinks.forEach((link) => {
       link.addEventListener("click", () => {
         menuWindow.classList.remove("header__menu--active");
+        document.body.style.overflow = ""; // Возвращаем скролл при переходе
       });
     });
   }
 
-  /*========= 3. Smooth Scroll (Плавныи скролл для всех якорных сыллок и кнопок) ========== */
-  // Добавили в выборку и кнопки ссылки из Hero (button --secondary, button--primary)
+  /* ==========================================================================
+       3. SMOOTH SCROLL
+       ========================================================================== */
   const smoothLinks = document.querySelectorAll(
-    ".header__link, .button--primary, .button--secondary",
+    ".header__link, .button--primary, .button--secondary, .cta__button",
   );
+
   smoothLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
@@ -62,32 +85,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ============ 4. FAQ Accordion (Надежное закрытие других спойлеров) ============== */
+  /* ==========================================================================
+       4. FAQ ACCORDION
+       ========================================================================== */
   const faqSummaries = document.querySelectorAll(".faq__summary");
 
   faqSummaries.forEach((summary) => {
-    summary.addEventListener("click", (e) => {
+    summary.addEventListener("click", () => {
       const currentDetails = summary.parentElement;
-      // Если собираемся отрыть этот споилер
       if (!currentDetails.open) {
         document.querySelectorAll(".faq__details").forEach((details) => {
           if (details !== currentDetails) {
-            details.open = false; // Закрываем все остальное
+            details.open = false;
           }
         });
       }
     });
   });
 
-  /* ======= 5. TimeLine Item Delay =========*/
+  /* ==========================================================================
+       5. TIMELINE ITEMS DELAY
+       ========================================================================== */
   const timelineItems = document.querySelectorAll(".timeline__item");
   timelineItems.forEach((item, index) => {
-    item.style.transitionDelay = `${index * 0.3}s`; //0.3s комфортнее
+    item.style.transitionDelay = `${index * 0.3}s`;
   });
 
-  /* ========== 6. Scroll Reveal (Плавное появление секции) =================== */
-  let numbersAnimated = false; // флаг, чтобы цифры крутились 1 раз
-
+  /* ==========================================================================
+       6. SCROLL REVEAL
+       ========================================================================== */
   const revealSections = () => {
     const sections = document.querySelectorAll(".reveal");
 
@@ -98,11 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (elementTop < windowHeight - elementVisible) {
         section.classList.add("reveal--active");
-        // Интеграция: если активировалась секция , запускаем цифры
-        if (section.classList.contains("about") && !numbersAnimated) {
-          animateNumbers();
-          numbersAnimated = true;
-        }
       }
     });
   };
@@ -110,8 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", revealSections);
   revealSections();
 
-  /* ============ 7. Animate Numbers (бегущие цифры - исправлено время) ============== */
-  function animateNumbers() {
+  /* ==========================================================================
+       7. ANIMATE NUMBERS (Время изменено на оптимальные 2 секунды)
+       ========================================================================== */
+  const animateNumbers = () => {
     const stats = document.querySelectorAll(".stat-item__number");
 
     stats.forEach((counter) => {
@@ -121,18 +144,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const target = parseInt(targetAttr.replace(/\D/g, ""), 10);
       if (isNaN(target)) return;
 
-      const duration = 2500; // cекунды появления проектов
+      const duration = 2000; // 2000мс = 2 секунды (плавная комфортная анимация)
       const frameRate = 1000 / 60;
       const totalFrames = Math.round(duration / frameRate);
-      let currenFrame = 0;
+      let currentFrame = 0;
 
       const updateCount = () => {
-        currenFrame++;
-        const progress = currenFrame / totalFrames;
+        currentFrame++;
+        const progress = currentFrame / totalFrames;
         const easeProgress = progress * (2 - progress);
         const currentCount = Math.ceil(easeProgress * target);
 
-        if (currenFrame < totalFrames) {
+        if (currentFrame < totalFrames) {
           counter.innerText = currentCount;
           setTimeout(updateCount, frameRate);
         } else {
@@ -142,7 +165,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
       updateCount();
     });
-  }
+  };
 
-  /* ============  ============*/
+  /* ==========================================================================
+       8. INTERSECTION OBSERVER FOR STATS
+       ========================================================================== */
+  const statsSection = document.querySelector(".about__stats");
+
+  if (statsSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          animateNumbers();
+          observer.unobserve(statsSection);
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(statsSection);
+  }
+  /* ================  ========================== */
 });

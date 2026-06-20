@@ -1,15 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Silvestrov Volodymyr</title>
+    <title>portfolio</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -27,48 +24,54 @@
           <i class="fa-solid fa-bars"></i><span></span>
         </button>
         <ul class="header__menu">
-          <li><a href="#projects" class="header__link">Проекты</a></li>
+          <li><a href="#stack" class="header__link">Стек</a></li>
           <li><a href="#skills" class="header__link">Навыки</a></li>
-          <li><a href="#cta" class="header__link">Создать</a></li>
+          <li><a href="#services" class="header__link">Услуги</a></li>
           <li><a href="#faq" class="header__link">FAQ</a></li>
+          <li><a href="#projects" class="header__link">Работы</a></li>
           <li><a href="#testimonials" class="header__link">Отзывы</a></li>
         </ul>
       </nav>
     </header>
 
-    <section class="hero" id="hero">
+    <section id="hero" class="hero">
       <div class="hero__container">
         <div class="status-badge">
           <span class="status-badge__dot"></span>
           <span class="status-badge__text">Доступен для новых проектов</span>
         </div>
-
         <h1 class="hero__title">
           Привет, я <span class="hero__name">Silvestrov Volodymyr</span>
         </h1>
         <p class="hero__subtitle">
           Создаю современные сайты и мобильные приложения.
         </p>
+        
         <div class="hero__actions">
           <a
             href="https://wa.me/380930800145"
             class="button button--primary"
             target="_blank"
+            rel="noopener noreferrer"
             title="WhatsApp"
-            >WhatsApp</a
           >
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
           <a
             href="https://www.facebook.com/profile.php?id=100021775414698"
-            class="button button--primary"
+            class="button button--secondary"
             target="_blank"
+            rel="noopener noreferrer"
             title="Facebook"
-            >Facebook</a
           >
+            <i class="fa-brands fa-facebook"></i> Facebook
+          </a>
         </div>
+      </div>
       </div>
     </section>
 
-    <section class="stack-details reveal" id="stack">
+    <section id="stack" class="stack-details reveal">
       <div class="stack-details__container">
         <h2 class="stack-details__title">Мой стек</h2>
         <div class="stack-card">
@@ -123,29 +126,23 @@
         <h2 class="services__title">Услуги</h2>
         <div class="services__grid">
           <div class="service-item">
-            <div class="service-item__icon">
-              <i class="fa-solid fa-earth-americas"></i>
-            </div>
+            <div class="service-item__icon">🌐</div>
             <h3 class="service-item__name">Веб-разработка</h3>
             <p class="service-item__text">
               Создание адаптивных лендингов, сайтов-визиток и корпоративных
-              порталов на современных технологиях.
+              порталов.
             </p>
           </div>
           <div class="service-item">
-            <div class="service-item__icon">
-              <i class="fa-solid fa-mobile-screen-button"></i>
-            </div>
+            <div class="service-item__icon">📱</div>
             <h3 class="service-item__name">Мобильные приложения</h3>
             <p class="service-item__text">
               Разработка интерфейсов и кроссплатформенных приложений (MVP) для
-              iOS и Android.
+              Android.
             </p>
           </div>
           <div class="service-item">
-            <div class="service-item__icon">
-              <i class="fa-solid fa-palette"></i>
-            </div>
+            <div class="service-item__icon">🎨</div>
             <h3 class="service-item__name">UI/UX Дизайн</h3>
             <p class="service-item__text">
               Проектирование удобных, интуитивно понятных и визуально
@@ -175,7 +172,7 @@
             </summary>
             <p class="faq__text">
               Да, я верстаю пиксель-в-пиксель, соблюдая все отступы и шрифты из
-              вашего макета.
+              макета.
             </p>
           </details>
         </div>
@@ -190,7 +187,7 @@
             <img
               src="img/strouka.jpg"
               class="project-card__image"
-              alt="Строительство"
+              alt="строительство"
             />
             <div class="project-card__content">
               <h3 class="project-card__title">Строительство портфолио</h3>
@@ -207,14 +204,10 @@
                 <a
                   href="https://silvestrovvova.github.io/Landing-/8-card-strouka/index.html"
                   target="_blank"
-                  class="project-card__link project-card__link--demo"
+                  class="project-card__link"
                   >Демо</a
                 >
-                <a
-                  href="#"
-                  class="project-card__link project-card__link--github"
-                  >GitHub</a
-                >
+                <a href="#" class="project-card__link">GitHub</a>
               </div>
             </div>
           </article>
@@ -223,15 +216,15 @@
             <img
               src="img/constructor.webp"
               class="project-card__image"
-              alt="Конструктор"
+              alt="конструктор"
             />
             <div class="project-card__content">
               <h3 class="project-card__title">Конструктор лего</h3>
               <p class="project-card__description">
-                Интерфейс для конструктор лего с интуитивным управлением.
+                Интерфейс для конструктора лего с интуитивным управлением.
               </p>
               <div class="project-card__tech">
-                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">React Native</span>
                 <span class="tech-tag">API</span>
                 <span class="tech-tag">UX/UI</span>
               </div>
@@ -239,14 +232,10 @@
                 <a
                   href="https://silvestrovvova.github.io/Landing-/6-card-konstructor2/index.html"
                   target="_blank"
-                  class="project-card__link project-card__link--demo"
+                  class="project-card__link"
                   >Демо</a
                 >
-                <a
-                  href="#"
-                  class="project-card__link project-card__link--github"
-                  >GitHub</a
-                >
+                <a href="#" class="project-card__link">GitHub</a>
               </div>
             </div>
           </article>
@@ -259,10 +248,10 @@
         <h2 class="testimonials__title">Отзывы клиентов</h2>
         <div class="testimonials__grid">
           <blockquote class="testimonial-card">
-            <div class="testimonial-card__quote">"</div>
+            <div class="testimonial-card__quote">“</div>
             <p class="testimonial-card__text">
               Отличная работа! Владимир сверстал лендинг пиксель-в-пиксель.
-              Очень внимателен к деталям и соблюдает сроки.
+              Очень внимателен к деталям.
             </p>
             <div class="testimonial-card__client">
               <img
@@ -278,19 +267,19 @@
           </blockquote>
 
           <blockquote class="testimonial-card">
-            <div class="testimonial-card__quote">"</div>
+            <div class="testimonial-card__quote">“</div>
             <p class="testimonial-card__text">
-              Дизайн Интерфейса, который предложил Владимир, просто пушка.
-              Удобно, современно и полностью отвечает нашим задачам.
+              Дизайн интерфейса, который предложил Владимир, просто пушка.
+              Удобно и современно.
             </p>
             <div class="testimonial-card__client">
               <img
-                src="https://i.pravatar.cc/150?u=Olga"
+                src="https://i.pravatar.cc/150?u=olga"
                 alt="Клиент"
                 class="testimonial-card__avatar"
               />
               <div class="testimonial-card__meta">
-                <span class="testimonial-card__name">Ольга Петровна</span>
+                <span class="testimonial-card__name">Ольга Петрова</span>
                 <span class="testimonial-card__company">Founder UXLab</span>
               </div>
             </div>
@@ -299,21 +288,20 @@
       </div>
     </section>
 
-    <section class="timeline reveal" id="timeline">
+    <section id="timeline" class="timeline">
       <div class="timeline__container">
         <h2 class="timeline__title">Путь разработчика</h2>
-        <div class="timeline__item">
+        <div class="timeline__item reveal">
           <div class="timeline__date">2026</div>
           <div class="timeline__content">
             <h3 class="timeline__name">Frontend Developer</h3>
             <p class="timeline__text">
-              Работа над крупными проектами, внедрение ВЕМ и современных
-              фреймворков.
+              Работа над крупными проектами, внедрение BEM и современных
+              анимаций.
             </p>
           </div>
         </div>
-
-        <div class="timeline__item">
+        <div class="timeline__item reveal">
           <div class="timeline__date">2025</div>
           <div class="timeline__content">
             <h3 class="timeline__name">Обучение и практика</h3>
@@ -337,7 +325,6 @@
           <a href="mailto:your-email@example.com" class="cta__button"
             >Начать проект</a
           >
-
           <div class="cta__socials socials">
             <a href="#" class="socials__link">Telegram</a>
             <a href="#" class="socials__link">LinkedIn</a>
@@ -350,13 +337,23 @@
     <section class="stack reveal">
       <div class="stack__container">
         <h2 class="stack__title">Инструменты</h2>
-        <div class="stack-track__content">
-          <div class="stack__item">VS Code</div>
-          <div class="stack__item">Figma</div>
-          <div class="stack__item">GitHub</div>
-          <div class="stack__item">Firebase</div>
-          <div class="stack__item">Terminal</div>
-          <div class="stack__item">Android</div>
+        <div class="stack-track">
+          <div class="stack-track__content">
+            <div class="stack__item">VS Code</div>
+            <div class="stack__item">Figma</div>
+            <div class="stack__item">GitHub</div>
+            <div class="stack__item">Firebase</div>
+            <div class="stack__item">Terminal</div>
+            <div class="stack__item">Android</div>
+          </div>
+          <div class="stack-track__content">
+            <div class="stack__item">VS Code</div>
+            <div class="stack__item">Figma</div>
+            <div class="stack__item">GitHub</div>
+            <div class="stack__item">Firebase</div>
+            <div class="stack__item">Terminal</div>
+            <div class="stack__item">Android</div>
+          </div>
         </div>
       </div>
     </section>

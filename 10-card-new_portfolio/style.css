@@ -1,6 +1,4 @@
-/*===============================================================================
-======================== Переменные и обнуление ================================
-===============================================================================*/
+/* 1. ПЕРЕМЕННЫЕ И ОБНУЛЕНИЕ */
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
@@ -10,21 +8,42 @@
   --text-dim: #94a3b8;
   --transition: all 0.3s ease;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
 }
-/*===============================================================================
-======================== Стилизуем обычные ссылки ================================
-===============================================================================*/
+
+/* ИНДИКАТОР ЧТЕНИЯ СТРАНИЦЫ */
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  z-index: 10000;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -34,23 +53,21 @@ a:hover {
   filter: brightness(1.2);
   text-decoration: underline;
 }
-/*===============================================================================
-================================ Header =========================================
-===============================================================================*/
+
+/* HEADER */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999;
-  padding: 20px 0;
+  padding: 10px 0;
   background: rgba(15, 23, 42, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   transition: transform 0.4s ease;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-/*Класс скрытия шапки (добовляеться через JS*/
 .header--hidden {
   transform: translateY(-100%);
 }
@@ -76,7 +93,6 @@ a:hover {
   width: auto;
   height: auto;
   background: transparent;
-  backdrop-filter: none;
   padding: 0;
 }
 .header__link {
@@ -89,7 +105,6 @@ a:hover {
 .header__link:hover {
   color: var(--primary-color);
 }
-/* Стили для самои кнопки с иконкои Font awesome */
 .header__burger {
   background: transparent;
   border: none;
@@ -98,10 +113,14 @@ a:hover {
   cursor: pointer;
   z-index: 10000;
   display: block;
+  transition: var(--transition);
 }
-/*===============================================================================
-============================= HERO SECTION  ====================================
-===============================================================================*/
+.header__burger:active {
+  transform: scale(0.9);
+  color: var(--primary-color);
+}
+
+/* HERO SECTION */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -159,7 +178,8 @@ a:hover {
   max-width: 600px;
   margin: 0 auto 2.5rem;
 }
-/*============== КНОПКИ =================*/
+
+/* КНОПКИ */
 .button {
   padding: 12px 32px;
   border-radius: 12px;
@@ -167,8 +187,11 @@ a:hover {
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
-  display: inline-block;
-  margin: 0 10px;
+  /* ====== Новые своиства для выравнивания иконки и текста ======= */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   text-align: center;
 }
 .button--primary {
@@ -179,7 +202,7 @@ a:hover {
 }
 .button--primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.9);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
 }
 .button--secondary {
   background: transparent;
@@ -188,11 +211,9 @@ a:hover {
 }
 .button--secondary:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: white;
 }
-/*===============================================================================
-============================= STACK DETAILS ====================================
-===============================================================================*/
+
+/* STACK DETAILS */
 .stack-details {
   padding: 100px 20px;
 }
@@ -204,7 +225,7 @@ a:hover {
 }
 .stack-details__container {
   display: flex;
-  flex-direction: column; /*Карточки друг под другом в мобилках*/
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -212,16 +233,9 @@ a:hover {
 }
 .stack-card {
   height: 200px;
-  perspective: 1000px; /* Эффект 3D*/
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 75%;
-  gap: 20px;
-}
-.stack-card:hover .stack-card__inner {
-  transform: rotateY(180deg);
+  perspective: 1000px;
+  width: 100%;
+  max-width: 400px;
 }
 .stack-card__inner {
   position: relative;
@@ -230,6 +244,9 @@ a:hover {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+}
+.stack-card:hover .stack-card__inner {
+  transform: rotateY(180deg);
 }
 .stack-card__front,
 .stack-card__back {
@@ -257,15 +274,14 @@ a:hover {
   transform: rotateY(180deg);
   font-size: 1.1rem;
 }
-/*===============================================================================
-======================== ОФОРМЛЕНИЕ СТАТИСТИКИ ==================================
-===============================================================================*/
+
+/* СТАТИСТИКА */
 .about__stats {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 30px;
-  flex-wrap: wrap; /* чтобы на маленьких экранах переносились */
+  flex-wrap: wrap;
   margin-top: 2rem;
 }
 .stat-item {
@@ -287,12 +303,10 @@ a:hover {
   color: var(--text-dim);
   margin-top: 8px;
 }
-/*===============================================================================
-======================== SKILLS (ТЕХНОЛОГИИ) ====================================
-===============================================================================*/
+
+/* SKILLS */
 .skills {
   padding: 80px 20px;
-  background-color: var(--bg-dark);
 }
 .skills__container {
   max-width: 1200px;
@@ -323,16 +337,15 @@ a:hover {
   transform: translateY(-5px);
   background: rgba(52, 152, 219, 0.1);
 }
-/*===============================================================================
-=========================== SERVICES (УСЛУГИ) ==================================
-===============================================================================*/
+
+/* SERVICES */
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 3rem auto;
-  justify-items: center; /* Центрируем карточки в сетке*/
+  justify-items: center;
   width: 100%;
 }
 .services__container {
@@ -341,7 +354,6 @@ a:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 20px;
 }
 .services__title {
   text-align: center;
@@ -369,7 +381,6 @@ a:hover {
 .service-item__icon {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  display: block;
 }
 .service-item__name {
   margin-bottom: 1rem;
@@ -379,9 +390,8 @@ a:hover {
   color: var(--text-dim);
   font-size: 0.95rem;
 }
-/*===============================================================================
-============================ FAQ (Аккордион)  ===================================
-===============================================================================*/
+
+/* FAQ */
 .faq {
   padding: 60px 20px;
 }
@@ -414,7 +424,7 @@ a:hover {
   align-items: center;
 }
 .faq__summary::after {
-  content: "}";
+  content: "→";
   transition: var(--transition);
 }
 .faq__details[open] .faq__summary::after {
@@ -427,9 +437,8 @@ a:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 15px;
 }
-/*===============================================================================
-================================== PROJECTS =====================================
-===============================================================================*/
+
+/* PROJECTS */
 .projects {
   padding: 100px 20px;
 }
@@ -453,7 +462,7 @@ a:hover {
   transition: var(--transition);
   width: 100%;
   max-width: 400px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
 }
 .project-card:hover {
   transform: translateY(-10px);
@@ -486,21 +495,81 @@ a:hover {
   color: var(--text-dim);
 }
 .project-card__link {
-  text-decoration: none;
-  color: var(--primary-color);
   font-weight: 600;
   font-size: 0.9rem;
   margin-right: 20px;
 }
-/*===============================================================================
-======================== TESTIMONIALS (Отзывы) ==================================
-===============================================================================*/
+
+/* TIMELINE */
+.timeline {
+  padding: 40px 20px;
+}
+.timeline__container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+.timeline__container::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-color), transparent);
+}
+.timeline__title {
+  padding: 15px 30px;
+  text-align: center;
+}
+.timeline__item {
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 50px;
+}
+.timeline__date {
+  background: var(--primary-color);
+  color: white;
+  padding: 4px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  background: var(--bg-dark);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 10px var(--primary-color);
+  transition: var(--transition);
+}
+.timeline__item:hover::before {
+  transform: scale(1.4);
+  background: var(--primary-color);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+.timeline__item:hover .timeline__date {
+  transform: translateY(-2px);
+}
+
+/* TESTIMONIALS */
 .testimonials {
   padding: 100px 20px;
 }
 .testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -552,64 +621,8 @@ a:hover {
   color: var(--text-dim);
   font-size: 0.8rem;
 }
-/*===============================================================================
-=========================== TIMELINE (История) ==================================
-===============================================================================*/
-.timeline {
-  padding: 40px 20px;
-  position: relative;
-}
-.timeline__container {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-}
-.timeline__container::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--primary-color), transparent);
-}
-.timeline__title {
-  padding: 15px 30px;
-}
-.timeline__item {
-  position: relative;
-  padding-left: 45px;
-  margin-bottom: 50px;
-  text-align: left;
-}
-.timeline__date {
-  background: var(--primary-color);
-  color: white;
-  padding: 4px 15px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-/* Точка на линии*/
-.timeline__item::before {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  width: 10px;
-  height: 10px;
-  background: var(--bg-dark);
-  border: 2px solid var(--primary-color);
-  border-radius: 50%;
-  z-index: 1;
-  box-shadow: 0 0 10px var(--primary-color);
-}
 
-/*===============================================================================
-============================ STACK TRACK ========================================
-===============================================================================*/
+/* BEGUSHAYA STROKA */
 .stack-track {
   background: rgba(255, 255, 255, 0.02);
   padding: 30px 0;
@@ -631,7 +644,7 @@ a:hover {
 }
 .stack-track__content {
   display: inline-block;
-  animation: scroll 20s linear infinite;
+  animation: infinite-scroll 20s linear infinite;
 }
 .stack__item {
   display: inline-block;
@@ -646,7 +659,7 @@ a:hover {
   color: var(--primary-color);
   opacity: 1;
 }
-@keyframes scroll {
+@keyframes infinite-scroll {
   from {
     transform: translateX(0);
   }
@@ -654,9 +667,8 @@ a:hover {
     transform: translateX(-50%);
   }
 }
-/*===============================================================================
-======================== CTA (Призыв к действию) ================================
-===============================================================================*/
+
+/* CTA */
 .cta {
   padding: 100px 20px;
   text-align: center;
@@ -681,9 +693,8 @@ a:hover {
   margin-bottom: 2rem;
   color: var(--text-dim);
 }
-/*===============================================================================
-=============================== FOOTER =========================================
-===============================================================================*/
+
+/* FOOTER */
 .footer {
   padding: 40px 20px;
   text-align: center;
@@ -693,62 +704,87 @@ a:hover {
   font-size: 0.85rem;
   color: var(--text-dim);
 }
-/*===============================================================================
-=============================== @(media) ========================================
-===============================================================================*/
-/* Адаптив: правила для экранов меньше 767 px */
-@media (max-width: 767px) {
-  .header__menu {
-    position: fixed;
-    top: 0;
-    right: -100%; /* прячем меню направо за краи экрана */
-    width: 70%; /* Ширина выезжающеи шторки */
-    height: 100vh;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 100px 30px;
-    transition: right 0.4s ease;
-    z-index: 9999;
-  }
-  /* Класс которыи будет двигать экеран */
-  .header__menu--active {
-    right: 0; /* Выстраиваем ссылки вертикально, чтобы не слипались */
-  }
-}
-/* Адаптив: правила для больших экранов от 767px */
-@media (min-width: 768px) {
-  .header__burger {
-    display: none;
-  }
-  .services__grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 колонки для планшета */
-  }
-  .about__stats {
-    gap: 50px;
-  }
-  .hero__title {
-    font-size: 3.5rem; /* Увеличиваем заголовок на больших экранах */
-  }
-}
-/* Настроики для больших мониторов (шире 1024px) */
-@media (min-width: 1024px) {
-  .services__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  section {
-    padding: 100px 10%;
-  }
-}
-/*===============================================================================
-=============================== Начальное состояние для анимации ========================================
-===============================================================================*/
+
+/* REVEAL SYSTEM */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
 }
-/* Состояние, когда секция видна */
 .reveal--active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* =========================================== MEDIA QUERIES =========================================== */
+
+@media (max-width: 767px) {
+  .header__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(15px);
+    padding: 120px 40px;
+    transition: right 0.4s ease;
+    z-index: 9999;
+
+    /* Исправление: Меню становится вертикальным списком */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  .header__menu--active {
+    right: 0;
+  }
+  .header__link {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+  }
+  .project-card__image {
+    height: 220px;
+  }
+  .project-card__content {
+    padding: 20px;
+  }
+  .project-card:hover {
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .header__burger {
+    display: none;
+  }
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about__stats {
+    gap: 50px;
+  }
+  .hero__title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  section {
+    padding: 100px 10% !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .hero__actions {
+    flex-direction: row;
+    max-width: none;
+    justify-content: center;
+  }
 }
