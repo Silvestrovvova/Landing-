@@ -47,6 +47,7 @@ body {
 .contact-btn {
   text-decoration: none;
   text-align: center;
+  height: bold;
   padding: 15px;
   border-radius: 12px;
   font-weight: 800;
