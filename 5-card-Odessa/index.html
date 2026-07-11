@@ -15,171 +15,252 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="night-theme">
-    <header>
-      <h1>Odessa <span class="accent">Digital</span></h1>
-      <button id="retro-btn" style="font-size: 0.7rem; padding: 5px 10px">
+  <body class="page page_theme_night">
+    <header class="header">
+      <h1 class="header__title">
+        Odessa <span class="header__accent">Digital</span>
+      </h1>
+      <button id="retro-btn" class="header__btn-retro">
         Включить 19-й век
       </button>
-      <nav>
-        <ul>
-          <li><a href="#history">История</a></li>
-          <li><a href="#places">Места</a></li>
-          <li><a href="#stats">Статистика</a></li>
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li class="header__menu-item">
+            <a href="#history" class="header__menu-link">История</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="#places" class="header__menu-link">Места</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="#stats" class="header__menu-link">Статистика</a>
+          </li>
         </ul>
       </nav>
     </header>
 
-    <main>
-      <section id="history">
-        <div class="welcome-block">
-          <h2><i class="fa-solid fa-anchor"></i>Одесса - Жемчужина у моря</h2>
-          <p class="lead-text">
+    <main class="main-content">
+      <section id="history" class="main-content__section">
+        <div class="welcome">
+          <h2 class="welcome__title">
+            <i class="fa-solid fa-anchor"></i>Одесса - Жемчужина у моря
+          </h2>
+          <p class="welcome__lead-text">
             Основанная в 1794 году, Одесса быстро превратилась из маленького
             поселения в крупнейший порт и культурный центр Европы.
           </p>
         </div>
-        <div class="features-grid">
-          <div class="feature-item">
-            <i class="fa-solid fa-ship"></i>
-            <h4>Морские ворота</h4>
-            <p>Одесский порт - один из крупнейших в бассейне Черного моря.</p>
+
+        <div class="features">
+          <div class="features__item">
+            <i class="fa-solid fa-ship features__icon"></i>
+            <h4 class="features__title">Морские ворота</h4>
+            <p class="features__text">
+              Одесский порт - один из крупнейших в бассейне Черного моря.
+            </p>
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-masks-theater"></i>
-            <h4>Культура</h4>
-            <p>Наш Оперный театр входит в топ самых красивых зданий мира.</p>
+          <div class="features__item">
+            <i class="fa-solid fa-masks-theater features__icon"></i>
+            <h4 class="features__title">Культура</h4>
+            <p class="features__text">
+              Наш Оперный театр входит в топ самых красивых зданий мира.
+            </p>
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-utensils"></i>
-            <h4>Кухня</h4>
-            <p>Сплав десятков культур создал уникальную Одесскую гастрономию</p>
+          <div class="features__item">
+            <i class="fa-solid fa-utensils features__icon"></i>
+            <h4 class="features__title">Кухня</h4>
+            <p class="features__text">
+              Сплав десятков культур создал уникальную Одесскую гастрономию
+            </p>
           </div>
         </div>
-        <div class="accordion-container">
-          <h3>Как говорят в Одессе?</h3>
-          <div class="acc-item">
-            <div class="acc-header">
-              "Я имею вам сказать ..."<i class="fa-solid fa-chevron-down"></i>
+
+        <div class="accordion">
+          <h3 class="accordion__main-title">Как говорят в Одессе?</h3>
+
+          <div class="accordion__item">
+            <div class="accordion__header">
+              "Я имею вам сказать ..."<i
+                class="fa-solid fa-chevron-down accordion__arrow"
+              ></i>
             </div>
-            <div class="acc-content">
-              <p>
+            <div class="accordion__content">
+              <p class="accordion__text">
                 Это значит, что у человека есть важная новость, и он не
                 успокоится, пока ее не расскажет.
               </p>
             </div>
           </div>
-          <div class="acc-item">
-            <div class="acc-header">
-              "Не крути мне мои мозги!"<i class="fa-solid fa-chevron-down"></i>
+
+          <div class="accordion__item">
+            <div class="accordion__header">
+              "Не крути мне мои мозги!"<i
+                class="fa-solid fa-chevron-down accordion__arrow"
+              ></i>
+            </div>
+            <div class="accordion__content">
+              <p class="accordion__text">
+                Выражение используется, когда кто-то пытается запутать или
+                обмануть собеседника.
+              </p>
             </div>
           </div>
         </div>
+
         <div class="did-you-know">
-          <h3><i class="fa-solid fa-lightbulb"></i>А вы знали?</h3>
-          <p id="fa-text">
-            Нажмите на кнопку ниже, чтобы узнать интерестный факт об Одессе!
+          <h3 class="did-you-know__title">
+            <i class="fa-solid fa-lightbulb"></i>А вы знали?
+          </h3>
+          <p id="fa-text" class="did-you-know__text">
+            Нажмите на кнопку ниже, чтобы узнать интересный факт об Одессе!
           </p>
         </div>
-        <button id="vibe-btn">Узнать факт!</button>
-        <div id="vibe-message"></div>
+        <button id="vibe-btn" class="btn-fact">Узнать факт!</button>
+        <div id="vibe-message" class="fact-message"></div>
+
         <div class="questbook">
-          <h3><i class="fa-solid fa-pen-nib"></i>Оставь отзыв о городе</h3>
-          <div class="questbook-form">
-            <input type="text" id="quest-name" placeholder="Ваше имя" />
+          <h3 class="questbook__title">
+            <i class="fa-solid fa-pen-nib"></i>Оставь отзыв о городе
+          </h3>
+          <div class="questbook__form">
+            <input
+              type="text"
+              id="quest-name"
+              class="questbook__input"
+              placeholder="Ваше имя"
+            />
             <textarea
               id="quest-msg"
+              class="questbook__textarea"
               placeholder="Ваши впечатления ..."
             ></textarea>
-            <button id="send-msg">Отправить</button>
+            <button id="send-msg" class="questbook__btn">Отправить</button>
           </div>
-          <div id="reviews-container"></div>
+          <div id="reviews-container" class="questbook__reviews"></div>
         </div>
       </section>
 
-      <aside id="stats">
+      <aside id="stats" class="main-content__aside">
         <div class="info-card">
-          <h3><i class="fa-solid fa-clock"></i> Время и Локация</h3>
-          <div id="local-time">00:00:00</div>
-          <div id="countdown" style="margin: 10px 0; font-weight: bold"></div>
+          <h3 class="info-card__title">
+            <i class="fa-solid fa-clock"></i> Время и Локация
+          </h3>
+          <div id="local-time" class="info-card__time">00:00:00</div>
+          <div id="countdown" class="info-card__countdown"></div>
 
-          <div class="weather-card">
-            <div class="weather-main">
-              <i id="weather-icon" class="fa-solid fa-cloud-sun"></i>
-              <span id="temp">--°C</span>
+          <div class="weather">
+            <div class="weather__main">
+              <i
+                id="weather-icon"
+                class="fa-solid fa-cloud-sun weather__icon"
+              ></i>
+              <span id="temp" class="weather__temp">--°C</span>
             </div>
-            <p id="weather-desc">Загрузка прогноза...</p>
+            <p id="weather-desc" class="weather__desc">Загрузка прогноза...</p>
           </div>
 
-          <div id="map" style="position: relative;">
-            <div class="map-expand-btn" onclick="openMap()">
+          <div id="map" class="city-map">
+            <div class="city-map__expand-btn" onclick="openMap()">
               <i class="fa-solid fa-expand"></i>
             </div>
           </div>
-          </div>
 
-          <hr />
-          <p>Основан: <strong>1794</strong></p>
+          <hr class="info-card__divider" />
+          <p class="info-card__text">Основан: <strong>1794</strong></p>
         </div>
-        <div class="place-card" onclick="openAlbum(0)">
-          <div class="place-img-container">
-            <img src="img/bulvar.jpg" alt="Одесса Альбом" class="place-img" />
-            <div class="photo-badge">14 фото</div>
-          </div>
-          <div class="place-info">
-            <h3>Фотоальбом Одессы</h3>
-            <p>Виды города, архитектура и знаковые места.</p>
+
+        <div id="places" class="places-grid">
+          <div class="place-card" onclick="openAlbum(0)">
+            <div class="place-card__img-container">
+              <img
+                src="img/bulvar.jpg"
+                alt="Одесса Альбом"
+                class="place-card__img"
+                loading="lazy"
+              />
+              <div class="place-card__badge">14 фото</div>
+            </div>
+            <div class="place-card__info">
+              <h3 class="place-card__title">Фотоальбом Одессы</h3>
+              <p class="place-card__text">
+                Виды города, архитектура и знаковые места.
+              </p>
+            </div>
           </div>
         </div>
       </aside>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Odessa <span class="accent">Digital</span></h4>
-          <p>Твой интерактивный гид по самому колоритному городу мира.</p>
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4 class="footer__title">
+            Odessa <span class="footer__accent">Digital</span>
+          </h4>
+          <p class="footer__text">
+            Твой интерактивный гид по самому колоритному городу мира.
+          </p>
         </div>
-        <div class="footer-section">
-          <h4>Навигация</h4>
-          <ul>
-            <li><a href="#history">История</a></li>
-            <li><a href="#places">Места</a></li>
-            <li><a href="#stats">Статистика</a></li>
+        <div class="footer__section">
+          <h4 class="footer__title">Навигация</h4>
+          <ul class="footer__menu">
+            <li class="footer__item">
+              <a href="#history" class="footer__link">История</a>
+            </li>
+            <li class="footer__item">
+              <a href="#places" class="footer__link">Места</a>
+            </li>
+            <li class="footer__item">
+              <a href="#stats" class="footer__link">Статистика</a>
+            </li>
           </ul>
         </div>
-        <div class="footer-section">
-          <h4>Связь с автором</h4>
-          <div class="social-links">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-telegram"></i></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
+        <div class="footer__section">
+          <h4 class="footer__title">Связь с автором</h4>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" class="footer__social-link"
+              ><i class="fa-brands fa-telegram"></i
+            ></a>
+            <a href="#" class="footer__social-link"
+              ><i class="fa-brands fa-github"></i
+            ></a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>
-          &copy; 2026 Разработано с любовью к одессе. Автор:
-          <strong>Владимир</strong>
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2026 Разработано с любовью к Одессе. Автор:
+          <strong class="footer__author">Владимир</strong>
         </p>
       </div>
     </footer>
 
-    <div id="myModal" class="modal">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <img class="modal-content" id="img01" />
-      <button class="prev" onclick="changePhoto(-1)">&#10094;</button>
-      <button class="next" onclick="changePhoto(1)">&#10095;</button>
-      <div class="photo-counter"></div>
+    <div id="myModal" class="modal-gallery">
+      <span class="modal-gallery__close" onclick="closeModal()">&times;</span>
+      <img class="modal-gallery__content" id="img01" alt="Просмотр фото" />
+      <button
+        class="modal-gallery__btn modal-gallery__btn_prev"
+        onclick="changePhoto(-1)"
+      >
+        &#10094;
+      </button>
+      <button
+        class="modal-gallery__btn modal-gallery__btn_next"
+        onclick="changePhoto(1)"
+      >
+        &#10095;
+      </button>
+      <div class="modal-gallery__counter"></div>
     </div>
 
-    <div id="mapModal" class="modal">
-      <div class="modal-map-container">
-        <span class="close" onclick="closeMap()">&times;</span>
-        <div id="map-large"></div>
+    <div id="mapModal" class="modal-map">
+      <div class="modal-map__container">
+        <span class="modal-map__close" onclick="closeMap()">&times;</span>
+        <div id="map-large" class="modal-map__canvas"></div>
       </div>
     </div>
 
