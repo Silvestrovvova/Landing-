@@ -857,6 +857,201 @@ a {
   color: var(--color-accent);
 }
 /*============================================================
+=========================   @media ( 768px)   ====================    
+==============================================================*/
+@media (max-width: 768px) {
+  /* ==================== button =========================== */
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    font-size: 20px;
+    padding: 29px 46px;
+  }
+  
+  /* ==================== Header =========================== */
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+  }
+  .header__burger {
+    display: flex;
+  }
+  .header__logo {
+    font-size: 36px;
+  }
+  .header__nav-wrapper {
+    display: none;
+  }
+  /* ==================== Hero =========================== */
+  .hero {
+    padding: 60px 0;
+    overflow: hidden;
+  }
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__content {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .hero__subtitle {
+    padding: 50px 0;
+    max-width: 340px;
+  }
+  .hero__title {
+    font-size: 40px;
+    width: auto;
+    height: auto;
+  }
+  .hero__image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transform: none;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+  .hero__image {
+    display: block;
+    width: 100%;
+    max-width: 373px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .btn--start {
+    padding: 29px 38px;
+  }
+  /* ==================== Services__grid =========================== */
+  .services__grid {
+    grid-template-columns: 1fr; /* 1 columns*/
+  }
+  .services__title {
+    font-size: 24px;
+  }
+  .card {
+    width: 100%;
+    max-width: 352px;
+    padding: 24px 16px; /* Уменьшаем отступы */
+    min-height: 208px;
+    box-sizing: border-box;
+  }
+  .card__title {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .card__text {
+    width: 100%; /* вместо width: 488px */
+    font-size: 16px;
+  }
+  /* ==================== portfolio =========================== */
+  .portfolio__title {
+    font-size: 36px;
+  }
+  .portfolio__note {
+    width: 100%;
+    font-size: 24px;
+    height: auto;
+  }
+  /* ==================== About =========================== */
+  .about__features {
+    gap: 50px;
+  }
+  .about__tags {
+    gap: 20px;
+  }
+  .about__tag {
+    width: 175px;
+  }
+  .about__main {
+    display: flex;
+    flex-direction: column;
+  }
+  .about__title {
+    font-size: 36px;
+    order: 1;
+  }
+  .about__photo-wrapper {
+    order: 2;
+    margin: 24px auto;
+  }
+  .about__paragraph {
+    order: 3;
+  }
+  .about__content {
+    display: contents;  
+  }
+  /* ==================== pricing =========================== */
+  .pricing__title {
+    font-size: 36px;
+  }
+  /* ==================== workflow =========================== */
+  .workflow__title {
+    font-size: 36px;
+  } 
+  .workflow__subtitle {
+    font-size: 18px;
+    line-height: 1;
+  }
+  .workflow__scroll-top {
+    padding: 50px 0;
+  }
+  /* ==================== stepcard =========================== */
+  .step-card {
+    width: 100%;
+    max-width: 352px;
+    box-sizing: border-box;
+  }
+  /* ==================== contacts =========================== */
+  .contacts {
+    height: 1140px;
+    width: 100%;
+    height: auto;
+  }
+  .contacts__card {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+    max-width: 412px;
+    padding: 80px 31px;
+  
+  }
+  .contacts__title {
+    font-size: 30px;
+  }
+  /* ==================== form =========================== */
+  .form {
+    gap: 32px;
+  }
+ 
+  .form__input, .form__select, .form__textarea {
+    font-size: 16px;
+    max-width: 330px;
+  }
+  /* ==================== Подзаголовки и Заголовки =========================== */
+  .services__subtitle, .portfolio__subtitle, .about__subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .services, .portfolio, .about, .pricing, .workflow, .contacts {
+    padding: 70px 0;
+  }
+  .services__description, .workflow__description {
+    font-size: 16px;
+    width: 351px;
+  }
+}
+
+
+
+
+/*============================================================
 =========================   @media ( 480px)   ====================    
 ==============================================================*/
 
