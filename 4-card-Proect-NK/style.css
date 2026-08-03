@@ -1,13 +1,17 @@
 /* === 1. ПЕРЕМЕННЫЕ И НАСТРОЙКИ (ROOT) === */
 :root {
   --color-bg-dark: #080808;
-  --color-bg-card: rgba(47,44,44,0.2);
-  --color-bg-input: #1c1e1e;
+/* Accent */
   --color-accent: #e0b66c;
   --color-accent-hover: #EAB749;
+/* border */
   --color-border: #e0b66c;
+/* Text*/
   --color-text-primary: #ffffff;
   --color-text-muted: #b0ada7;
+/* Прочие */
+  --color-bg-input: #1c1e1e;
+  --color-bg-card: rgba(47,44,44,0.2);
 
   /* Переменные шрифтов */
   --font-heading: 'Montserrat', sans-serif;
@@ -35,13 +39,8 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-body);
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  overflow-x: hidden;
+  /*-webkit-font-smoothing: antialiased;  --  Неизвесное */
 }
 
 a {
@@ -53,6 +52,7 @@ a {
   transition: color 0.3s ease;
 }
 
+
 /* === 3. ОГРАНИЧИВАЮЩИЙ КОНТЕЙНЕР === */
 .container {
   max-width: 1200px;
@@ -61,7 +61,9 @@ a {
   width: 100%;
 }
 
-/* === 4. КНОПКИ (UI BLOCK: .btn) === */
+
+
+/* ====================== 4. КНОПКИ (UI BLOCK: .btn) ========================= */
 .btn {
   font-family: var(--font-heading);
   font-weight: 400;
@@ -81,54 +83,61 @@ a {
   border: 1px solid var(--color-accent-hover);
   transition: all 0.3s ease;
 }
-
 .btn:hover {
   background-color: var(--color-accent);
-  color: #000000;
+  color: #FFFFFF;
 }
-
-.btn--primary {
-  font-family: var(--font-accent);
+/*============*/
+.btn--start {
+  background: inherit;
 }
-
-.btn--primary:hover {
-  background-color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-}
-
 .btn--pricing {
   font-family: var(--font-accent);
 }
+.form__btn {
+  font-family: var(--font-accent);
+  align-self: center;
+  margin-top: 47px;
+}
 
 
-/* === 5. ДЕКОРАТИВНЫЕ СВЕЧЕНИЯ (GLOW) === */
-
-/* === 6. ШАПКА (.header) === */
+/* ======================= 5. ШАПКА (.header) ================================ */
 .header {
   padding: 8px 16px;
   width: 100%;
 }
-
 .header__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
+  padding-top: 40px;
 }
-
-.header__nav-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+.header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10;
 }
-
+.header__burger svg {
+  display: block;
+}
 .header__logo {
   font-family: var(--font-logo);
   font-size: 50px;
+  font-weight: 400;
   line-height: 1;
   color: var(--color-accent);
 }
-
+.header__nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
 .header__nav {
   display: flex;
   align-items: center;
@@ -138,59 +147,64 @@ a {
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--color-accent-hover);
-  margin-left: 50px;
-  width: 754px;
-  height: 58px;
-  padding: 8px 31px;
-  gap: 32px;
+  padding: 8px 16px;
+  gap: 50px;
   list-style: none;
 }
-
 .nav-menu__link {
   color: var(--color-text-primary);
-  width: auto;
   padding: 16px 8px;
-  font-size: 24px;
+  font-size: 20px;
   white-space: nowrap;
 }
-
-.nav-menu__link:hover {
-  color: var(--color-accent);
-}
-
+/* =========== Button смена языка  ========================= */
 .header__lang {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   font-family: 'Montserrat',sans-serif;
   font-weight: 400;
   background: transparent;
   border: none;
   padding: 0;
   line-height: 1;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   transition: color 0.3s ease;
 }
-
-.header__lang:hover {
-  color: var(--color-accent);
-}
-
 .header__lang-current {
-  color: var(--color-text-primary);
+  color: var(--color-text-muted);
 }
-
 .header__lang-icon {
   width: 12px;
   height: 16px;
+  color: inherit;
 }
-
-/* === 7. СЕКЦИЯ HERO (.hero) === */
+/* ====================== 7. СЕКЦИЯ HERO (.hero) ===================== */
 .hero {
-  padding: 60px 0;
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden; ------ для свечения */
+  background-color: #0b0b0b;
+  padding: 110px 0;
+}
+.hero__glow {
+  position: absolute;
+  width: 1143px;
+  height: 190px;
+
+  background-color: rgba(176,173,167,0.9);
+  border-radius: 50%;
+  filter: blur(200px);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero__glow--top {
+  top: 66px;
+  left: 270px;
+}
+.hero__glow--bottom {
+  top: 725px;
+  left: 288px;
 }
 
 .hero__container {
@@ -217,7 +231,6 @@ a {
   width: 776px;
   height: 230px;
   text-transform: uppercase;
-  margin-bottom: 24px;
   color: var(--color-accent);
 }
 
@@ -228,9 +241,9 @@ a {
   height: 72px;
   line-height: 1;
   color: var(--color-text-primary);
-  margin-bottom: 50px;
+  margin-bottom: 97px;
 }
-
+/* === hero img === */
 .hero__image-wrapper {
   left: 0;
   bottom: 0;
@@ -239,47 +252,58 @@ a {
   z-index: 1;
   flex-shrink: 0;
 }
-
 .hero__image {
   width: 744px;
   height: 553px;
   display: block;
 }
-
-/* === 8. СЕКЦИЯ SERVICES (.services) === */
+/* ====================== 8. СЕКЦИЯ SERVICES (.services) ================= */
 .services {
-  padding: 80px 0;
+  padding: 120px 0;
   position: relative;
 }
+/* ==========   Подсветка =================  */
+.services__glow,
+.pricing__glow {
+  position: absolute;
+  width: 720px;
+  height: 715px;
+  top: 5%;
+  right: 5%;
 
+  background-color: rgba(169,176,167,0.2);
+  border-radius: 50%;
+  filter: blur(200px);
+  pointer-events: none;
+  z-index: 1;
+}
+/* =============================== */
 .services__subtitle,
 .portfolio__subtitle,
 .about__subtitle,
 .workflow__subtitle {
   font-family: var(--font-heading);
   font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
   color: var(--color-text-muted);
-  margin-bottom: 8px;
 }
-
 .services__title,
 .portfolio__title,
+.about__title,
 .pricing__title,
 .workflow__title {
   font-family: var(--font-heading);
   line-height: 1;
   font-size: 64px;
   font-weight: 400;
-  margin-bottom: 16px;
-  padding: 14px 0;
+  padding: 10px 0;
 }
-
 .services__title--accent,
 .about__title--accent,
 .workflow__title--accent {
   color: var(--color-accent);
 }
-
 .services__description,
 .workflow__description {
   font-family: var(--font-heading);
@@ -290,34 +314,27 @@ a {
 
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 590px));
+  grid-template-columns: repeat(2, minmax(301px, 590px));
   gap: 20px;
   justify-content: center;
 }
 
 .card {
   background-color: var(--color-bg-card);
-  border: 0.5px solid var(--color-border);
+  border: 0.5px solid #E0B66C;
   padding: 45px 51px 51px 51px;
   min-height: 301px;
   box-sizing: border-box;
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
-
-.card:hover {
-  border-color: var(--color-accent);
-  transform: translateY(-4px);
-}
-
 .card__title {
   font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 700;
   line-height: 1;
   color: var(--color-text-primary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
-
 .card__text {
   font-family: var(--font-body);
   font-weight: 400;
@@ -327,90 +344,78 @@ a {
   line-height: 1;
   color: var(--color-text-muted);
 }
-
-/* === 9. СЕКЦИЯ PORTFOLIO (.portfolio) === */
+/* ======================= 9. СЕКЦИЯ PORTFOLIO (.portfolio) ============================ */
 .portfolio {
-  padding: 80px 0;
+  padding: 120px 0;
+  position: relative;
 }
+/* ======================   ====================*/
+.portfolio__glow,
+.about__glow,
+.workflow__glow,
+.contacts__glow {
+  position: absolute;
+  width: 720px;
+  height: 715px;
+  top: 5%;
+  right: 30%;
 
+  background-color: rgba(176,173,167,0.3);
+  border-radius: 50%;
+  filter: blur(200px);
+  pointer-events: none;
+  z-index: 1;
+}
+/* ===================   ======================*/
 .portfolio__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 15px;
   align-items: start;
-  margin-bottom: 40px;
+  margin: 50px 0;
 }
 
 .portfolio__card {
   overflow: hidden;
   background-color: var(--color-bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease, border-color 0.3s ease;
 }
-
-.portfolio__card:hover {
-  border-color: var(--color-accent);
-  transform: translateY(-4px);
-}
-
 .portfolio__card:nth-child(3n + 2) {
   margin-top: 13px;
 }
-
 .portfolio__card:nth-child(3n) {
   margin-top: 27px;
 }
 
-.portfolio__image-wrapper {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 4 / 3;
-  background-color: #1a1a1a;
-}
-
 .portfolio__image {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
 .portfolio__note {
+  padding-top: 30px; 
   width: 752px;
   height: 104px;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-family: var(--font-body);
   font-size: 24px;
   line-height: 1;
   color: var(--color-text-primary);
 }
-
-/* === 10. СЕКЦИЯ ABOUT (.about) === */
+/* ======================= 10. СЕКЦИЯ ABOUT (.about) ============================ */
 .about {
-  padding: 80px 0;
+  padding: 120px 0;
+  position: relative;
 }
-
-.about__title {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: 50px;
-  line-height: 1;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-}
-
 .about__main {
   display: grid;
   grid-template-columns: 1fr 400px;
   gap: 40px;
   align-items: start;
-  margin-bottom: 40px;
 }
 
-.about__author-intro {
-  font-size: 15px;
-  color: var(--color-text-muted);
-  margin-bottom: 16px;
+.about__title {
+  font-size: 50px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
 }
 
 .about__paragraph {
@@ -418,45 +423,24 @@ a {
   font-weight: 400;
   font-size: 24px;
   line-height: 1;
-  color: #a0a0a0;
-  margin-bottom: 16px;
+  color: var(--color-text-muted);
+  margin-bottom: 30px;
 }
-
 .about__paragraph-accent{
-  color: #e0b66c;
+  color: var(--color-accent);
 }
-
+/*======================*/
 .about__photo-wrapper {
-  width: 405px;
-  height: 608px;
-  margin-top: 45px;
-  background-color: var(--color-bg-card);
-  overflow: hidden;
-  border: 1px solid transparent;
-  border-image: linear-gradient(180deg, #666666 0%, #000000 100%);
+  margin-top: 35px;
 }
-
-.about__photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
-}
-
-.about__photo:hover {
-  filter: grayscale(0%);
-}
-
+/*===================================*/
 .about__tags {
   display: flex;
   list-style: none;
-  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 14px;
+  padding: 70px 0;
 }
-
 .about__tag {
   display: flex;
   align-items: center;
@@ -471,22 +455,21 @@ a {
   background: linear-gradient(180deg, #E0B66C 0%, #FFFFFF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
-
+/* =================================== */
 .about__features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 18px;
 }
-
+/*======================================*/
 .feature-card {
   width: auto;
   height: 153px;
   border-radius: 20px;
   padding: 24px;
   background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
@@ -494,7 +477,6 @@ a {
   justify-content: center;
   gap: 12px;
 }
-
 .feature-card__title {
   font-family: var(--font-heading);
   font-weight: 400;
@@ -505,32 +487,26 @@ a {
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
 }
-
-.feature-card__icon {
-  width: 43px;
-  height: 31px;
-  display: block;
+/* ======================= 11. СЕКЦИЯ PRICING (.pricing) ========================== */
+.pricing {
+  padding: 120px 0;
+  position: relative;
 }
 
-/* === 11. СЕКЦИЯ PRICING (.pricing) === */
-.pricing {
-  padding: 100px 0;
+.pricing__title {
+  margin-bottom: 50px;
 }
 
 .pricing__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
   gap: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
-
-.pricing__title {
-  margin-bottom: 100px;
-}
-
+/*========================================*/
 .price-card {
   background-color: var(--color-bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 33px 22px;
   border-radius: 10px;
   width: 386px;
@@ -538,84 +514,68 @@ a {
   display: flex;
   flex-direction: column;
 }
-
-.price-card--featured {
-  border-color: var(--color-accent);
-}
-
 .price-card__badge {
   font-family: var(--font-heading);
   font-weight: 400;
   font-size: 24px;
+  line-height: 1;
   color: var(--color-text-muted);
   text-transform: uppercase;
   display: block;
 }
-
+/*======= card, ceni, crony ===================*/
 .price-card__price {
   display: flex;
-  align-items: baseline;/*Выравнивает все элементы по нижней линии*/
+  align-items: center;
   gap: 8px;
-  margin-bottom: 16px;
+  padding: 34px 0;
+  
 }
-
-.price-card__price:nth-child(1) {
-  font-family: var(--font-heading);
-  font-size: 32px;
-  color: #ffffff;
-}
-
-.price-card__price:nth-child(2) {
-  font-family: var(--font-heading);
-  font-size: 48px;
-  font-weight: 400;
-  color: #ffffff;
-  line-height: 1;
-}
-
 .price-card__prefix {
-  font-family: var(--font-heading);
+  padding-bottom: 15px;
+  font-family: var(--font-body);
   font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
   color: #ffffff;
 }
-
 .price-card__amount {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 48px;
   font-weight: 400;
-  color: #ffffff;
   line-height: 1;
+  color: #ffffff;
 }
-
 .price-card__currency {
-  font-family: var(--font-heading);
+  padding-top: 20px;
+  font-family: var(--font-body);
   font-size: 32px;
-  color: #b0ada7;
-}
-
-.price-card__desc {
-  font-family: var(--font-heading);
-  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
   color: var(--color-text-muted);
-  margin-bottom: 24px;
-  padding-bottom: 20px;
 }
-
+/*=========================================*/
+.price-card__desc {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 50px;
+  color: var(--color-text-muted);
+}
 .price-card__subtext {
   border-bottom: 1px solid var(--color-text-muted);
 }
 
 .price-card__list {
   font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
-
 .price-card__list li {
   position: relative;
   padding-left: 20px;
@@ -623,153 +583,133 @@ a {
   border-bottom: 1px solid rgba(255,255,255,0.25);
   display: flex;
   align-items: center;
-  gap: 12px;
   color: #ffffff;
 }
-
-.price-card__list li::before {
-  content: ".";
-  position: absolute;
-  left: 0;
-  color: #ffffff;
-}
-
+/* ============================================ */
 .pricing__action {
   display: flex;
   justify-content: center;
   width: 100%;
 }
-
-/* === 12. СЕКЦИЯ WORKFLOW (.workflow) === */
+/* =============================== 12. СЕКЦИЯ WORKFLOW (.workflow) ======================= */
 .workflow {
-  padding: 100px 0;
+  padding: 120px 0;
+  position: relative;
 }
-
 .workflow__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
   gap: 20px;
-  margin-bottom: 150px;
 }
-
-.workflow__scroll-top {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.btn-scroll-top {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: var(--color-bg-card);
-  color: var(--color-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-scroll-top:hover {
-  background-color: var(--color-accent);
-  color: var(--color-bg-dark);
-}
-
-/**/
+/*======================*/
 .step-card {
   background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
   padding: 50px 45px;
 }
-
 .step-card__number {
   font-family: var(--font-body);
-  font-size: 48px;
+  font-size: 64px;
+  font-weight: 400;
   line-height: 1;
   color: var(--color-accent);
   display: block;
-  margin-bottom: 16px;
 }
-
 .step-card__title {
   font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 20px 0;
 }
-
 .step-card__text {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: 400;
   line-height: 1;
   color: var(--color-text-muted);
 }
-
-
-/* === 13. СЕКЦИЯ CONTACTS (.contacts) === */
-.contacts {
-  padding: 150px 0;
+/* ======================== 12. СЕКЦИЯ WORKFLOW (.workflow) ====================== */
+.workflow__scroll-top {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 100px 0;
 }
-
+/* ========================= 13. СЕКЦИЯ CONTACTS (.contacts) ======================== */
+.contacts {
+  padding: 140px 0;
+  position: relative;
+}
 .contacts__card {
-  height: 715px;
   background-color: var(--color-bg-card);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
-  padding: 48px;
+  padding: 60px 36px 46px;
+  gap: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(530px, 1fr));
+  overflow: hidden;
 }
-
 .contacts__title {
   font-family: var(--font-heading);
   font-weight: 400;
   font-size: 36px;
   color: var(--color-accent);
-  margin-bottom: 16px;
   text-transform: uppercase;
+  padding-bottom: 20px;
 }
-
 .contacts__text {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1;
-  margin-bottom: 24px;
+  font-weight: 400;
+  padding-bottom: 50px;
 }
 
+.contacts__preview {
+  position: relative;
+}
+.contacts__preview-img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  width: 594px;
+  height: 509px;
+  /*перемещение*/
+  left: -45px;
+  top: -23px;
+}
+/* ======================== 13. секция форма ( FORM )=====================*/
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  height: 100%;
+  gap: 20px;
 }
 
 .form__input,
 .form__select,
 .form__textarea {
-  width: 100%;
+  width: 510px;
+  height: 56px;
   background-color: var(--color-bg-input);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: 20px;
+  padding: 15px;
   color: var(--color-text-muted);
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
   outline: none;
   transition: border-color 0.3s ease;
   appearance: none;
 }
-
 .form__input:focus,
 .form__select:focus,
 .form__textarea:focus {
   border-color: var(--color-accent);
 }
-
 .form__textarea {
   height: 225px;
   resize: none;
@@ -777,12 +717,11 @@ a {
   padding-bottom: 45px;
   box-sizing: border-box;
 }
-
+/*=========================*/
 .form__textarea-wrapper {
   position: relative;
   width: 100%;
 }
-
 .form__file-label {
   position: absolute;
   bottom: 16px;
@@ -791,76 +730,67 @@ a {
   display: flex;
   align-items: center;
 }
-
 .form__attach-icon img {
-  width: 24px;
-  height: 24px;
   display: block;
 }
-
-.form__btn {
-  align-self: center;
-  margin-top: auto;
-}
-
 .form__select {
   appearance: none;
   -webkit-appearance: none;
-  -moz-appearance: none;
   /**/
-  background-image: url("img icon/стрелка/вниз.svg");
+  background-image: url("img icon/стрелка\ вниз.svg");
   background-repeat: no-repeat;
   background-position: right 16px center;
   background-size: 16px 16px;
-
+  cursor: pointer;
   padding-right: 40px;
 }
-/* === 14. ФУТЕР (.footer) === */
+/* ============================ 14. ФУТЕР (.footer) ============================= */
 .footer {
   background-color: #171616;
-  padding: 60px 0 10px;
+  padding: 30px 0 10px;
 }
-
 .footer__top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 40px;
 }
-
 .footer__brand {
   display: flex;
   flex-direction: column;
 }
-
 .footer__logo {
   font-family: var(--font-logo);
-  font-size: 48px;
+  font-size: 50px;
   line-height: 1;
   color: var(--color-accent);
   display: block;
   margin-bottom: 16px;
   text-decoration: none;
 }
-
+/*============================*/
 .footer__contact-email {
-  font-size: 16px;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
   color: var(--color-text-primary);
   margin-top: 100px;
 }
-
 .footer__contact-email a {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
   color: var(--color-accent);
   text-decoration: none;
 }
-
+/*==================================*/
 .footer__socials {
   display: flex;
-  gap: 12px;
   margin-top: 10px;
-  gap: 40px;
+  gap: 43px;
 }
-
 .social-link {
   width: 40px;
   height: 40px;
@@ -870,35 +800,34 @@ a {
   text-decoration: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
 .social-link:hover {
   transform: translateY(-2px);
   opacity: 0.9;
 }
-
+/*=====================================*/
 .footer__nav {
   display: flex;
   gap: 60px;
   flex-wrap: wrap;
 }
-
 .footer__nav-col {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
-
 .footer__nav-link {
   color: var(--color-text-primary);
   text-decoration: none;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
   transition: color 0.3s ease;
 }
 
 .footer__nav-link:hover {
   color: var(--color-accent);
 }
-
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -927,5 +856,195 @@ a {
 .footer__legal a:hover {
   color: var(--color-accent);
 }
+/*============================================================
+=========================   @media ( 480px)   ====================    
+==============================================================*/
 
-
+@media (max-width: 480px) {
+  /* ==================== button =========================== */
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    font-size: 20px;
+    padding: 29px 46px;
+  }
+  
+  /* ==================== Header =========================== */
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+  }
+  .header__burger {
+    display: flex;
+  }
+  .header__logo {
+    font-size: 36px;
+  }
+  .header__nav-wrapper {
+    display: none;
+  }
+  /* ==================== Hero =========================== */
+  .hero {
+    padding: 60px 0;
+    overflow: hidden;
+  }
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__content {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .hero__subtitle {
+    padding: 50px 0;
+    max-width: 340px;
+  }
+  .hero__title {
+    font-size: 40px;
+    width: auto;
+    height: auto;
+  }
+  .hero__image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transform: none;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+  .hero__image {
+    display: block;
+    width: 100%;
+    max-width: 373px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .btn--start {
+    padding: 29px 38px;
+  }
+  /* ==================== Services__grid =========================== */
+  .services__grid {
+    grid-template-columns: 1fr; /* 1 columns*/
+  }
+  .services__title {
+    font-size: 24px;
+  }
+  .card {
+    width: 100%;
+    max-width: 352px;
+    padding: 24px 16px; /* Уменьшаем отступы */
+    min-height: 208px;
+    box-sizing: border-box;
+  }
+  .card__title {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .card__text {
+    width: 100%; /* вместо width: 488px */
+    font-size: 16px;
+  }
+  /* ==================== portfolio =========================== */
+  .portfolio__title {
+    font-size: 36px;
+  }
+  .portfolio__note {
+    width: 100%;
+    font-size: 24px;
+    height: auto;
+  }
+  /* ==================== About =========================== */
+  .about__features {
+    gap: 50px;
+  }
+  .about__tags {
+    gap: 20px;
+  }
+  .about__tag {
+    width: 175px;
+  }
+  .about__main {
+    display: flex;
+    flex-direction: column;
+  }
+  .about__title {
+    font-size: 36px;
+    order: 1;
+  }
+  .about__photo-wrapper {
+    order: 2;
+    margin: 24px auto;
+  }
+  .about__paragraph {
+    order: 3;
+  }
+  .about__content {
+    display: contents;  
+  }
+  /* ==================== pricing =========================== */
+  .pricing__title {
+    font-size: 36px;
+  }
+  /* ==================== workflow =========================== */
+  .workflow__title {
+    font-size: 36px;
+  } 
+  .workflow__subtitle {
+    font-size: 18px;
+    line-height: 1;
+  }
+  .workflow__scroll-top {
+    padding: 50px 0;
+  }
+  /* ==================== stepcard =========================== */
+  .step-card {
+    width: 100%;
+    max-width: 352px;
+    box-sizing: border-box;
+  }
+  /* ==================== contacts =========================== */
+  .contacts {
+    height: 1140px;
+    width: 100%;
+    height: auto;
+  }
+  .contacts__card {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+    max-width: 412px;
+    padding: 80px 31px;
+  
+  }
+  .contacts__title {
+    font-size: 30px;
+  }
+  /* ==================== form =========================== */
+  .form {
+    gap: 32px;
+  }
+ 
+  .form__input, .form__select, .form__textarea {
+    font-size: 16px;
+    max-width: 330px;
+  }
+  /* ==================== Подзаголовки и Заголовки =========================== */
+  .services__subtitle, .portfolio__subtitle, .about__subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .services, .portfolio, .about, .pricing, .workflow, .contacts {
+    padding: 70px 0;
+  }
+  .services__description, .workflow__description {
+    font-size: 16px;
+    width: 351px;
+  }
+}
