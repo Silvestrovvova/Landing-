@@ -157,6 +157,9 @@ a {
   font-size: 20px;
   white-space: nowrap;
 }
+.nav-menu__link:hover {
+  color: var(--color-accent-hover);
+}
 /* =========== Button смена языка  ========================= */
 .header__lang {
   display: inline-flex;
@@ -387,13 +390,16 @@ a {
 }
 
 .portfolio__image {
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
 }
 
 .portfolio__note {
   padding-top: 30px; 
-  width: 752px;
-  height: 104px;
+  max-width: 752px;
+  max-height: 104px;
   font-weight: 400;
   font-family: var(--font-body);
   font-size: 24px;
@@ -559,7 +565,7 @@ a {
   font-family: var(--font-body);
   font-size: 20px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.5;
   margin-bottom: 50px;
   color: var(--color-text-muted);
 }
@@ -578,11 +584,11 @@ a {
 }
 .price-card__list li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 16px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,255,255,0.25);
-  display: flex;
-  align-items: center;
+  display: block;
+  text-align: left;
   color: #ffffff;
 }
 /* ============================================ */
@@ -636,6 +642,24 @@ a {
   width: 100%;
   padding: 100px 0;
 }
+.btn-scroll-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #EAB7492B;
+  cursor: pointer;
+  transition: backgraund-color 300ms ease, transform 300ms ease;
+}
+.btn-scroll-top:hover {
+  background-color: #E0B66C9C;
+}
+.btn-scroll-top:active {
+  background-color: #EAB7492B;
+}
+
 /* ========================= 13. СЕКЦИЯ CONTACTS (.contacts) ======================== */
 .contacts {
   padding: 140px 0;
@@ -730,8 +754,12 @@ a {
   display: flex;
   align-items: center;
 }
-.form__attach-icon img {
-  display: block;
+.form__attach-icon {
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+.form__file-label:hover .form__attach-icon {
+  color: var(--color-accent);
 }
 .form__select {
   appearance: none;
@@ -743,6 +771,11 @@ a {
   background-size: 16px 16px;
   cursor: pointer;
   padding-right: 40px;
+  transition: background-color 300ms linear, color 300ms linear;
+}
+.form__select:hover {
+  background-color: var(--color-border);
+  color: #000000;
 }
 /* ============================ 14. ФУТЕР (.footer) ============================= */
 .footer {
@@ -788,7 +821,7 @@ a {
 /*==================================*/
 .footer__socials {
   display: flex;
-  margin-top: 10px;
+  margin-top: 30px;
   gap: 43px;
 }
 .social-link {
@@ -859,194 +892,7 @@ a {
 /*============================================================
 =========================   @media ( 768px)   ====================    
 ==============================================================*/
-@media (max-width: 768px) {
-  /* ==================== button =========================== */
-  .btn {
-    width: 100%;
-    max-width: 250px;
-    font-size: 20px;
-    padding: 29px 46px;
-  }
-  
-  /* ==================== Header =========================== */
-  .header__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 15px;
-  }
-  .header__burger {
-    display: flex;
-  }
-  .header__logo {
-    font-size: 36px;
-  }
-  .header__nav-wrapper {
-    display: none;
-  }
-  /* ==================== Hero =========================== */
-  .hero {
-    padding: 60px 0;
-    overflow: hidden;
-  }
-  .hero__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero__content {
-    width: 100%;
-    margin: 0 auto;
-  }
-  .hero__subtitle {
-    padding: 50px 0;
-    max-width: 340px;
-  }
-  .hero__title {
-    font-size: 40px;
-    width: auto;
-    height: auto;
-  }
-  .hero__image-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    transform: none;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
-  }
-  .hero__image {
-    display: block;
-    width: 100%;
-    max-width: 373px;
-    height: auto;
-    margin: 0 auto;
-  }
-  .btn--start {
-    padding: 29px 38px;
-  }
-  /* ==================== Services__grid =========================== */
-  .services__grid {
-    grid-template-columns: 1fr; /* 1 columns*/
-  }
-  .services__title {
-    font-size: 24px;
-  }
-  .card {
-    width: 100%;
-    max-width: 352px;
-    padding: 24px 16px; /* Уменьшаем отступы */
-    min-height: 208px;
-    box-sizing: border-box;
-  }
-  .card__title {
-    font-weight: 600;
-    font-size: 20px;
-  }
-  .card__text {
-    width: 100%; /* вместо width: 488px */
-    font-size: 16px;
-  }
-  /* ==================== portfolio =========================== */
-  .portfolio__title {
-    font-size: 36px;
-  }
-  .portfolio__note {
-    width: 100%;
-    font-size: 24px;
-    height: auto;
-  }
-  /* ==================== About =========================== */
-  .about__features {
-    gap: 50px;
-  }
-  .about__tags {
-    gap: 20px;
-  }
-  .about__tag {
-    width: 175px;
-  }
-  .about__main {
-    display: flex;
-    flex-direction: column;
-  }
-  .about__title {
-    font-size: 36px;
-    order: 1;
-  }
-  .about__photo-wrapper {
-    order: 2;
-    margin: 24px auto;
-  }
-  .about__paragraph {
-    order: 3;
-  }
-  .about__content {
-    display: contents;  
-  }
-  /* ==================== pricing =========================== */
-  .pricing__title {
-    font-size: 36px;
-  }
-  /* ==================== workflow =========================== */
-  .workflow__title {
-    font-size: 36px;
-  } 
-  .workflow__subtitle {
-    font-size: 18px;
-    line-height: 1;
-  }
-  .workflow__scroll-top {
-    padding: 50px 0;
-  }
-  /* ==================== stepcard =========================== */
-  .step-card {
-    width: 100%;
-    max-width: 352px;
-    box-sizing: border-box;
-  }
-  /* ==================== contacts =========================== */
-  .contacts {
-    height: 1140px;
-    width: 100%;
-    height: auto;
-  }
-  .contacts__card {
-    grid-template-columns: 1fr;
-    border-radius: 20px;
-    max-width: 412px;
-    padding: 80px 31px;
-  
-  }
-  .contacts__title {
-    font-size: 30px;
-  }
-  /* ==================== form =========================== */
-  .form {
-    gap: 32px;
-  }
- 
-  .form__input, .form__select, .form__textarea {
-    font-size: 16px;
-    max-width: 330px;
-  }
-  /* ==================== Подзаголовки и Заголовки =========================== */
-  .services__subtitle, .portfolio__subtitle, .about__subtitle {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1;
-  }
-  .services, .portfolio, .about, .pricing, .workflow, .contacts {
-    padding: 70px 0;
-  }
-  .services__description, .workflow__description {
-    font-size: 16px;
-    width: 351px;
-  }
-}
+
 
 
 
@@ -1063,7 +909,6 @@ a {
     font-size: 20px;
     padding: 29px 46px;
   }
-  
   /* ==================== Header =========================== */
   .header__container {
     display: flex;
@@ -1093,17 +938,21 @@ a {
   .hero__content {
     width: 100%;
     margin: 0 auto;
+    display: contents;
   }
   .hero__subtitle {
+    order: 3;
     padding: 50px 0;
     max-width: 340px;
   }
   .hero__title {
+    order: 1;
     font-size: 40px;
     width: auto;
     height: auto;
   }
   .hero__image-wrapper {
+    order: 2;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1122,6 +971,8 @@ a {
     margin: 0 auto;
   }
   .btn--start {
+    margin-top: 40px;
+    order: 4;
     padding: 29px 38px;
   }
   /* ==================== Services__grid =========================== */
@@ -1135,6 +986,7 @@ a {
     width: 100%;
     max-width: 352px;
     padding: 24px 16px; /* Уменьшаем отступы */
+    margin: auto;
     min-height: 208px;
     box-sizing: border-box;
   }
@@ -1143,14 +995,19 @@ a {
     font-size: 20px;
   }
   .card__text {
-    width: 100%; /* вместо width: 488px */
+    max-width: 346px; /* вместо width: 488px */
     font-size: 16px;
   }
   /* ==================== portfolio =========================== */
   .portfolio__title {
     font-size: 36px;
   }
+  .portfolio__card {
+    max-width: 410px;
+    margin: auto;
+  }
   .portfolio__note {
+    padding: 0;
     width: 100%;
     font-size: 24px;
     height: auto;
@@ -1168,26 +1025,60 @@ a {
   .about__main {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+  }
+  .about__text-content {
+    display: contents;
+
   }
   .about__title {
+    margin-bottom: 0;
     font-size: 36px;
     order: 1;
   }
   .about__photo-wrapper {
+    display: flex;
+    align-items: center;
     order: 2;
-    margin: 24px auto;
+    margin: auto;
+  }
+  .about__photo {
+    max-width: 283px;
   }
   .about__paragraph {
+    margin-bottom: 15px;
     order: 3;
   }
   .about__content {
     display: contents;  
   }
+  /* ===================== feature ========================= */
+  .feature-card {
+    max-width: 351px;
+  }
   /* ==================== pricing =========================== */
+  .pricing__grid {
+    margin-bottom: 50px;
+  }
+  .pricing__action {
+    padding-right: 25%;
+  }
+  .price-card {
+    max-width: 350px;
+  }
   .pricing__title {
     font-size: 36px;
+    margin-bottom: 25px;
   }
+  .price-card__desc {
+    font-size: 16px;
+  }
+
   /* ==================== workflow =========================== */
+  .workflow__grid {
+    width: 100%;
+  }
+
   .workflow__title {
     font-size: 36px;
   } 
@@ -1196,13 +1087,18 @@ a {
     line-height: 1;
   }
   .workflow__scroll-top {
-    padding: 50px 0;
+    padding: 0;
   }
   /* ==================== stepcard =========================== */
   .step-card {
     width: 100%;
     max-width: 352px;
+    padding-left: 15px;
+    padding-top: 5px;
     box-sizing: border-box;
+  }
+  .step-card__number {
+    padding-left: 20px;
   }
   /* ==================== contacts =========================== */
   .contacts {
@@ -1215,10 +1111,27 @@ a {
     border-radius: 20px;
     max-width: 412px;
     padding: 80px 31px;
-  
   }
   .contacts__title {
     font-size: 30px;
+  }
+  .contacts__text {
+    padding-bottom: 30px;
+  }
+  .contacts__preview-img {
+    position: absolute;
+    max-width: 280px;
+    max-height: 240px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translate(-30px, -70px);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  .contacts__form {
+    position: relative;
+    z-index: 2;
   }
   /* ==================== form =========================== */
   .form {
