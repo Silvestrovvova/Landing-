@@ -910,8 +910,7 @@ a {
   .container {
   max-width: 480px;
   width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 0 30px;
 }
 .img {
   max-width: 100%;
@@ -998,17 +997,18 @@ a {
     grid-template-columns: 1fr; /* 1 columns*/
   }
   .services__title {
+    width: 100%;
     font-size: 24px;
   }
   .card {
     width: 100%;
-    max-width: 352px;
     padding: 24px 16px; /* Уменьшаем отступы */
     margin: auto;
     min-height: 208px;
     box-sizing: border-box;
   }
   .card__title {
+    width: 100%;
     font-weight: 600;
     font-size: 20px;
   }
@@ -1037,12 +1037,15 @@ a {
     padding: 0 30px;
   }
   .about__tags {
-    justify-content: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 50px 0;
   }
   .about__tag {
-    width: 175px;
+    width: 100%;
+    
   }
   .about__main {
     display: flex;
@@ -1121,16 +1124,24 @@ a {
     padding-left: 20px;
   }
   /* ==================== contacts =========================== */
+  
   .contacts {
-    height: 1140px;
+  
     width: 100%;
     height: auto;
+  }
+  .contacts__container {
+    padding: 0;
   }
   .contacts__card {
     grid-template-columns: 1fr;
     border-radius: 20px;
+    width: 100%;
     max-width: 412px;
     padding: 80px 31px;
+  }
+  .contacts__info {
+    width: 100%;
   }
   .contacts__title {
     font-size: 30px;
@@ -1153,6 +1164,11 @@ a {
     position: relative;
     z-index: 2;
   }
+  .contacts__form input,
+  .contacts__form .form__textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
   /* ==================== form =========================== */
   .form {
     gap: 32px;
@@ -1161,6 +1177,42 @@ a {
   .form__input, .form__select, .form__textarea {
     font-size: 16px;
     max-width: 330px;
+  }
+  /* ==================== Footer =========================== */
+  .footer__logo {
+    margin-bottom: 0;
+  }
+  .footer__nav {
+    display: none;
+  }
+  .footer__contact-email {
+    font-size: 16px;
+    margin: 50px 0;
+  }
+  .footer__socials {
+    margin: 66px 0;
+    justify-content: center;
+  }
+  .footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin-top: 0;
+  }
+  .footer__bottom p {
+    font-size: 14px;
+  }
+  .footer__legal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+  }
+  .footer__legal a {
+
+    font-size: 14px;
   }
   /* ==================== Подзаголовки и Заголовки =========================== */
   .services__subtitle, .portfolio__subtitle, .about__subtitle {
@@ -1175,4 +1227,5 @@ a {
     font-size: 16px;
     width: 351px;
   }
+
 }
