@@ -31,15 +31,18 @@
 }
 
 html {
+  width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
+  overflow-x: hidden;
   background-color: var(--color-bg-dark);
   color: var(--color-text-primary);
   font-family: var(--font-body);
   line-height: 1;
-  overflow-x: hidden;
   /*-webkit-font-smoothing: antialiased;  --  Неизвесное */
 }
 
@@ -70,8 +73,8 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 382px;
+  max-width: 100%;
+  width: 382px;
   min-height: 90px; /* Снижено с 90px для универсальности */
   padding: 16px 32px;
   border-radius: 50px;
@@ -341,8 +344,8 @@ a {
 .card__text {
   font-family: var(--font-body);
   font-weight: 400;
-  width: 488px;
-  height: 182px;
+  max-width: 488px;
+  max-height: 182px;
   font-size: 24px;
   line-height: 1;
   color: var(--color-text-muted);
@@ -399,7 +402,7 @@ a {
 .portfolio__note {
   padding-top: 30px; 
   max-width: 752px;
-  max-height: 104px;
+  height: auto;
   font-weight: 400;
   font-family: var(--font-body);
   font-size: 24px;
@@ -901,7 +904,19 @@ a {
 =========================   @media ( 480px)   ====================    
 ==============================================================*/
 
+ /* ====================  =========================== */
+
 @media (max-width: 480px) {
+  .container {
+  max-width: 480px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.img {
+  max-width: 100%;
+  height: auto;
+}
   /* ==================== button =========================== */
   .btn {
     width: 100%;
@@ -976,7 +991,10 @@ a {
     padding: 29px 38px;
   }
   /* ==================== Services__grid =========================== */
-  .services__grid {
+  .services__grid,
+  .portfolio__grid,
+  .pricing__grid,
+  .workflow__grid {
     grid-template-columns: 1fr; /* 1 columns*/
   }
   .services__title {
@@ -1014,10 +1032,14 @@ a {
   }
   /* ==================== About =========================== */
   .about__features {
+    grid-template-columns: 1fr;
     gap: 50px;
+    padding: 0 30px;
   }
   .about__tags {
+    justify-content: center;
     gap: 20px;
+    padding: 50px 0;
   }
   .about__tag {
     width: 175px;
@@ -1054,7 +1076,9 @@ a {
   }
   /* ===================== feature ========================= */
   .feature-card {
-    max-width: 351px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 153px;
   }
   /* ==================== pricing =========================== */
   .pricing__grid {
@@ -1075,10 +1099,6 @@ a {
   }
 
   /* ==================== workflow =========================== */
-  .workflow__grid {
-    width: 100%;
-  }
-
   .workflow__title {
     font-size: 36px;
   } 
@@ -1120,8 +1140,8 @@ a {
   }
   .contacts__preview-img {
     position: absolute;
-    max-width: 280px;
-    max-height: 240px;
+    max-width: 100%;
+    height: auto;
     left: 0;
     right: 0;
     z-index: 1;
