@@ -1080,18 +1080,18 @@ a {
   /* ===================== feature ========================= */
   .feature-card {
     width: 100%;
-    max-width: 100%;
+    max-width: 320px;
     min-height: 153px;
+    padding: 24px 16px;
+    box-sizing: border-box;
   }
   /* ==================== pricing =========================== */
   .pricing__grid {
     margin-bottom: 50px;
   }
-  .pricing__action {
-    padding-right: 25%;
-  }
   .price-card {
     max-width: 350px;
+    width: 100%;
   }
   .pricing__title {
     font-size: 36px;
@@ -1225,7 +1225,7 @@ a {
   }
   .services__description, .workflow__description {
     font-size: 16px;
-    width: 351px;
+    width: 100%;
   }
 
 }
