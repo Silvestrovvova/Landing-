@@ -940,6 +940,13 @@ a {
     display: none;
   }
   /* ==================== Hero =========================== */
+  .hero__glow--top {
+    max-width: 389px;
+    height: 194px;
+    top: 84px;
+    left: 1px;
+    background-color: rgba(217,217,217, 0.5);
+  }
   .hero {
     padding: 60px 0;
     overflow: hidden;
@@ -984,12 +991,26 @@ a {
     height: auto;
     margin: 0 auto;
   }
+  .hero__glow--bottom {
+    max-width: 443px;
+    height: 181px;
+    top: 541px;
+    left: -31px;
+    background-color: rgba(217,217,217, 0.5);
+  }
   .btn--start {
     margin-top: 40px;
     order: 4;
     padding: 29px 38px;
   }
   /* ==================== Services__grid =========================== */
+  .services__glow {
+    max-width: 389px;
+    height: 194px;
+    top: 30%;
+    left: 10%;
+    background-color: rgba(217,217,217, 0.3);
+  }
   .services__grid,
   .portfolio__grid,
   .pricing__grid,
@@ -1017,6 +1038,13 @@ a {
     font-size: 16px;
   }
   /* ==================== portfolio =========================== */
+  .portfolio__glow {
+    max-width: 389px;
+    height: 194px;
+    top: 0;
+    left: 70px;
+    background-color: rgba(217,217,217, 0.3);
+  }
   .portfolio__title {
     font-size: 36px;
   }
@@ -1143,7 +1171,7 @@ a {
     grid-template-columns: 1fr;
     border-radius: 20px;
     width: 100%;
-    max-width: 412px;
+    max-width: 400px;
     padding: 80px 31px;
   }
   .contacts__info {
@@ -1180,15 +1208,16 @@ a {
   }
   /* ==================== form =========================== */
   .form {
+    width: 100%;
     gap: 32px;
   }
- 
   .form__input, .form__select, .form__textarea {
     font-size: 16px;
     max-width: 330px;
   }
   /* ==================== Footer =========================== */
   .footer__logo {
+    font-size: 48px;
     margin-bottom: 0;
   }
   .footer__nav {
@@ -1209,6 +1238,7 @@ a {
     gap: 16px;
     width: 100%;
     margin-top: 0;
+    border-top: none;
   }
   .footer__bottom p {
     font-size: 14px;
