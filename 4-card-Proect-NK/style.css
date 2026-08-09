@@ -28,7 +28,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid red !important;
 }
 
 html {
@@ -1032,6 +1031,9 @@ a {
     height: auto;
   }
   /* ==================== About =========================== */
+  .about__title {
+    text-transform: none;
+  }
   .about__features {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -1055,14 +1057,6 @@ a {
   }
   .about__text-content {
     display: contents;
-
-  }
-  .feature-about__title {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0;
-    font-size: 36px;
-    order: 1;
   }
   .about__photo-wrapper {
     display: flex;
@@ -1088,6 +1082,10 @@ a {
     min-height: 153px;
     padding: 24px 16px;
     box-sizing: border-box;
+  }
+  .feature-card__title {
+    width: 100%;
+    max-width: 216px;
   }
   /* ==================== pricing =========================== */
   .pricing__grid {
@@ -1132,11 +1130,14 @@ a {
   .contacts {
     width: 100%;
     height: auto;
+    overflow: hidden;
+
   }
   .contacts__container {
+    position: relative;
     padding: 0 15px;
     box-sizing: border-box;
-
+    overflow: hidden;
   }
   .contacts__card {
     grid-template-columns: 1fr;
@@ -1156,9 +1157,9 @@ a {
   }
   .contacts__preview-img {
     position: absolute;
-    max-width: 100%;
+    max-width: 280px;
     height: auto;
-    left: 0;
+    left: 30px;
     right: 0;
     z-index: 1;
     transform: translate(-30px, -70px);
