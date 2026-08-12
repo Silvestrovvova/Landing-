@@ -1,22 +1,137 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const burgerBtn = document.querySelector('.header__burger');
-    const navMenu = document.querySelector('.header__nav');
-    const navLinks = document.querySelectorAll('.header__link');
+  //====================================
+  // 1. Бургер-меню
+  //=====================================
+  const burgerBtn = document.querySelector('.header__burger');
+  const navWrapper = document.querySelector('.header__nav-wrapper');
+  const navLinks = document.querySelectorAll('.nav-menu__link');
+  const closeBtn = document.querySelector('.header__nav-close');
 
-    if (burgerBtn & navMenu) {
-        //Переключение состояния по клику на бургер
-        burgerBtn.addEventListener('click', () => {
-            burgerBtn.classList.toggle('header__nav_active');
-            navMenu.classList.toggle('header__nav_active');
-            document.body.classList.toggle('page__body_lock');// запрет покрутки фотки 
+  // Открытие / закрытие по клику на бургер
+  if (burgerBtn) {
+    burgerBtn.addEventListener('click', () => {
+      navWrapper.classList.toggle('is-active');
+      document.body.classList.toggle('page__body_lock');
+    });
+  }
+
+  // Закрытие по клику на крестик
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            navWrapper.classList.remove('is-active');
+            document.body.classList.remove('page__body_lock');
         });
-        // Закрытие меню при клике на любую из ссылок
-        navLinks.forEach((link) => {
-            link.addEventListener('click', () => {
-                burgerBtn.classList.remove('header__burger_active');
-                navMenu.classList.remove('header__nav_active');
-                document.body.classList.remove('page__body_lock');
-            });
-        });
+    }
+
+  // Закрытие меню при клике на любую ссылку
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (navWrapper) {
+        navWrapper.classList.remove('is-active');
+      }
+      document.body.classList.remove('page__body_lock');
+    });
+  });
+
+  //========================================
+  // 2. Sticky / Fixed Header
+  //========================================
+  const header = document.querySelector('.header');
+
+  if (header) {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('header_scrolled');
+      } else {
+        header.classList.remove('header_scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+  }
+
+  //===================================
+  // 3. Плавный скролл к якорям
+  //=====================================
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('href');
+
+      if (targetId && targetId !== '#') {
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          event.preventDefault();
+
+          const headerHeight = header ? header.offsetHeight : 0;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
         }
+      }
+    });
+  });
+
+  //=====================================
+  // 4. Кнопка прокрутки наверх (.btn-scroll-top)
+  //=====================================
+  const scrollTopBtn = document.querySelector('.btn-scroll-top');
+
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
+  }
+
+  //=====================================
+  // 5. Модальное окно
+  //=====================================
+  const modal = document.querySelector('.modal');
+  const modalOpenBtns = document.querySelectorAll('.button_type_open-modal');
+  const modalCloseBtn = document.querySelector('.modal__close');
+
+  if (modal) {
+    const openModal = () => {
+      modal.classList.add('modal_is-open');
+      document.body.classList.add('page__body_lock');
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('modal_is-open');
+      document.body.classList.remove('page__body_lock');
+    };
+
+    modalOpenBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', closeModal);
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('modal_is-open')) {
+        closeModal();
+      }
+    });
+  }
 });

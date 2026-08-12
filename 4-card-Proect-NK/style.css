@@ -129,6 +129,9 @@ a {
 .header__burger svg {
   display: block;
 }
+.header__nav-top {
+  display: none;
+}
 .header__logo {
   font-family: var(--font-logo);
   font-size: 50px;
@@ -166,9 +169,24 @@ a {
 /* =========== Button смена языка  ========================= */
 .header__lang {
   display: inline-flex;
+  position: relative;
   align-items: center;
   gap: 7px;
   font-family: 'Montserrat',sans-serif;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.header__lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-heading);
   font-weight: 400;
   background: transparent;
   border: none;
@@ -185,6 +203,35 @@ a {
   width: 12px;
   height: 16px;
   color: inherit;
+}
+.header__lang-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding-top: 10px;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+}
+
+.header__lang-link {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease
+}
+.header__lang:hover .header__lang-dropdown {
+  display: flex;
+}
+.header__lang-link:hover,
+.header__lang-link--active {
+  color: #ffffff;
+}
+/* кнопка закрытия бургер меню */
+.header__nav-close {
+  display: none;
 }
 /* ====================== 7. СЕКЦИЯ HERO (.hero) ===================== */
 .hero {
@@ -519,7 +566,7 @@ a {
   padding: 33px 22px;
   border-radius: 10px;
   width: 386px;
-  height: 637px;
+  min-height: 637px;
   display: flex;
   flex-direction: column;
 }
@@ -654,7 +701,7 @@ a {
   border-radius: 50%;
   background-color: #EAB7492B;
   cursor: pointer;
-  transition: backgraund-color 300ms ease, transform 300ms ease;
+  transition: background-color 300ms ease, transform 300ms ease;
 }
 .btn-scroll-top:hover {
   background-color: #E0B66C9C;
@@ -907,15 +954,18 @@ a {
  /* ====================  =========================== */
 
 @media (max-width: 480px) {
-  .container {
+.container {
   max-width: 480px;
   width: 100%;
   padding: 0 30px;
 }
-.img {
+img {
   max-width: 100%;
   height: auto;
 }
+body.page__body_lock {
+    overflow: hidden;
+  }
   /* ==================== button =========================== */
   .btn {
     width: 100%;
@@ -933,10 +983,90 @@ a {
   .header__burger {
     display: flex;
   }
+  .header__nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
   .header__logo {
     font-size: 36px;
   }
+  .nav-menu__item {
+    display: block;
+  }
+  /* Оверлей меню */
   .header__nav-wrapper {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 412px;
+    height: 100vh;
+    background-color: rgba(8,8,8,0.95);
+    z-index: 100;
+    padding: 30px 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Когда меню активно — показываем его */
+  .header__nav-wrapper.is-active {
+    display: flex;
+  }
+  .nav-menu__item {
+    display: block;
+  }
+  .nav-menu__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0;
+    margin: 70px 0;
+    list-style: none;
+    border-bottom: none;
+  }
+  .nav-menu__link {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .header__nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .header__lang {
+    position: relative;/*absolute;*/
+    top: auto; /*43px;*/
+    right: auto; /*20px;*/
+  }
+  .header__nav-close {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    padding: 10px;
+    position: absolute;
+    font-size: 48px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .header__nav .header__lang {
     display: none;
   }
   /* ==================== Hero =========================== */

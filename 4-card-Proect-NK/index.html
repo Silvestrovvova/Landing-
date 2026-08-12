@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="cs">
+<html lang="cs" class="lang-cs">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +26,21 @@
         <a href="#" class="header__logo">NK design</a>
 
         <div class="header__nav-wrapper">
+          <div class="header__nav-top">
+            <a href="#" class="header__logo">NKdesign</a>
+
+          <div class="header__lang">
+            <button type="button" class="header__lang" aria-label="Změnit jazyk">
+              <span class="header__lang-current">CZ</span>
+              <img src="img icon/Vector.svg" alt="" class="header__lang-icon">
+            </button>
+            <div class="header__lang-dropdown">
+              <a href="index.html" class="header__lang-link header-link--active">CZ</a>
+              <a href="en.html" class="header__lang-link">EN</a>
+              <a href="ru.html" class="header__lang-link">RU</a>
+            </div>
+          </div>
+        </div>
           <nav class="header__nav nav-menu">
             <ul class="nav-menu__list">
               <li class="nav-menu__item">
@@ -44,14 +59,21 @@
                 <a href="#contacts" class="nav-menu__link">Jak objednat</a>
               </li>
             </ul>
+
+            <div class="header__lang">
+            <button type="button" class="header__lang" aria-label="Změnit jazyk">
+              <span class="header__lang-current">CZ</span>
+              <img src="img icon/Vector.svg" alt="" class="header__lang-icon">
+            </button>
+            <div class="header__lang-dropdown">
+              <a href="index.html" class="header__lang-link header-link--active">CZ</a>
+              <a href="en.html" class="header__lang-link">EN</a>
+              <a href="ru.html" class="header__lang-link">RU</a>
+            </div>
+          </div>
           </nav>
 
-          <button class="header__lang" aria-label="Změnit jazyk">
-            <span class="header__lang-current">CZ</span>
-            <img src="img icon/Vector.svg" alt="" class="header__lang-icon">
-          </button>
-
-        </div>
+          <button type="button" class="header__nav-close" aria-label="Close menu">&times;</button>
       </div>
     </header>
 
