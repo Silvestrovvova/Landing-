@@ -1,24 +1,24 @@
 /* === 1. ПЕРЕМЕННЫЕ И НАСТРОЙКИ (ROOT) === */
 :root {
   --color-bg-dark: #080808;
-/* Accent */
+  /* Accent */
   --color-accent: #e0b66c;
-  --color-accent-hover: #EAB749;
-/* border */
+  --color-accent-hover: #eab749;
+  /* border */
   --color-border: #e0b66c;
-/* Text*/
+  /* Text*/
   --color-text-primary: #ffffff;
   --color-text-muted: #b0ada7;
-/* Прочие */
+  /* Прочие */
   --color-bg-input: #1c1e1e;
-  --color-bg-card: rgba(47,44,44,0.2);
+  --color-bg-card: rgba(47, 44, 44, 0.2);
 
   /* Переменные шрифтов */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Forum', serif;
-  --font-accent: 'Frank Ruhl Libre', serif;
-  --font-logo: 'Gwendolyn', cursive;
-  --font-sans: 'Inter', sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Forum", serif;
+  --font-accent: "Frank Ruhl Libre", serif;
+  --font-logo: "Gwendolyn", cursive;
+  --font-sans: "Inter", sans-serif;
 }
 
 /* === 2. БАЗОВЫЕ СБРОСЫ (RESET) === */
@@ -55,7 +55,6 @@ a {
   transition: color 0.3s ease;
 }
 
-
 /* === 3. ОГРАНИЧИВАЮЩИЙ КОНТЕЙНЕР === */
 .container {
   max-width: 1200px;
@@ -63,8 +62,6 @@ a {
   padding: 8px 16px;
   width: 100%;
 }
-
-
 
 /* ====================== 4. КНОПКИ (UI BLOCK: .btn) ========================= */
 .btn {
@@ -88,7 +85,7 @@ a {
 }
 .btn:hover {
   background-color: var(--color-accent);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 /*============*/
 .btn--start {
@@ -102,7 +99,17 @@ a {
   align-self: center;
   margin-top: 47px;
 }
-
+/* ==================== плавное появление =================*/
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  will-change: opacity, transform;
+}
+.reveal_active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ======================= 5. ШАПКА (.header) ================================ */
 .header {
@@ -172,7 +179,7 @@ a {
   position: relative;
   align-items: center;
   gap: 7px;
-  font-family: 'Montserrat',sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   background: transparent;
   border: none;
@@ -220,7 +227,7 @@ a {
   font-size: 24px;
   color: var(--color-text-muted);
   text-decoration: none;
-  transition: color 0.3s ease
+  transition: color 0.3s ease;
 }
 .header__lang:hover .header__lang-dropdown {
   display: flex;
@@ -245,7 +252,7 @@ a {
   width: 1143px;
   height: 190px;
 
-  background-color: rgba(176,173,167,0.9);
+  background-color: rgba(176, 173, 167, 0.9);
   border-radius: 50%;
   filter: blur(200px);
   pointer-events: none;
@@ -277,7 +284,7 @@ a {
 }
 
 .hero__title {
-  font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
   font-size: 96px;
   font-weight: 400;
   line-height: 1;
@@ -324,7 +331,7 @@ a {
   top: 5%;
   right: 5%;
 
-  background-color: rgba(169,176,167,0.2);
+  background-color: rgba(169, 176, 167, 0.2);
   border-radius: 50%;
   filter: blur(200px);
   pointer-events: none;
@@ -374,11 +381,13 @@ a {
 
 .card {
   background-color: var(--color-bg-card);
-  border: 0.5px solid #E0B66C;
+  border: 0.5px solid #e0b66c;
   padding: 45px 51px 51px 51px;
   min-height: 301px;
   box-sizing: border-box;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 .card__title {
   font-family: var(--font-heading);
@@ -413,7 +422,7 @@ a {
   top: 5%;
   right: 30%;
 
-  background-color: rgba(176,173,167,0.3);
+  background-color: rgba(176, 173, 167, 0.3);
   border-radius: 50%;
   filter: blur(200px);
   pointer-events: none;
@@ -447,7 +456,7 @@ a {
 }
 
 .portfolio__note {
-  padding-top: 30px; 
+  padding-top: 30px;
   max-width: 752px;
   height: auto;
   font-weight: 400;
@@ -482,7 +491,7 @@ a {
   color: var(--color-text-muted);
   margin-bottom: 30px;
 }
-.about__paragraph-accent{
+.about__paragraph-accent {
   color: var(--color-accent);
 }
 /*======================*/
@@ -508,7 +517,7 @@ a {
   border: 1px solid transparent;
   border-image: linear-gradient(90deg, #e0b66c 0%, #e5dbca 100%) 1;
   font-size: 20px;
-  background: linear-gradient(180deg, #E0B66C 0%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #e0b66c 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -538,7 +547,7 @@ a {
   font-weight: 400;
   font-size: 20px;
   line-height: 1;
-  background: linear-gradient(180deg, #E0B66C 0%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #e0b66c 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
@@ -585,7 +594,6 @@ a {
   align-items: center;
   gap: 8px;
   padding: 34px 0;
-  
 }
 .price-card__prefix {
   padding-bottom: 15px;
@@ -636,7 +644,7 @@ a {
   position: relative;
   padding-left: 16px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   display: block;
   text-align: left;
   color: #ffffff;
@@ -699,15 +707,17 @@ a {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: #EAB7492B;
+  background-color: #eab7492b;
   cursor: pointer;
-  transition: background-color 300ms ease, transform 300ms ease;
+  transition:
+    background-color 300ms ease,
+    transform 300ms ease;
 }
 .btn-scroll-top:hover {
-  background-color: #E0B66C9C;
+  background-color: #e0b66c9c;
 }
 .btn-scroll-top:active {
-  background-color: #EAB7492B;
+  background-color: #eab7492b;
 }
 
 /* ========================= 13. СЕКЦИЯ CONTACTS (.contacts) ======================== */
@@ -821,7 +831,9 @@ a {
   background-size: 16px 16px;
   cursor: pointer;
   padding-right: 40px;
-  transition: background-color 300ms linear, color 300ms linear;
+  transition:
+    background-color 300ms linear,
+    color 300ms linear;
 }
 .form__select:hover {
   background-color: var(--color-border);
@@ -881,7 +893,9 @@ a {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 .social-link:hover {
   transform: translateY(-2px);
@@ -917,7 +931,7 @@ a {
   align-items: center;
   gap: 16px;
   font-size: 16px;
-  color: #6E6868;
+  color: #6e6868;
   padding-top: 40px;
   margin-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -931,7 +945,7 @@ a {
 .footer__legal a {
   font-family: var(--font-sans);
   font-size: 16px;
-  color: #6E6868;
+  color: #6e6868;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -943,27 +957,23 @@ a {
 =========================   @media ( 768px)   ====================    
 ==============================================================*/
 
-
-
-
-
 /*============================================================
 =========================   @media ( 480px)   ====================    
 ==============================================================*/
 
- /* ====================  =========================== */
+/* ====================  =========================== */
 
 @media (max-width: 480px) {
-.container {
-  max-width: 480px;
-  width: 100%;
-  padding: 0 30px;
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
-body.page__body_lock {
+  .container {
+    max-width: 480px;
+    width: 100%;
+    padding: 0 30px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  body.page__body_lock {
     overflow: hidden;
   }
   /* ==================== button =========================== */
@@ -973,6 +983,7 @@ body.page__body_lock {
     font-size: 20px;
     padding: 29px 46px;
   }
+
   /* ==================== Header =========================== */
   .header__container {
     display: flex;
@@ -992,6 +1003,32 @@ body.page__body_lock {
   .header__logo {
     font-size: 36px;
   }
+  .header__lang {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+  .header__nav-close {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    padding: 10px;
+    position: absolute;
+    font-size: 48px;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .header__nav .header__lang {
+    display: none;
+  }
   .nav-menu__item {
     display: block;
   }
@@ -1005,12 +1042,12 @@ body.page__body_lock {
     left: 0;
     max-width: 412px;
     height: 100vh;
-    background-color: rgba(8,8,8,0.95);
+    background-color: rgba(8, 8, 8, 0.95);
     z-index: 100;
     padding: 30px 20px;
     box-sizing: border-box;
   }
-  
+
   /* Когда меню активно — показываем его */
   .header__nav-wrapper.is-active {
     display: flex;
@@ -1037,45 +1074,14 @@ body.page__body_lock {
     text-decoration: none;
     font-weight: 500;
   }
-  .header__nav-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  .header__lang {
-    position: relative;/*absolute;*/
-    top: auto; /*43px;*/
-    right: auto; /*20px;*/
-  }
-  .header__nav-close {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    align-self: center;
-    padding: 10px;
-    position: absolute;
-    font-size: 48px;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .header__nav .header__lang {
-    display: none;
-  }
+
   /* ==================== Hero =========================== */
   .hero__glow--top {
     max-width: 389px;
     height: 194px;
     top: 84px;
     left: 1px;
-    background-color: rgba(217,217,217, 0.5);
+    background-color: rgba(217, 217, 217, 0.5);
   }
   .hero {
     padding: 60px 0;
@@ -1126,7 +1132,7 @@ body.page__body_lock {
     height: 181px;
     top: 541px;
     left: -31px;
-    background-color: rgba(217,217,217, 0.5);
+    background-color: rgba(217, 217, 217, 0.5);
   }
   .btn--start {
     margin-top: 40px;
@@ -1139,7 +1145,7 @@ body.page__body_lock {
     height: 194px;
     top: 30%;
     left: 10%;
-    background-color: rgba(217,217,217, 0.3);
+    background-color: rgba(217, 217, 217, 0.3);
   }
   .services__grid,
   .portfolio__grid,
@@ -1173,7 +1179,7 @@ body.page__body_lock {
     height: 194px;
     top: 0;
     left: 70px;
-    background-color: rgba(217,217,217, 0.3);
+    background-color: rgba(217, 217, 217, 0.3);
   }
   .portfolio__title {
     font-size: 36px;
@@ -1195,7 +1201,7 @@ body.page__body_lock {
   .about__features {
     grid-template-columns: 1fr;
     gap: 50px;
-    padding: 0 30px;
+    padding: 0 20px;
   }
   .about__tags {
     width: 100%;
@@ -1206,7 +1212,6 @@ body.page__body_lock {
   }
   .about__tag {
     width: 100%;
-    
   }
   .about__main {
     display: flex;
@@ -1230,7 +1235,7 @@ body.page__body_lock {
     order: 3;
   }
   .about__content {
-    display: contents;  
+    display: contents;
   }
   /* ===================== feature ========================= */
   .feature-card {
@@ -1243,7 +1248,7 @@ body.page__body_lock {
   }
   .feature-card__title {
     width: 100%;
-    max-width: 216px;
+    max-width: 220px;
   }
   /* ==================== pricing =========================== */
   .pricing__grid {
@@ -1264,7 +1269,7 @@ body.page__body_lock {
   /* ==================== workflow =========================== */
   .workflow__title {
     font-size: 36px;
-  } 
+  }
   .workflow__subtitle {
     font-size: 18px;
     line-height: 1;
@@ -1284,12 +1289,11 @@ body.page__body_lock {
     padding-left: 20px;
   }
   /* ==================== contacts =========================== */
-  
+
   .contacts {
     width: 100%;
     height: auto;
     overflow: hidden;
-
   }
   .contacts__container {
     position: relative;
@@ -1301,8 +1305,8 @@ body.page__body_lock {
     grid-template-columns: 1fr;
     border-radius: 20px;
     width: 100%;
-    max-width: 400px;
-    padding: 80px 31px;
+    max-width: 380px;
+    padding: 80px 24px;
   }
   .contacts__info {
     width: 100%;
@@ -1341,7 +1345,9 @@ body.page__body_lock {
     width: 100%;
     gap: 32px;
   }
-  .form__input, .form__select, .form__textarea {
+  .form__input,
+  .form__select,
+  .form__textarea {
     font-size: 16px;
     max-width: 330px;
   }
@@ -1380,21 +1386,27 @@ body.page__body_lock {
     padding: 15px 0;
   }
   .footer__legal a {
-
     font-size: 14px;
   }
   /* ==================== Подзаголовки и Заголовки =========================== */
-  .services__subtitle, .portfolio__subtitle, .about__subtitle {
+  .services__subtitle,
+  .portfolio__subtitle,
+  .about__subtitle {
     font-size: 18px;
     font-weight: 400;
     line-height: 1;
   }
-  .services, .portfolio, .about, .pricing, .workflow, .contacts {
+  .services,
+  .portfolio,
+  .about,
+  .pricing,
+  .workflow,
+  .contacts {
     padding: 70px 0;
   }
-  .services__description, .workflow__description {
+  .services__description,
+  .workflow__description {
     font-size: 16px;
     width: 100%;
   }
-
 }

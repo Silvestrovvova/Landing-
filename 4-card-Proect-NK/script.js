@@ -134,4 +134,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+  //==========================================
+  // 6. reveal Плавное появление 
+  //==========================================
+  // Находим все элементы с классom reveal
+  const reveals = document.querySelectorAll('.reveal');
+  // Настройки наблюдения
+  const obsOptions = {
+    root: null, threshold: 0.15, rootMargin: "0px 0px -50px 0px"
+  };
+  // Функция, которая выполняется, когда элемент пересекает границу
+  const observerCallback = function (entries, observer) {
+    entries.forEach(entry => {
+      // Если элемент попал в область видимости
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal_active');
+      } else {
+        entry.target.classList.remove('reveal_active');
+      }
+    });
+  };
+  // Создаем сам наблюдатель 
+  const observer = new IntersectionObserver(observerCallback, obsOptions);
+  // Запускаем наблюдение за каждой найденной секцией
+  reveals.forEach(reveal => {
+    observer.observe(reveal);
+  });
 });
