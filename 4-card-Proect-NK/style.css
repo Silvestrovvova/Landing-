@@ -1297,7 +1297,6 @@ a {
   }
   .contacts__container {
     position: relative;
-    padding: 0 15px;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -1306,7 +1305,7 @@ a {
     border-radius: 20px;
     width: 100%;
     max-width: 380px;
-    padding: 80px 24px;
+    padding: 80px 10px;
   }
   .contacts__info {
     width: 100%;
