@@ -981,6 +981,11 @@ a {
     font-size: 20px;
     padding: 29px 46px;
   }
+  .btn-scroll-top {
+    max-width: 83px;
+    height: 83px;
+  }
+  /*================================*/
   .about__glow,
   .pricing__glow,
   .contacts__glow,
