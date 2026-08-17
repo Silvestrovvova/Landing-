@@ -154,6 +154,7 @@ a {
 .header__nav {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .nav-menu__list {
@@ -774,7 +775,7 @@ a {
 .form__input,
 .form__select,
 .form__textarea {
-  width: 510px;
+  max-width: 510px;
   height: 56px;
   background-color: var(--color-bg-input);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -795,6 +796,7 @@ a {
   border-color: var(--color-accent);
 }
 .form__textarea {
+  width: 100%;
   height: 225px;
   resize: none;
   overflow: hidden;
@@ -954,10 +956,6 @@ a {
   color: var(--color-accent);
 }
 /*============================================================
-=========================   @media ( 768px)   ====================    
-==============================================================*/
-
-/*============================================================
 =========================   @media ( 480px)   ====================    
 ==============================================================*/
 
@@ -983,7 +981,12 @@ a {
     font-size: 20px;
     padding: 29px 46px;
   }
-
+  .about__glow,
+  .pricing__glow,
+  .contacts__glow,
+  .workflow__glow {
+    display: none;
+  }
   /* ==================== Header =========================== */
   .header__container {
     display: flex;
