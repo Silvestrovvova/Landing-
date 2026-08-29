@@ -35,28 +35,28 @@
               <img src="img icon/Vector.svg" alt="" class="header__lang-icon">
             </button>
             <div class="header__lang-dropdown">
-              <a href="index.html" class="header__lang-link header-link--active">CZ</a>
-              <a href="en.html" class="header__lang-link">EN</a>
-              <a href="ru.html" class="header__lang-link">RU</a>
+              <button type="button" class="header__lang-link header-link--active" data-lang="cz">CZ</button>
+              <button type="button" class="header__lang-link" data-lang="ru">RU</button>
+              <button type="button" class="header__lang-link" data-lang="en">EN</button>
             </div>
           </div>
         </div>
           <nav class="header__nav nav-menu">
             <ul class="nav-menu__list">
               <li class="nav-menu__item">
-                <a href="#services" class="nav-menu__link">Služby</a>
+                <a href="#services" class="nav-menu__link" data-i18n="nav_services">Služby</a>
               </li>
               <li class="nav-menu__item">
-                <a href="#portfolio" class="nav-menu__link">Portfolio</a>
+                <a href="#portfolio" class="nav-menu__link" data-i18n="nav_portfolio">Portfolio</a>
               </li>
               <li class="nav-menu__item">
-                <a href="#prices" class="nav-menu__link">Ceník</a>
+                <a href="#prices" class="nav-menu__link" data-i18n="nav_prices">Ceník</a>
               </li>
               <li class="nav-menu__item">
-                <a href="#about" class="nav-menu__link">O mně</a>
+                <a href="#about" class="nav-menu__link" data-i18n="nav_about">O mně</a>
               </li>
               <li class="nav-menu__item">
-                <a href="#contacts" class="nav-menu__link">Jak objednat</a>
+                <a href="#contacts" class="nav-menu__link" data-i18n="nav_contacts">Jak objednat</a>
               </li>
             </ul>
 
@@ -66,9 +66,10 @@
               <img src="img icon/Vector.svg" alt="" class="header__lang-icon">
             </button>
             <div class="header__lang-dropdown">
-              <a href="index.html" class="header__lang-link header-link--active">CZ</a>
-              <a href="en.html" class="header__lang-link">EN</a>
-              <a href="ru.html" class="header__lang-link">RU</a>
+              <button type="button" class="header__lang-link header-link--active" data-lang="cz">CZ</button>
+              <button type="button" class="header__lang-link" data-lang="ru">RU</button>
+              <button type="button" class="header__lang-link" data-lang="en">EN</button>
+              
             </div>
           </div>
           </nav>
@@ -83,17 +84,17 @@
         <div class="hero__glow hero__glow--top"></div>
         <div class="container hero__container">
           <div class="hero__content">
-            <h1 class="hero__title">
+            <h1 class="hero__title" data-i18n="hero_title">
               ESTETICKÉ WEBY <br /><span class="hero__title--accent"
                 >PRO ZNAČKY</span
               >
             </h1>
-            <p class="hero__subtitle">
+            <p class="hero__subtitle" data-i18n="hero_subtitle">
               Tvořím moderní, logické a uživatelsky přívětivé weby i aplikace
               pro malé a střední podniky v několika jazycích, přizpůsobené vašim
               vizuálním preferencím.
             </p>
-            <a href="#contacts" class="btn btn--start">Začít svůj projekt</a>
+            <a href="#contacts" class="btn btn--start" data-i18n="btn_start">Začít svůj projekt</a>
           </div>
 
           <div class="hero__image-wrapper">
@@ -111,19 +112,19 @@
       <section id="services" class="services reveal">
         <div class="services__glow"></div>
         <div class="container services__container">
-          <p class="services__subtitle">Co dělám</p>
-          <h2 class="services__title">
+          <p class="services__subtitle" data-i18n="services__subtitle">Co dělám</p>
+          <h2 class="services__title" data-i18n="services__title">
             Kompletní webdesign
             <span class="services__title--accent">na klíč</span>
           </h2>
-          <p class="services__description">
+          <p class="services__description" data-i18n="services__description">
             Vedu projekt od prvního briefu až po hotový web
           </p>
 
           <div class="services__grid">
             <article class="card">
-              <h3 class="card__title">Firemní weby</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="card_1_title">Firemní weby</h3>
+              <p class="card__text" data-i18n="card_1_text">
                 Vícestránkový web je plnohodnotná webová prezentace s více
                 sekcemi — obvykle od 2 do 10 stránek, případně i více. Hodí se
                 pro e-shopy, vzdělávací projekty, firmy s širší nabídkou služeb
@@ -132,8 +133,8 @@
             </article>
 
             <article class="card">
-              <h3 class="card__title">Landing pages</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="card_2_title">Landing pages</h3>
+              <p class="card__text" data-i18n="card_2_text">
                 Jednostránkový web, který vede návštěvníka k jednomu konkrétnímu
                 cíli — nákup, rezervace, odeslání formuláře nebo registrace.
                 Hodí se pro: salóny a studia, start-upy, akce, jednotlivé
@@ -142,8 +143,8 @@
             </article>
 
             <article class="card">
-              <h3 class="card__title">Redesign</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="card_3_title">Redesign</h3>
+              <p class="card__text" data-i18n="card_3_text">
                 Kompletní vizuální a funkční restart vašeho stávajícího webu.
                 Přepisuji starou strukturu do moderního, čistého a prodejního
                 designu. Pro podnikatele, kteří už web mají, ale ten je
@@ -152,8 +153,8 @@
             </article>
 
             <article class="card">
-              <h3 class="card__title">Figma Web makety</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="card_4_title">Figma Web makety</h3>
+              <p class="card__text" data-i18n="card_4_text">
                 Připravuji čisté a strukturované makety pro vývojáře:
                 auto-layout, variables, interaktivní prototypy a přehledný
                 komponentový systém.
@@ -167,8 +168,8 @@
       <section id="portfolio" class="portfolio reveal">
         <div class="portfolio__glow"></div>
         <div class="container portfolio__container">
-          <p class="portfolio__subtitle">Vybrané práce</p>
-          <h2 class="portfolio__title">Portfolio</h2>
+          <p class="portfolio__subtitle" data-i18n="portfolio__subtitle">Vybrané práce</p>
+          <h2 class="portfolio__title" data-i18n="portfolio__title">Portfolio</h2>
 
           <div class="portfolio__grid">
             <article class="portfolio__card">
@@ -238,7 +239,7 @@
             </article>
           </div>
 
-          <p class="portfolio__note">
+          <p class="portfolio__note" data-i18n="portfolio__note">
             Ráda tvořím estetické a strukturované weby, které zvýrazňují hodnotu
             značky a pomáhají zákazníkům rozhodnout se pro nákup. Každý projekt
             je vizuální atmosféra navržená tak, aby přitahovala pozornost a
@@ -253,39 +254,39 @@
         <div class="container about__container">
           <div class="about__main">
             <div class="about__text-content">
-                <p class="about__subtitle">O mně</p>
-                <h2 class="about__title">
+                <p class="about__subtitle" data-i18n="about__subtitle">O mně</p>
+                <h2 class="about__title" data-i18n="about__title">
                   Designér se zaměřením  <br /><span class="about__title--accent"
                   >na výsledek</span
                     >
                 </h2>
 
-                <p class="about__paragraph">
+                <p class="about__paragraph" data-i18n="about_1_paragraph">
                   Jmenuji se Anastasia a jsem UX/UI designer.
                 </p>
-                <p class="about__paragraph">
+                <p class="about__paragraph" data-i18n="about_2_paragraph">
                   Moji prací je přesvědčit vaše zákazníky, že váš produkt stojí za
                   to. Nedělám to pomocí okázalých vizuálních efektů, ale pomocí
-                  <span class="about__paragraph-accent"
+                  <span class="about__paragraph_accent"
                     >promyšlené struktury, barevné psychologie a logického
                     uspořádání obsahu, které vede uživatele k jasnému
                     rozhodnutí</span
                   >.
                 </p>
-                <p class="about__paragraph">
+                <p class="about__paragraph" data-i18n="about_3_paragraph">
                   Každý blok, každá barva a každé vizuální gesto má svůj účel:
                   budovat důvěru, zjednodušit orientaci a jemně ovlivnit chování
                   uživatele. Mým výsledkem nejsou „krásné stránky“, ale vaše
                   konverze. Vaši zákazníci. Vaše čísla.
                 </p>
-                <p class="about__paragraph">
+                <p class="about__paragraph" data-i18n="about_4_paragraph">
                   Pracuji s malými a středními podniky a tvořím weby, které jsou
                   zaměřené na pohodlí uživatele. Využívám psychologii motivace,
                   vizuální hierarchii a čistý design, díky kterým se návštěvník
                   cítí jistě, rozumí nabídce a přirozeně směřuje k nákupu nebo
                   rezervaci.
                 </p>
-                <p class="about__paragraph">
+                <p class="about__paragraph" data-i18n="about_5_paragraph">
                   Mým cílem je ukázat, že dobře navržený web dokáže skutečně
                   ovlivnit rozhodování lidí.
                 </p>
@@ -312,17 +313,17 @@
 
             <div class="about__features">
               <div class="feature-card">
-                <span class="feature-card__title">JASNÁ KOMUNIKACE</span>
+                <span class="feature-card__title" data-i18n="feature_card_1_title">JASNÁ KOMUNIKACE</span>
                 <img src="img icon/галочка.svg" alt="Check" class="feature-card__icon">
               </div>
 
               <div class="feature-card">
-                <span class="feature-card__title">FÉROVÉ CENY</span>
+                <span class="feature-card__title" data-i18n="feature_card_2_title">FÉROVÉ CENY</span>
                 <img src="img icon/галочка.svg" alt="Check" class="feature-card__icon">
               </div>
 
               <div class="feature-card">
-                <span class="feature-card__title">DODRŽENÍ TERMÍNŮ</span>
+                <span class="feature-card__title" data-i18n="feature_card_3_title">DODRŽENÍ TERMÍNŮ</span>
                 <img src="img icon/галочка.svg" alt="Check" class="feature-card__icon">
               </div>
 
@@ -334,19 +335,19 @@
       <section id="prices" class="pricing reveal">
         <div class="pricing__glow"></div>
         <div class="container pricing__container">
-          <h2 class="pricing__title">Ceník</h2>
+          <h2 class="pricing__title" data-i18n="pricing_1_title">Cenník</h2>
 
           <div class="pricing__grid">
             <article class="price-card">
-              <span class="price-card__badge">STARTER</span>
+              <span class="price-card__badge" data-i18n="price_card_1_badge">STARTER</span>
               <div class="price-card__price">
                 <span class="price-card__prefix">od</span>
                 <span class="price-card__amount">8000</span>
                 <span class="price-card__currency">CZK</span>
               </div>
-              <p class="price-card__desc">
+              <p class="price-card__desc" data-i18n="">
                 Vhodné pro jednoduché projekty<br /><span
-                  class="price-card__subtext"
+                  class="price-card__subtext" data-i18n=""
                   >Předplatba je 50 % z celkové částky</span
                 >
               </p>
@@ -360,13 +361,13 @@
             </article>
 
             <article class="price-card price-card--featured">
-              <span class="price-card__badge">BUSINESS</span>
+              <span class="price-card__badge" data-i18n="price_card_2_badge">BUSINESS</span>
               <div class="price-card__price">
                 <span class="price-card__prefix">od</span>
                 <span class="price-card__amount">15000</span>
                 <span class="price-card__currency">CZK</span>
               </div>
-              <p class="price-card__desc">
+              <p class="price-card__desc" data-i18n="">
                 Pro firmy a start-upy<br /><span class="price-card__subtext"
                   >Předplatba je 50 % z celkové částky</span
                 >
@@ -382,13 +383,13 @@
             </article>
 
             <article class="price-card">
-              <span class="price-card__badge">PREMIUM</span>
+              <span class="price-card__badge" data-i18n="price_card_3_badge">PREMIUM</span>
               <div class="price-card__price">
                 <span class="price-card__prefix">od</span>
                 <span class="price-card__amount">35000</span>
                 <span class="price-card__currency">CZK</span>
               </div>
-              <p class="price-card__desc">
+              <p class="price-card__desc" data-i18n="">
                 Kompletní řešení<br /><span class="price-card__subtext"
                   >Předplatba je 50 % z celkové částky</span
                 >
@@ -405,7 +406,7 @@
           </div>
 
           <div class="pricing__action">
-            <a href="#contacts" class="btn btn--pricing">Začít svůj projekt</a>
+            <a href="#contacts" class="btn btn--pricing" data-i18n="btn__pricing">Začít svůj projekt</a>
           </div>
         </div>
       </section>
@@ -414,19 +415,19 @@
       <section id="workflow" class="workflow reveal">
         <div class="workflow__glow"></div>
         <div class="container workflow__container">
-          <p class="workflow__subtitle">Začít spolupráci</p>
-          <h2 class="workflow__title">
+          <p class="workflow__subtitle" data-i18n="workflow__subtitle">Začít spolupráci</p>
+          <h2 class="workflow__title" data-i18n="workflow__title">
             Jak <span class="workflow__title--accent">objednat</span>
           </h2>
-          <p class="workflow__description">
+          <p class="workflow__description" data-i18n="workflow__description">
             Proces je jednoduchý, žádné zbytečné hovory — jen to podstatné
           </p>
 
           <div class="workflow__grid">
             <div class="step-card">
               <span class="step-card__number">1</span>
-              <h3 class="step-card__title">Napište mi</h3>
-              <p class="step-card__text">
+              <h3 class="step-card__title" data-i18n="step_card_1_title">Napište mi</h3>
+              <p class="step-card__text" data-i18n="step_card_1_text">
                 Požadavek mi můžete poslat přes formulář, e-mailem nebo přes mé
                 sociální sítě. Odkazy se hodí
               </p>
@@ -434,8 +435,8 @@
 
             <div class="step-card">
               <span class="step-card__number">2</span>
-              <h3 class="step-card__title">Briefing</h3>
-              <p class="step-card__text">
+              <h3 class="step-card__title" data-i18n="step_card_2_title">Briefing</h3>
+              <p class="step-card__text" data-i18n="step_card_2_text">
                 Upřesníme detaily, probereme cíle a stanovíme rozsah i cenu,
                 vložení zálohy (50 %)
               </p>
@@ -443,8 +444,8 @@
 
             <div class="step-card">
               <span class="step-card__number">3</span>
-              <h3 class="step-card__title">Práce</h3>
-              <p class="step-card__text">
+              <h3 class="step-card__title" data-i18n="step_card_3_title">Práce</h3>
+              <p class="step-card__text" data-i18n="step_card_3_text">
                 Navrhuji a kóduji, výsledky ukazuji postupně. Úpravy provádíme
                 dle domluvy
               </p>
@@ -452,8 +453,8 @@
 
             <div class="step-card">
               <span class="step-card__number">4</span>
-              <h3 class="step-card__title">Předání</h3>
-              <p class="step-card__text">
+              <h3 class="step-card__title" data-i18n="step_card_4_title">Předání</h3>
+              <p class="step-card__text" data-i18n="step_card_4_text">
                 Předám Figma soubory a/nebo web. Finální platba až po vašem
                 potvrzení
               </p>
@@ -476,8 +477,8 @@
         <div class="container contacts__container">
           <div class="contacts__card">
             <div class="contacts__info">
-              <h2 class="contacts__title">POTŘEBUJETE WEBOVÉ STRÁNKY?</h2>
-              <p class="contacts__text">
+              <h2 class="contacts__title" data-i18n="contacts__title">POTŘEBUJETE WEBOVÉ STRÁNKY?</h2>
+              <p class="contacts__text" data-i18n="contacts__text">
                 Zanechte mi na sebe kontakt a stručně popište, jaký web
                 potřebujete. Společně vytvoříme řešení, které bude vydělávat.
                 Ozvu se vám zpět do 24 hodin.
@@ -540,7 +541,7 @@
                 </label>
               </div>
 
-              <button type="submit" class="btn form__btn">
+              <button type="submit" class="btn form__btn" data-i18n="form__btn">
                 Odeslat
               </button>
             </form>
@@ -562,19 +563,19 @@
             </p>
             <div class="footer__socials">
               <a
-                href="#"
+                href="https://www.instagram.com/anasstasiia.art/"
                 class="social-link social-link--instagram"
                 aria-label="Instagram"
               >
             <img src="img icon/skill-icons_instagram.svg" alt="Instagram"></a>
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61590804716036&locale=ru_Ru"
                 class="social-link social-link--facebook"
                 aria-label="Facebook"
               >
             <img src="img icon/devicon_facebook.svg" alt="Facebook"></a>
               <a
-                href="#"
+                href="https://www.behance.net/anastaskuzmick"
                 class="social-link social-link--behance"
                 aria-label="Behance"
               >
@@ -584,13 +585,13 @@
 
           <nav class="footer__nav">
             <div class="footer__nav-col">
-              <a href="#services" class="footer__nav-link">Služby</a>
-              <a href="#portfolio" class="footer__nav-link">Portfolio</a>
-              <a href="#prices" class="footer__nav-link">Ceník</a>
+              <a href="#services" class="footer__nav-link" data-i18n="nav_services">Služby</a>
+              <a href="#portfolio" class="footer__nav-link" data-i18n="nav_portfolio">Portfolio</a>
+              <a href="#prices" class="footer__nav-link" data-i18n="nav_prices">Ceník</a>
               </div>
               <div class="footer__nav-col">
-              <a href="#about" class="footer__nav-link">O mně</a>
-              <a href="#workflow" class="footer__nav-link">Jak objednat</a>
+              <a href="#about" class="footer__nav-link" data-i18n="nav_about">O mně</a>
+              <a href="#workflow" class="footer__nav-link" data-i18n="nav_contacts">Jak objednat</a>
               </div>
           </nav>
         </div>
@@ -604,6 +605,7 @@
         </div>
       </div>
     </footer>
+    <script src="translations.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

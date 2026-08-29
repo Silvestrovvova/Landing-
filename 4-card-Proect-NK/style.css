@@ -14,7 +14,7 @@
   --color-bg-card: rgba(47, 44, 44, 0.2);
 
   /* Переменные шрифтов */
-  c: "Montserrat", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
   --font-body: "Forum", serif;
   --font-accent: "Frank Ruhl Libre", serif;
   --font-logo: "Gwendolyn", cursive;
@@ -75,7 +75,7 @@ a {
   min-height: 90px; /* Снижено с 90px для универсальности */
   padding: 16px 32px;
   border-radius: 50px;
-  font-size: 32px;
+  font-size: 30px;
   background: transparent;
   color: var(--color-text-primary);
   text-decoration: none;
@@ -252,7 +252,6 @@ a {
   position: absolute;
   width: 1143px;
   height: 190px;
-
   background-color: rgba(176, 173, 167, 0.9);
   border-radius: 50%;
   filter: blur(200px);
@@ -273,7 +272,6 @@ a {
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .hero__content {
@@ -289,20 +287,37 @@ a {
   font-size: 96px;
   font-weight: 400;
   line-height: 1;
-  width: 776px;
+  max-width: 776px;
   height: 230px;
   text-transform: uppercase;
   color: var(--color-accent);
+}
+:lang(en) .hero__title {
+  font-size: 76px;
+  max-width: 897px;
+  height: 204px;
+}
+:lang(ru) .hero__title {
+  font-size: 72px;
+  max-width: 1058px;
+  height: 204px;
 }
 
 .hero__subtitle {
   font-family: var(--font-heading);
   font-size: 20px;
-  width: 565px;
+  max-width: 565px;
   height: 72px;
   line-height: 1;
   color: var(--color-text-primary);
   margin-bottom: 97px;
+}
+:lang(ru) .hero__subtitle {
+  height: 96px;
+}
+:lang(en) .hero__subtitle {
+  height: 96px;
+  max-width: 477px;
 }
 /* === hero img === */
 .hero__image-wrapper {
@@ -314,7 +329,7 @@ a {
   flex-shrink: 0;
 }
 .hero__image {
-  width: 744px;
+  max-width: 744px;
   height: 553px;
   display: block;
 }
@@ -331,7 +346,6 @@ a {
   height: 715px;
   top: 5%;
   right: 5%;
-
   background-color: rgba(169, 176, 167, 0.2);
   border-radius: 50%;
   filter: blur(200px);
@@ -965,7 +979,6 @@ a {
   font-size: 24px;
   font-weight: 400;
   color: var(--color-text-muted);
-  
 }
 .terms__back-link {
   font-family: var(--font-heading);
@@ -997,7 +1010,7 @@ a {
   font-weight: 400;
   margin: 30px 0;
 }
-.terms__section-title-1{
+.terms__section-title-1 {
   line-height: 1;
   font-weight: 400;
   margin: 70px 0;
@@ -1206,6 +1219,12 @@ a {
     font-size: 40px;
     width: auto;
     height: auto;
+  }
+  :lang(ru) .hero__title {
+    font-size: 40px;
+  }
+  :lang(en) .hero__title {
+    font-size: 40px;
   }
   .hero__image-wrapper {
     order: 2;
