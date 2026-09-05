@@ -226,7 +226,11 @@ a {
 .header__lang-link {
   font-family: var(--font-heading);
   font-size: 24px;
-  color: var(--color-text-muted);
+  color: #FFFFFF;
+  background-color: inherit;
+  border: none;
+  gap: 14px;
+  font-size: 20px;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -235,13 +239,13 @@ a {
 }
 .header__lang-link:hover,
 .header__lang-link--active {
-  color: #ffffff;
+  color: var(--color-accent);
 }
 /* кнопка закрытия бургер меню */
 .header__nav-close {
   display: none;
 }
-/* ====================== 7. СЕКЦИЯ HERO (.hero) ===================== */
+/* ====================== 6. СЕКЦИЯ HERO (.hero) ===================== */
 .hero {
   position: relative;
   /*overflow: hidden; ------ для свечения */
@@ -333,7 +337,7 @@ a {
   height: 553px;
   display: block;
 }
-/* ====================== 8. СЕКЦИЯ SERVICES (.services) ================= */
+/* ====================== 7. СЕКЦИЯ SERVICES (.services) ================= */
 .services {
   padding: 120px 0;
   position: relative;
@@ -421,7 +425,7 @@ a {
   line-height: 1;
   color: var(--color-text-muted);
 }
-/* ======================= 9. СЕКЦИЯ PORTFOLIO (.portfolio) ============================ */
+/* ======================= 8. СЕКЦИЯ PORTFOLIO (.portfolio) ============================ */
 .portfolio {
   padding: 120px 0;
   position: relative;
@@ -480,7 +484,7 @@ a {
   line-height: 1;
   color: var(--color-text-primary);
 }
-/* ======================= 10. СЕКЦИЯ ABOUT (.about) ============================ */
+/* ======================= 9. СЕКЦИЯ ABOUT (.about) ============================ */
 .about {
   padding: 120px 0;
   position: relative;
@@ -567,7 +571,7 @@ a {
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
 }
-/* ======================= 11. СЕКЦИЯ PRICING (.pricing) ========================== */
+/* ======================= 10. СЕКЦИЯ PRICING (.pricing) ========================== */
 .pricing {
   padding: 120px 0;
   position: relative;
@@ -670,7 +674,7 @@ a {
   justify-content: center;
   width: 100%;
 }
-/* =============================== 12. СЕКЦИЯ WORKFLOW (.workflow) ======================= */
+/* =============================== 11. СЕКЦИЯ WORKFLOW (.workflow) ======================= */
 .workflow {
   padding: 120px 0;
   position: relative;
@@ -779,7 +783,7 @@ a {
   left: -45px;
   top: -23px;
 }
-/* ======================== 13. секция форма ( FORM )=====================*/
+/* ======================== 14. секция форма ( FORM )=====================*/
 .form {
   display: flex;
   flex-direction: column;
@@ -855,7 +859,7 @@ a {
   background-color: var(--color-border);
   color: #000000;
 }
-/* ============================ 14. ФУТЕР (.footer) ============================= */
+/* ============================ 15. ФУТЕР (.footer) ============================= */
 .footer {
   background-color: #171616;
   padding: 30px 0 10px;
@@ -986,7 +990,7 @@ a {
   font-weight: 400;
   line-height: 1;
   color: #ffffff;
-  max-width: 75px;
+  max-width: 90px;
   margin: 90px 0;
   display: inline-block;
 }
@@ -1004,7 +1008,38 @@ a {
 .terms__subtitle {
   margin-bottom: 150px;
 }
-/*============================================*/
+/*====================   свечение   ========================*/
+.terms__glow {
+  position: absolute;
+  width: 1143px;
+  height: 190px;
+  background-color: rgba(176, 173, 167, 0.9);
+  border-radius: 50%;
+  filter: blur(200px);
+  pointer-events: none;
+  z-index: 1;
+}
+.terms__glow--top {
+  top: 66px;
+  left: 270px;
+}
+.terms__glow--center {
+  top: 790.94px;
+  left: 270px;
+}
+.cena__glow {
+  position: absolute;
+  max-width: 720px;
+  height: 715px;
+  top: 969px;
+  left: 640px;
+  background-color: rgba(169, 176, 167, 0.2);
+  border-radius: 50%;
+  filter: blur(200px);
+  pointer-events: none;
+  z-index: 1;
+}
+/*===================    =========================*/
 .terms__section-title {
   line-height: 1;
   font-weight: 400;
@@ -1035,7 +1070,7 @@ a {
   font-weight: 400;
   line-height: 1;
   color: #ffffff;
-  max-width: 75px;
+  max-width: 90px;
   margin: 100px 0;
   display: inline-block;
 }
@@ -1083,7 +1118,10 @@ a {
     width: 100%;
     max-width: 250px;
     font-size: 20px;
-    padding: 29px 46px;
+    padding: 29px 48px;
+  }
+  :lang(ru) .btn {
+    padding: 29px 40px;
   }
   .btn-scroll-top {
     max-width: 83px;
@@ -1255,7 +1293,10 @@ a {
   .btn--start {
     margin-top: 40px;
     order: 4;
-    padding: 29px 38px;
+    padding: 29px 35px;
+  }
+  :lang(ru) .btn--start {
+    padding: 29px 20px;
   }
   /* ==================== Services__grid =========================== */
   .services__glow {
@@ -1527,4 +1568,6 @@ a {
     font-size: 16px;
     width: 100%;
   }
+  /* ============================================= */
+
 }
