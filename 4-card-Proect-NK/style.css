@@ -34,6 +34,7 @@ html {
   width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -115,7 +116,26 @@ a {
 .header {
   padding: 8px 16px;
   width: 100%;
+  /*=====*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+    z-index: 10;
 }
+/* =============  ============ */
+/* Класс для скрытия шапки при скролле вниз */
+.header.header_hidden {
+  transform: translateY(-100%);
+}
+/* Дополнительные стили, когда страница прокручена */
+.header.header_scrolled {
+  background-color: var(--color-bg-dark);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* =============  ============ */
 .header__container {
   display: flex;
   align-items: center;
@@ -211,6 +231,11 @@ a {
   width: 12px;
   height: 16px;
   color: inherit;
+  transition: transform 0.3s ease;
+}
+/* Поворот иконки при открытом меню */
+.header__lang.is-open .header__lang-icon {
+  transform: rotate(180deg);
 }
 .header__lang-dropdown {
   display: none;
@@ -221,20 +246,25 @@ a {
   flex-direction: column;
   gap: 8px;
   z-index: 10;
+  /*==================================================*/
+  background-color: var(--color-bg-dark, #111);
+  padding: 10px;
+  border-radius: 6px;
 }
 
 .header__lang-link {
   font-family: var(--font-heading);
-  font-size: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: inherit;
   border: none;
   gap: 14px;
   font-size: 20px;
   text-decoration: none;
   transition: color 0.3s ease;
+  cursor: pointer;
+  text-align: left;
 }
-.header__lang:hover .header__lang-dropdown {
+.header__lang.is-open .header__lang-dropdown {
   display: flex;
 }
 .header__lang-link:hover,
@@ -1121,7 +1151,7 @@ a {
     padding: 29px 48px;
   }
   :lang(ru) .btn {
-    padding: 29px 40px;
+    padding: 29px 30px;
   }
   .btn-scroll-top {
     max-width: 83px;
@@ -1139,7 +1169,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 15px;
+    padding-top: 15px
   }
   .header__burger {
     display: flex;
@@ -1234,6 +1264,7 @@ a {
     background-color: rgba(217, 217, 217, 0.5);
   }
   .hero {
+    margin-top: 63px;
     padding: 60px 0;
     overflow: hidden;
   }
@@ -1569,5 +1600,4 @@ a {
     width: 100%;
   }
   /* ============================================= */
-
 }
